@@ -475,8 +475,9 @@ align-items: center;
     width: 30%;
     display: table-cell;
     padding-right: 1cm;
-    
-    font-size: 3em;
+    color: rgba(35, 25, 10, 0.80);
+    font-family: 'Plus Jakarta Sans';
+    font-size: 29px;
   }
   .blue4 {
     height: 300px;
@@ -547,13 +548,16 @@ max-height: 100%;
         width: 30%;
         display: table-cell;
         padding-left: 20px;
-        
+        color: rgba(35, 25, 10, 0.80);
+        font-family: 'Plus Jakarta Sans';
         font-size: 20px;
       }
      
       .blue4 {
         height: 300px;
         width: 40%;
+        font-family: 'Plus Jakarta Sans';
+        color: rgba(35, 25, 10, 0.80);
         padding-bottom: 200px;
         display: table-cell;
         padding-right: 2px;
@@ -575,7 +579,8 @@ max-height: 100%;
     .blue3 {
       display: block;
       height: 150px;
-      width: 80%;
+      width: 100%;
+      
       padding-left: 20px;
       padding-top: 30px;
       font-size: 30px;
@@ -623,7 +628,7 @@ max-height: 100%;
 
     .blue1{
        display: block;
-       
+       margin-bottom: -6cm;
        
     }
 

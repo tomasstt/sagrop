@@ -113,10 +113,18 @@ import Aktuality from '../components/Aktuality.vue';
 
 @media (max-width: 1000px) {
 
-  .ob1,.ob2 {
-    max-width: 100%;
-  }
+  .cont .ob2{
+width: 440px;
+padding-right: 5px;
+padding-left: 5px;
+}
 
+.cont .ob1{
+width: 440px;
+padding-right: 5px;
+padding-left: 5px;
+
+}
  
   .cont {
    
@@ -125,7 +133,7 @@ import Aktuality from '../components/Aktuality.vue';
   justify-content: center;
   max-width: 100%;
  
-  gap: 5px;
+  gap: 0;
   
   
 }
@@ -134,6 +142,7 @@ import Aktuality from '../components/Aktuality.vue';
 @media (min-width: 1000px) {
 .conta p {
   width: 30%;
+  margin-left: 10px;
     font-size: 20px;
   margin-top: -6cm;
   font-family: 'Plus Jakarta Sans';
@@ -168,7 +177,7 @@ margin-left: 50px;
 
 
 .conta {
-margin-left: 20px;
+margin-left: 30px;
 
 }}
 @media (max-width: 1292px) and (min-width: 1000px) {
@@ -298,13 +307,17 @@ padding: 1cm;
 
    
 }
+
+
+@media (min-width: 1000px) {
 .blue1 {
     display: table;
     width: 100%;
     
     color: rgb(0, 0, 0);
     padding-top: 2.5cm;
-    margin-bottom: -4cm;
+    margin-bottom: -cm;
+    
    
   }
   
@@ -312,7 +325,7 @@ padding: 1cm;
     height: 300px;
     width: 45%;
     display: table-cell;
-    padding-left: 30px;
+    padding-left: 50px;
     padding-right: 10px;
     font-size: 50px;
   }
@@ -339,7 +352,7 @@ padding: 1cm;
     display: table-cell;
     padding-right: 1cm;
     font-family: 'Plus Jakarta Sans';
-    font-size: 3em;
+    font-size: 26px;
   }
   .blue4 {
     height: 300px;
@@ -347,13 +360,22 @@ padding: 1cm;
     display: table-cell;
   padding-right: 20px;
   font-family: 'Plus Jakarta Sans';
-    font-size: 3em;
+    font-size: 26px;
 
   }
-
+}
   @import url(https://db.onlinewebfonts.com/c/2b50fbf03f34a55103ff9b9c5b8d3028?family=Recia+W03+Regular);
   @media (max-width: 2000px){
+    .blue1 {
+    display: table;
+    width: 100%;
     
+    color: rgb(0, 0, 0);
+    padding-top: 2.5cm;
+    margin-bottom: -4cm;
+    
+   
+  }
     .blue2 {
         height: 300px;
         width: 45%;
@@ -424,6 +446,17 @@ padding: 1cm;
       br{
         display: none;
       }
+
+      .blue1 {
+    display: table;
+    width: 100%;
+    
+    color: rgb(0, 0, 0);
+    padding-top: 2.5cm;
+    margin-bottom: 1.6cm;
+    
+   
+  }
     .blue1{
        display: block;
        
@@ -442,7 +475,8 @@ padding: 1cm;
       height: auto;
       width: auto;
       font-size: 20px;
-      padding-left: 16px;
+      padding-left: 20px;
+      padding-right: 20px;
       
       
     }
@@ -451,8 +485,8 @@ padding: 1cm;
         height: auto;
         width: auto;
         font-size: 20px;
-        padding-left: 16px;
-        padding-top: 20px;
+        padding-left: 20px;
+        padding-top: 10px;
       }
 
    
@@ -486,7 +520,7 @@ border-radius: 30px;
     flex-direction: row;
     align-items: center;
     padding: 24px 30px ;
-    margin-top: -0cm;
+
     cursor: pointer;
     position: absolute;
     
@@ -523,6 +557,7 @@ border-radius: 30px;
 .blacko {
     background: #E9E5E0;
 width: 100%;
+
 height: auto;
 color: rgb(0, 0, 0);
 font-family: 'Plus Jakarta Sans';
@@ -723,6 +758,7 @@ margin-top: -2.5cm;
 width: 100%;
 height: auto;
 color: rgb(0, 0, 0);
+font-family: 'Plus Jakarta Sans';
 
 }
 

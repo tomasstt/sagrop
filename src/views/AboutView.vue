@@ -223,7 +223,12 @@ pre poľnohospodárov
 
 
 <style  scoped>
+
 @media (min-width: 1000px){
+
+  .lean {
+    margin-top: 2cm;
+  }
 .space {
   padding-top: 30cm;
 }}
@@ -581,7 +586,7 @@ padding: 1cm;
 }
 
 .right-text3 p {
-  font-size: 22px;
+  font-size: 3em;
   font-family: 'Plus Jakarta Sans', sans-serif;
   
 } .right-text3 h1 {

@@ -321,7 +321,8 @@ import NewsletterAU from "../components/NewsletterAU.vue"
   padding-top: 8cm;
 }
 .space1{
-  padding-top: 20cm;
+  padding-top: 27cm;
+  margin-bottom: -3cm;
 }}
 /* .weird {
   display: flex;
@@ -1066,6 +1067,7 @@ letter-spacing: 0.225px;
     font-family: 'Plus Jakarta Sans';
 font-style: normal;
 font-weight: 500;
+padding-right: 20px;
 line-height: normal;
 letter-spacing: 0.225px;
 color: rgba(35, 25, 10, 0.80);
@@ -1985,8 +1987,6 @@ color: white;
 
 
 
-
-
 @media (min-width: 1000px){
 
 
@@ -2038,7 +2038,7 @@ color: rgba(35, 25, 10, 0.80);
 font-weight: 500;
 line-height: normal;
 letter-spacing: 0.225px;
-    font-size: 18px;
+    font-size: 19px;
     font-weight: 500;
     
 }
@@ -2081,12 +2081,15 @@ letter-spacing: 0.225px;
         color: rgb(0, 0, 0);
       }
       .box2 h1 {
+        
+        font-family: 'Plus Jakarta Sans';
         font-size: 32px;
       }
 
 
       .box2 p {
-        font-size: 15px;
+        font-size: 20px;
+        font-family: 'Plus Jakarta Sans';
       }
     .box2 {
         width: auto;

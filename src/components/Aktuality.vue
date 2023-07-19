@@ -299,15 +299,25 @@ border-radius: 20px;
 
   
 }
-
-
-
-.blue1 {
+@media (max-width: 2000px) {
+  .blue1 {
     display: table;
     width: 100%;
     
     color: rgb(0, 0, 0);
     padding-top: 1cm;
+   
+  }
+
+}
+
+@media (min-width: 1000px) {
+.blue1 {
+    display: table;
+    width: 100%;
+    
+    color: rgb(0, 0, 0);
+    padding-top: 3cm;
    
   }
   
@@ -354,7 +364,7 @@ border-radius: 20px;
     font-size: 3em;
     font-family: 'Plus Jakarta Sans';
   }
-
+}
   @media (max-width: 2000px){
     
 
