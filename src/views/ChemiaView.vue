@@ -63,6 +63,14 @@ margin-top: 3cm;
   }
 }
 
+@media (min-width: 1410px) and (max-width: 2000px) {
+  
+  .cont{
+    margin-top: -4cm;
+  }
+}
+
+
 .blue1 {
     display: row;
     width: 100%;
@@ -76,8 +84,11 @@ margin-top: 3cm;
     height: 300px;
     width: 45%;
     display: table-cell;
- padding-left: 20px;
-    font-size: 50px;
+  padding-left: 30px;
+  font-family:'Recia' ;
+    font-size: 48px;
+    font-weight: 600;
+
   }
 
   /* .blue22{
@@ -101,15 +112,26 @@ margin-top: 3cm;
     width: 30%;
     display: table-cell;
     padding-right: 1cm;
-    
+    font-weight: 300;
+    line-height: normal;
+letter-spacing: 0.225px;
+
+
+
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 3em;
   }
   .blue4 {
     height: 300px;
     width: 30%;
     display: table-cell;
-  padding-right: 20px;
+  padding-right: 30px;
     font-size: 3em;
+    padding-top: 2cm;
+    line-height: normal;
+    font-weight: 300;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+letter-spacing: 0.225px;
 
   }
 
@@ -119,7 +141,7 @@ margin-top: 3cm;
         height: 300px;
         width: 45%;
         display: table-cell;
-        padding-left: 20px;
+        padding-left: 30px;
     
         font-size: 38px;
       }
@@ -130,8 +152,7 @@ margin-top: 3cm;
         height: 300px;
         width: 30%;
         display: table-cell;
-        padding-left: 20px;
-        
+        padding-left: 10px;
         font-size: 20px;
       }
       .blue4 {
@@ -139,9 +160,9 @@ margin-top: 3cm;
         width: 40%;
         padding-bottom: 200px;
         display: table-cell;
-        padding-right: 2px;
+        padding-right: 30px;
         font-size: 20px;
-        padding-right: 20px;
+
 
     
       }
@@ -151,13 +172,16 @@ margin-top: 3cm;
     
   }
 
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+
   @media (max-width: 1410px){
     .blue2 {
       display: block;
       height: 200px;
-      width: 100%;
+      width: 90%;
       font-size: 5em;
-   
+  
       
     }
     
@@ -169,11 +193,13 @@ margin-top: 3cm;
       padding-left: 20px;
       padding-top: 30px;
       font-size: 30px;
+      
     }
     .blue4 {
-        padding-top: 40px;
+      
         padding-left: 20px;
         font-size: 30px;
+        
       }
   
     }
@@ -220,7 +246,7 @@ margin-top: 3cm;
   }
   .container3 {
   width: 55%;
-
+  font-family: 'Plus Jakarta Sans', sans-serif;
     padding-top: 2cm;
   position: absolute;
   right: 0;
@@ -229,11 +255,13 @@ margin-top: 3cm;
 
 .right-text3 p {
   font-size: 24px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   
 }
 
 .right-text3 {
   padding-right: 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 
@@ -291,7 +319,6 @@ margin-top: 3cm;
 
   .ob1,.ob2 {
     max-width: 100%;
-    height: auto;
   }
   .cont {
     margin-top: -5cm;
@@ -322,9 +349,9 @@ margin-top: 3cm;
 
 .ob2 {
   border-radius: 20px;
-  width: 57%;
+  width: 56%;
   height: auto;
-    
+
 
   display: flex;
   justify-content: center;

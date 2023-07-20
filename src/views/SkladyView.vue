@@ -68,6 +68,12 @@ import Footer from "../components/Footer.vue"
         margin-top: 2cm;
     }
 }
+@media (min-width: 1000px){
+.space{
+    margin-top: 30cm;
+}
+}
+
 
 .cont {
   display: flex;
@@ -273,7 +279,7 @@ padding: 1cm;
     
     color: rgb(0, 0, 0);
     padding-top: 2.5cm;
-    margin-bottom: -4cm;
+    margin-bottom: -cm;
    
   }
   
@@ -281,7 +287,7 @@ padding: 1cm;
     height: 300px;
     width: 45%;
     display: table-cell;
-    padding-left: 30px;
+    padding-left: 40px;
     padding-right: 10px;
     font-size: 50px;
   }
@@ -322,12 +328,21 @@ padding: 1cm;
 
   @import url(https://db.onlinewebfonts.com/c/2b50fbf03f34a55103ff9b9c5b8d3028?family=Recia+W03+Regular);
   @media (max-width: 2000px){
+    .blue1 {
+    display: table;
+    width: 100%;
+    
+    color: rgb(0, 0, 0);
+    padding-top: 2.5cm;
+    margin-bottom: -4cm;
+   
+  }
     
     .blue2 {
         height: 300px;
         width: 45%;
         display: table-cell;
-        padding-left: 20px;
+        padding-left: 35px;
         font-family: 'Recia';
           font-weight: 600;
         font-size: 38px;

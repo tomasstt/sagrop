@@ -77,7 +77,7 @@ margin-top: 3cm;
     height: 300px;
     width: 45%;
     display: table-cell;
- padding-left: 20px;
+ padding-left: 30px;
     font-size: 50px;
   }
 
@@ -102,15 +102,16 @@ margin-top: 3cm;
     width: 30%;
     display: table-cell;
     padding-right: 1cm;
+    
     font-family: 'Plus Jakarta Sans';
     font-size: 3em;
   }
   .blue4 {
     height: 300px;
     font-family: 'Plus Jakarta Sans';
-    width: 30%;
+    width: 80%;
     display: table-cell;
-  padding-right: 20px;
+  padding-right: 30px;
     font-size: 3em;
 
   }

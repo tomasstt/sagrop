@@ -97,24 +97,29 @@ import Newsletter from "../components/Newsletter.vue"
 @media (max-width: 1000px){
 
   .space {
-    padding-top: 2cm;
+    margin-top: -51cm;
   }
 }
 @media (max-width: 2066px){
   .space{
-    padding-top: 55cm;
+    padding-top: 50cm;
   }
 }
 
 @media (max-width: 1896px){
   .space{
-    padding-top: 58cm;
+    padding-top: 50cm;
+  }
+}
+@media (max-width: 1689px){
+  .space{
+    padding-top: 54cm;
   }
 }
 
 @media (max-width: 1082px) and (min-width: 1000px){
   .space{
-    padding-top: 63cm;
+    padding-top: 55cm;
   }
 }
 

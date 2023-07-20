@@ -57,6 +57,11 @@ components: {
     margin-top: 30cm;
 }
 }
+@media (min-width: 1000px){
+.space{
+    margin-top: 30cm;
+}
+}
 
 
 

@@ -12,10 +12,15 @@
         </section>
         <div class="bar">
         <div class="search-bar">
-      <input type="text" v-model="searchText" placeholder="Hladat" />
+      <input class="search" type="text" v-model="searchText" placeholder="Hladat" />
     </div>
-        <div>
-          <div class="archive-dropdown">
+
+    <div class="spacer"></div>
+  <div class="buttons">
+<button class="new" @click="sortByNewest">Newest Cards</button>
+<button class="old" @click="sortByOldest">Oldest Cards</button>
+
+<div class="archive-dropdown">
       <div class="dropdown">
         <button @click="showArchiveDropdown = !showArchiveDropdown">Archive</button>
         <div v-if="showArchiveDropdown" class="dropdown-menu">
@@ -25,22 +30,23 @@
             </li>
           </ul>
         </div>
+        </div>
       </div>
       <span class="selected-option">{{ selectedArchiveOption }}</span>
     </div>
-</div>
-<button class="old" @click="sortByOldest">Oldest Cards</button>
-<button class="new" @click="sortByNewest">Newest Cards</button>
 </div>
 
 
         <div v-if="!admin" class="admin-page">
     <form @submit.prevent="createCard">
-      <input type="text" v-model="title" placeholder="Názov" required>
       <label for="imageUpload" class="custom-file-label">Choose an image</label>
 <input id="imageUpload" type="file" accept="image/jpeg" @change="handleImageUpload" required class="custom-file-input">
 
-      <textarea v-model="description" placeholder="Popis" required></textarea>
+<div class="input-container">
+      <input class='input-line full-width' type="text" v-model="title" placeholder="Názov" required></div>
+      <div class="input-container">
+      <input id="up" class='input-line full-width' v-model="description" placeholder="Popis" required></div>
+      
       <button type="submit">Submit</button>
     </form>
   </div>
@@ -249,12 +255,171 @@ sortByOldest() {
 
  box-sizing: border-box;
 }
-
-
-.bar{
-  place-content: end;
-display: flex;
+.input-container {
+  display: block;
+  margin-bottom: 10px;
 }
+
+input {
+  border: transparent;
+}
+
+::-webkit-input-placeholder .input-line:focus +::input-placeholder {
+color: #fff;
+}
+
+.highlight {
+color: rgba(255, 255, 255, 0.8);
+font-weight: 400;
+cursor: pointer;
+transition: color .2s ease;
+}
+
+.highlight:hover {
+color: #fff;
+transition: color .2s ease;
+}
+
+
+#up{
+  line-height: 160px;
+}
+.spacing {
+-webkit-box-flex: 1;
+-webkit-flex-grow: 1;
+-ms-flex-positive: 1;
+flex-grow: 1;
+
+
+text-align: center;
+color: rgba(5, 4, 2, 0.80);
+text-align: center;
+font-size: 14px;
+font-family: 'Plus Jakarta Sans';
+font-style: normal;
+font-weight: 500;
+line-height: 22px;
+}
+
+.input-line:focus {
+outline: none;
+border-color: black;
+-webkit-transition: all .2s ease;
+transition: all .2s ease;
+}
+
+.ghost-round {
+cursor: pointer;
+background: none;
+border: none;
+background: black;
+border-radius: 25px;
+color: var(--white, #E9E5E0);
+-webkit-align-self: flex-end;
+-ms-flex-item-align: end;
+align-self: flex-end;
+font-size: 14px;
+
+font-family: 'Plus Jakarta Sans';
+font-style: normal;
+font-weight: 300;
+line-height: 2.8em;
+margin-top: 25px;
+margin-bottom: 25px;
+-webkit-transition: all .2s ease;
+transition: all .2s ease;
+}
+
+.ghost-round:hover {
+
+-webkit-transition: all .2s ease;
+transition: all .2s ease;
+}
+
+.search{
+display: grid;
+place-items: start;
+align-self: start;
+align-content: start;
+justify-content: start;
+
+
+}
+
+.boost-round {
+cursor: pointer;
+background: none;
+border: none;
+background: transparent;
+border-radius: 25px;
+
+border: solid 1px black;
+font-family: Plus Jakarta Sans;
+font-style: normal;
+font-weight: 500;
+line-height: 22px;
+color: rgba(5, 4, 2, 0.80);
+-webkit-align-self: flex-end;
+-ms-flex-item-align: end;
+align-self: flex-end;
+font-size: 14px;
+
+font-family: 'Plus Jakarta Sans';
+font-style: normal;
+font-weight: 300;
+line-height: 2.8em;
+margin-top: 25px;
+margin-bottom: 25px;
+-webkit-transition: all .2s ease;
+transition: all .2s ease;
+}
+
+.input-line {
+background: none;
+margin-bottom: 10px;
+line-height: 2.9em;
+color: rgba(5, 4, 2, 0.40);
+
+font-weight: 300;
+letter-spacing: 0px;
+letter-spacing: 0.02rem;
+font-size: 19px;
+font-size: 1.2rem;
+border-bottom: 1px rgba(5, 4, 2, 0.40) solid;
+-webkit-transition: all .2s ease;
+transition: all .2s ease;
+}
+
+.full-width {
+width: 362px;
+}
+
+/* CSS for the layout */
+.bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+
+}
+
+.search-bar {
+  flex: 1; /* Take up remaining space */
+}
+
+.spacer {
+  flex: 1; /* Take up remaining space */
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  
+  gap:14px;
+}
+
+/* Add your existing button styles here */
+
 .old{
   place-items: center;
   display: flex;
@@ -276,10 +441,12 @@ justify-content: flex-end;
   padding:9px 20px;
 }
 .custom-file-label {
-  background-color: #f7f7f7;
-  padding: 90px;
-  border: 2px dotted black;
-  border-radius: 25px;
+  background-color: transparent;
+  width: 303px;
+height: 303px;
+
+  border-radius: 20px;
+border: 1px dashed rgba(5, 4, 2, 0.40);
   cursor: pointer;
   display: inline-block;
 }
@@ -295,22 +462,6 @@ justify-content: flex-end;
   margin: 0 auto;
 
 }
-::placeholder{
-  color: black;
-}
-
-.admin-page input{
-text-align: center;
-background: white;
-border: solid 1px;
-border-radius: 20px;
-color: black;
-caret-color: #2C3714;
-height: 40px;
-width: 400px;
-margin-right: 1cm;
-line-height: 40px;
-}
 
 
 .admin-page h1{
@@ -320,22 +471,14 @@ line-height: 40px;
 
 }
 
- textarea{
-background: transparent;
-border-radius: 20px;
-line-height:  auto;
-margin-top: 0px; /* Add spacing only at the top */
-  margin-bottom: -14px;
-text-align: center;
-background: white;
-width: 400px;
-height: 40px;
 
-}
 .admin-page button{
 background: rgb(0, 0, 0);
 color: rgb(255, 255, 255);
 border: none;
+place-items: start;
+place-content: start;
+justify-content: start;
 border-radius: 20px;
 width: 100px;
 height: 40px;
@@ -418,123 +561,170 @@ text-align: start;
   position: relative;
 }
 
-
 .blue1 {
     display: table;
     width: 100%;
-    
+    padding-top: 3cm;
     color: rgb(0, 0, 0);
-    padding-top: 2.5cm;
+    
+  
    
   }
   
   .blue2 {
     height: 300px;
-    width: 45%;
+    width: 40%;
     display: table-cell;
     padding-left: 30px;
-    padding-right: 10px;
-    font-size: 50px;
-  }
-
-  /* .blue22{
-
-    height: 300px;
-    width: 30%;
-    display: table-cell;
-    padding-left: 20px;
-    font-size: 48px;
-
-  } */
-
-  .blue2 h2 {
-    color: #2C3714;
-  font-size: 38px;
-    
+    color: #050402;
+    font-family: 'Recia';
+font-style: normal;
+font-weight: 600;
+    font-size: 6em;
   }
   
   .blue3 {
     height: 300px;
     width: 30%;
     display: table-cell;
-    padding-right: 1cm;
-    
+    font-family: 'Plus Jakarta Sans';
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.225px;
+  padding-right: 20px;
+  color: rgba(35, 25, 10, 0.80);
     font-size: 3em;
   }
+  .blue3 br {
+    display: none;
+  }
+
+
   .blue4 {
     height: 300px;
     width: 30%;
     display: table-cell;
-  padding-right: 20px;
+    font-family: 'Plus Jakarta Sans';
+font-style: normal;
+font-weight: 500;
+padding-right: 20px;
+line-height: normal;
+letter-spacing: 0.225px;
+color: rgba(35, 25, 10, 0.80);
     font-size: 3em;
 
   }
+
 
   @media (max-width: 2000px){
     
     .blue2 {
         height: 300px;
-        width: 45%;
+        width: 40%;
         display: table-cell;
-        padding-left: 20px;
-    
-        font-size: 38px;
+        padding-left: 30px;
+        
+        font-size: 48px;
       }
-   
-      
-      
+      .blue3 br {
+    display: none;
+  }
       .blue3 {
         height: 300px;
         width: 30%;
         display: table-cell;
-        padding-left: 20px;
-        
+      
         font-size: 20px;
       }
       .blue4 {
-        height: 100px;
-        width: 40%;
-        padding-bottom: 200px;
+        height: 300px;
+        width: 30%;
         display: table-cell;
-       
-        font-size: 20px;
         padding-right: 20px;
-
+        font-size: 20px;
     
       }
 
-
-      
+      .blue4 br {
+        display: none;
+      }
     
   }
 
   @media (max-width: 1410px){
+
     .blue2 {
       display: block;
-      height: 200px;
+      height: 300px;
       width: 100%;
-      font-size: 5em;
-   
+      font-size: 6em;
       
     }
-    
     
     .blue3 {
       display: block;
       height: 150px;
-      width: 90%;
-      padding-left: 20px;
-      padding-top: 30px;
-      font-size: 30px;
+      width: 100%;
+      padding-left: 30px;
+      font-size: 21px;
     }
     .blue4 {
-        padding-top: 40px;
-        padding-left: 20px;
-        font-size: 30px;
+        padding-left: 60px  10;
+        padding-right: 30px;
+        font-size: 21px;
+      }
+
+      .blue4 br {
+        display: none;
       }
   
     }
 
+    
+  @media (max-width: 1000px){
+    .blue1{
+       display: block;
+     
+       
+    }
+    .blue2 {
+      display: block;
+      height: auto;
+      width: auto;
+      font-size: 31px;
+      
+      padding-right: 30px;
+      padding-left: 30px;
+    }
+    .blue3 br {
+      display: none;
+    }
+    .blue1 br {
+      display: none;
+    }
+    .blue3 {
+      display: block;
+      height: auto;
+      width: auto;
+      
+      font-size: 20px;
+      padding-left: 30px;
+      padding-right: 30px;
+      
+      
+      
+    }
+    .blue4 {
+        display: block;
+        height: auto;
+        width: auto;
+        font-size: 20px;
+        padding-left: 30px;
+        padding-right: 30px;
+        
+      }
+  }
 
 
     .search-bar {
@@ -552,13 +742,12 @@ text-align: start;
   border: 1px solid #000;
   border-radius: 20px;
   outline: none;
-}
+  background: #F4F0EB;}
 
 .archive-dropdown {
   display: flex;
   align-items: center;
-  position: absolute;
-  right: 0cm;
+  
 
 }
 
