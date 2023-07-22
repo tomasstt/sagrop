@@ -13,6 +13,7 @@ import AktualityView from "../views/AktualityView.vue"
 import OsivaView from "../views/OsivaView.vue"
 import DopravaView from  "../views/DopravaView.vue"
 import SkladyView from "../views/SkladyView.vue"
+import CardDetailView from "../views/CardDetailView.vue"
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -77,6 +78,11 @@ const router = createRouter({
                                 path: "/sklady",
                                 name: "sklady",
                                 component: SkladyView,
+                              }, {
+                                path: '/card/:id',
+                                name: 'cardDetail',
+                                component: CardDetailView,
+                                props: true,
                               },
                             //   {
                             //     path: "/zatva",
