@@ -233,16 +233,24 @@ z-index: 10;
     padding-right: 5rem;
 }
 
-
+@media  (max-width:2000px) {
 
 .nav div.main_list ul li a {
     text-decoration: none;
   
     line-height: 10px;
-    font-size: 2.4rem;
-}
+    font-size: 2px;
+}}
 
 
+@media  (min-width:1000px) {
+
+.nav div.main_list ul li a {
+    text-decoration: none;
+  
+    line-height: 10px;
+    font-size: 2.25rem;
+}}
 
 
 

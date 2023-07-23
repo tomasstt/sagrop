@@ -16,25 +16,25 @@
 
         <div class="container">
   <div class="right-text">
-    <h1>Multispektrálny dron</h1> <p> –  Precízne zbere údajov: Multispektrálne kamery nainštalované na dronoch môžu získať vysoko presné  a<br> detailné údaje o stavbe, zložení a raste rastlín. Tieto údaje sa potom môžu použiť na určenie optimálneho času <br> na zavlažovanie, aplikáciu hnojív alebo pesticídov.</p>
+    <h1>Multispektrálny dron</h1> <p> –  Precízne zbere údajov: Multispektrálne kamery nainštalované na dronoch môžu získať vysoko presné  a detailné údaje o stavbe, zložení a raste rastlín. Tieto údaje sa potom môžu použiť na určenie optimálneho času  na zavlažovanie, aplikáciu hnojív alebo pesticídov.</p>
 <p>
-–  Efektívne monitorovanie úrody: Drony môžu byť použité na sledovanie rastu a vývoja plodín, a to aj v <br> náročných terénnych podmienkach, čo uľahčuje plánovanie zberu a zlepšenie výnosov.</p>
+–  Efektívne monitorovanie úrody: Drony môžu byť použité na sledovanie rastu a vývoja plodín, a to aj v  náročných terénnych podmienkach, čo uľahčuje plánovanie zberu a zlepšenie výnosov.</p>
 <br>
 <p>
     
-    –  Rýchle zisťovanie problémov: Multispektrálne kamery sú schopné detekovať problémy, ako sú nedostatok <br> vody, choroby alebo škodcovia, skôr ako by boli viditeľné na povrchu. Toto umožňuje rýchlejšie reagovať a <br> minimalizovať škody.
+    –  Rýchle zisťovanie problémov: Multispektrálne kamery sú schopné detekovať problémy, ako sú nedostatok vody, choroby alebo škodcovia, skôr ako by boli viditeľné na povrchu. Toto umožňuje rýchlejšie reagovať a minimalizovať škody.
 </p>
 <br>
 <p>
-–  Úspora času a nákladov: Multispektrálne drony môžu nahradiť tradičné metódy, ako napríklad manuálne zber <br> údajov alebo iné postupy,  ktoré sú nákladné a časovo náročné. Taktiež umožňujú lepšiu správu <br> poľnohospodárskej pôdy a to aj na veľkých pozemkoch.
+–  Úspora času a nákladov: Multispektrálne drony môžu nahradiť tradičné metódy, ako napríklad manuálne zber údajov alebo iné postupy,  ktoré sú nákladné a časovo náročné. Taktiež umožňujú lepšiu správu poľnohospodárskej pôdy a to aj na veľkých pozemkoch.
 </p>
 <br>
 <p>
-–  Presnosť: Drony sú schopné získať presné a spoľahlivé údaje, ktoré sú potom použité na presnejšiu aplikáciu <br> hnojív a pesticídov, čo zvyšuje efektivitu a znižuje náklady.
+–  Presnosť: Drony sú schopné získať presné a spoľahlivé údaje, ktoré sú potom použité na presnejšiu aplikáciu  hnojív a pesticídov, čo zvyšuje efektivitu a znižuje náklady.
 </p>
 <br>
 <p>
-–  Rýchlosť a flexibilita: Drony sú schopné rýchlo a flexibilne prispôsobiť sa rôznym situáciám a podmienkam, <br> čo znižuje čas potrebný na zber údajov a poskytuje rýchlejšie a presnejšie výsledky.
+–  Rýchlosť a flexibilita: Drony sú schopné rýchlo a flexibilne prispôsobiť sa rôznym situáciám a podmienkam, čo znižuje čas potrebný na zber údajov a poskytuje rýchlejšie a presnejšie výsledky.
 </p>
 </div>
 </div>
@@ -48,25 +48,25 @@
 
 
           <div class="container3">
-  <div class="right-text3"><h1>Postrekovací dron</h1> <p> –  Efektivita: Postrekovacie drony sú schopné rýchlo a efektívne aplikovať pesticídy a herbicídy na veľkých <br> pozemkoch poľnohospodárskej pôdy, čím zvyšujú produktivitu a znižujú náklady.</p>
+  <div class="right-text3"><h1>Postrekovací dron</h1> <p> –  Efektivita: Postrekovacie drony sú schopné rýchlo a efektívne aplikovať pesticídy a herbicídy na veľkých pozemkoch poľnohospodárskej pôdy, čím zvyšujú produktivitu a znižujú náklady.</p>
 <p>
-–    Presnosť: Drony sú schopné aplikovať pesticídy a herbicídy s vysokou presnosťou, čím minimalizujú <br> množstvo použitých chemikálií a znižujú riziko znečistenia pôdy a vody.</p>
+–    Presnosť: Drony sú schopné aplikovať pesticídy a herbicídy s vysokou presnosťou, čím minimalizujú množstvo použitých chemikálií a znižujú riziko znečistenia pôdy a vody.</p>
 <br>
 <p>
     
-  –  Flexibilita: Postrekovacie drony sú schopné prispôsobiť sa rôznym terénom a podmienkam, čo znižuje <br> potrebu manuálneho zásahu a minimalizuje škody na plodinách.
+  –  Flexibilita: Postrekovacie drony sú schopné prispôsobiť sa rôznym terénom a podmienkam, čo znižuje potrebu manuálneho zásahu a minimalizuje škody na plodinách.
 </p>
 <br>
 <p>
-  –  Bezpečnosť: Použitie postrekovacích dronov znižuje potrebu manuálneho zásahu a minimalizuje riziko <br> zranenia pracovníkov a riziko vystavenia chemikáliám.
+  –  Bezpečnosť: Použitie postrekovacích dronov znižuje potrebu manuálneho zásahu a minimalizuje riziko zranenia pracovníkov a riziko vystavenia chemikáliám.
+</p>
+<br>
+<p> 
+  –  Presnosť dávkovania: Drony sú schopné aplikovať rovnaké množstvo pesticídov alebo herbicídov na každ meter štvorcový, čo zvyšuje efektivitu a znižuje riziko prebytku alebo nedostatku aplikovaných chemikálií.
 </p>
 <br>
 <p>
-  –  Presnosť dávkovania: Drony sú schopné aplikovať rovnaké množstvo pesticídov alebo herbicídov na každ <br> meter štvorcový, čo zvyšuje efektivitu a znižuje riziko prebytku alebo nedostatku aplikovaných chemikálií.
-</p>
-<br>
-<p>
-  –  Úspora času: Použitie postrekovacích dronov znižuje čas potrebný na postrek poľnohospodárskej pôdy a <br> umožňuje rýchlejšiu reakciu na problémy v poľnohospodárstve.
+  –  Úspora času: Použitie postrekovacích dronov znižuje čas potrebný na postrek poľnohospodárskej pôdy a d umožňuje rýchlejšiu reakciu na problémy v poľnohospodárstve.
 </p>
 </div>
 </div>
@@ -152,7 +152,7 @@ import Newsletter from "../components/Newsletter.vue"
 .container3 {
   width: 59%;
   font-family: 'Plus Jakarta Sans', sans-serif;
-    padding-top: 2cm;
+    padding-top: 0.2cm;
   position: absolute;
   right: 0;
 
@@ -184,7 +184,7 @@ import Newsletter from "../components/Newsletter.vue"
   .container3 {
   width: 100%;
   position: static;
-  margin-top: 3.5cm;
+  
   height: 100%;
   display: flex;
   justify-content: flex-end;
@@ -235,6 +235,8 @@ import Newsletter from "../components/Newsletter.vue"
   flex-wrap: wrap;
   justify-content: center;
   max-width: 100%;
+  width: 97%;
+  margin: 0 auto;
   margin-bottom: 10cm;
 
 }
@@ -249,7 +251,29 @@ import Newsletter from "../components/Newsletter.vue"
   
 }}
 
+@media (max-width: 1000px) {
+.ob1 {
+  border-radius: 30px;
+  width: 95%;
+height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+
+.ob2 {
+  border-radius: 20px;
+  width: 95%;
+  height: auto;
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}}
+
+@media (min-width: 1000px) {
 .ob1 {
   border-radius: 30px;
   width: 38%;
@@ -269,7 +293,7 @@ height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+}}
 @media (max-width: 2000px) {
   .image-container img {
    margin-bottom: 2cm;
@@ -343,55 +367,134 @@ height: auto;
 
 
 
-
-.container {
-  width: 97%;
-margin-top: -12cm;
-right: 0;
-
-  height: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  overflow: hidden;
+@media (max-width: 2000px) and (min-width: 1000px){
+  .right-text h1 {
+  font-size: 8px;
+  font-family: 'Recia';
+}
+.right-text p {
+  font-size: 4px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   
 }
-.right-text h1 {
-    font-size: 58px;
-    
+
 }
-.right-text p{
+.cont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+  margin-top: 9cm;
+  gap: 20px;
+  
+  
+}
+
+
+
+@media (max-width: 1529px){
+
+  .cont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+  margin-top: 12cm;
+  gap: 20px;
+  
+  
+}
+}
+@media (max-width: 1279px){
+
+.cont {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+max-width: 100%;
+margin-top: 15cm;
+gap: 20px;
+
+
+}
+}@media (max-width: 1045px) and (min-width: 1000px){
+
+.cont {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+max-width: 100%;
+margin-top: 16cm;
+gap: 20px;
+
+
+}
+}
+
+@media (max-width: 1000px){
+
+.cont {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+max-width: 100%;
+margin-top: 9cm;
+gap: 20px;
+
+
+}
+}
+
+
+.container {
+  width: 59%;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+   margin-top: -12cm;
+  position: absolute;
+  right: 0;
+
+}
+
+
+.right-text h1 {
+  font-size: 58px;
+  font-family: 'Recia';
+}
+.right-text p {
   font-size: 20px;
-    
+  font-family: 'Plus Jakarta Sans', sans-serif;
   
 }
 
 .right-text {
-  text-align: start;
-  overflow: hidden;
+  padding-right: 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
-@media (max-width: 1000px){
-  .image-container2 {
 
-width: 100%;
-height: 100vh;
-flex-direction: column;
-display: flex;
-justify-content: center;
-align-items: center;
-}
-  .container {
-  width: 97%;
+
+
+
+@media (max-width: 1000px){
   
+
+
+  .container {
+  width: 100%;
+  position: static;
+margin-bottom: -9cm;
   height: 100%;
   display: flex;
-  justify-content: flex-end;
+ 
   align-items: center;
   overflow: hidden;
+}
+.container br{
+  display: none;
 }
 
   .right-text {
     padding-left: 20px;
+    padding-right: 20px;
 
   }
 
@@ -401,7 +504,7 @@ align-items: center;
 }
 .right-text p{
     font-size: 20px;
-    height: 100%;
+    
     
   
 }
@@ -655,7 +758,8 @@ max-height: 100%;
       height: auto;
       width: auto;
       font-size: 31px;
-      padding-left: 30px;
+      padding-right: 20px;
+      padding-left: 20px;
     }
     
     .blue3 {
@@ -663,7 +767,7 @@ max-height: 100%;
       height: auto;
       width: auto;
       font-size: 30px;
-      padding-left: 30px;
+      padding-left: 20px;
       
       
     }
@@ -672,7 +776,7 @@ max-height: 100%;
         height: auto;
         width: auto;
         font-size: 30px;
-        padding-left: 30px;
+   
         padding-top: 20px;
       }
   }

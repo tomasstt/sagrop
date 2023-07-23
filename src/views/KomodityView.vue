@@ -102,12 +102,36 @@ height: 90px;
 th.first-header {
   border-top-left-radius: 20px;
   
+}@media (max-width: 1000px){
+  th {
+  background: #2C3714;
+  font-size: 17px;
+  font-weight: 400;
 }
-th {
+}
+@media (max-width: 600px){
+  th {
+  background: #2C3714;
+  font-size: 15px;
+  font-weight: 400;
+}
+}@media (max-width: 435px){
+  th {
+  background: #2C3714;
+  font-size: 12px;
+  font-weight: 400;
+}
+}
+
+@media (min-width: 1000px){
+  th {
   background: #2C3714;
   font-size: 24px;
   font-weight: 600;
 }
+
+}
+
 
 
 td {

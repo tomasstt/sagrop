@@ -4,7 +4,7 @@
 
 <div>
     <div class="blue1">
-    <section class="blue2"><h1 class="">Autodoprava </h1> <h2>Ponúkame spoľahlivú a <br> efektívnu dopravu kamiónmi pre poľnohospodárstvo!</h2></section>
+    <section class="blue2"><h1 class="">Autodoprava </h1> <h2>Ponúkame spoľahlivú a <br> efektívnu dopravu kamiónmi <br>pre poľnohospodárstvo!</h2></section>
     
     <aside class="blue3"><p class="">Ak hľadáte spoľahlivého partnera na dopravu v oblasti poľnohospodárstva, sme tu pre vás. Naša spoločnosť má dlhoročné skúsenosti v oblasti dopravy a logistiky a vieme, ako sa postarať o vaše poľnohospodárske potreby.</p></aside>
     <aside class="blue4"><p class=""> Ak hľadáte partnera, ktorý vám poskytne spoľahlivú a efektívnu dopravu kamiónmi v poľnohospodárstve, neváhajte nás kontaktovať e-mailom alebo telefonicky. Radi vám poskytneme viac informácií a zodpovieme všetky vaše otázky.</p></aside>
@@ -17,8 +17,8 @@
 
 
 
-<div class="container">
-<div class="right-text">
+<div class="container3">
+<div class="right-text3">
  <p> S našimi modernými kamiónmi a profesionálnym tímom vodičov sme pripravení poskytnúť vám kompletnú dopravnú službu od začiatku až do konca. Či už potrebujete prepraviť zrná, hnojivá, rastliny alebo iné poľnohospodárske produkty, sme pripravení na akúkoľvek úlohu. <br> </p>
 <br>
 <p>
@@ -185,7 +185,7 @@ components: {
   flex-wrap: wrap;
   justify-content: center;
   max-width: 100%;
-  margin-bottom: 10cm;
+  margin-bottom: 7.4cm;
 
 }
 
@@ -350,12 +350,103 @@ align-items: center;
    
 }
 
-@media (max-width: 2066px){
 
-
-
+@media (max-width: 2000px) and (min-width: 1000px){
+  .right-text3 h1 {
+  font-size: 8px;
+  font-family: 'Recia';
+}
+.right-text3 p {
+  font-size: 4px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  
+}
 
 }
+.cont {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+  margin-top: 1cm;
+  gap: 20px;
+  
+  
+}
+
+
+
+
+.container3 {
+  width: 59%;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+    margin-top: -11cm;
+  position: absolute;
+  right: 0;
+  color: rgba(35, 25, 10, 0.80);
+/* Body text/80% */
+font-family: Plus Jakarta Sans;
+font-size: 15px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.225px;
+
+}
+
+
+
+.right-text3 p {
+  font-size: 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  
+}
+
+.right-text3 {
+  padding-right: 30px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+
+
+
+@media (max-width: 1000px){
+  
+
+
+  .container3 {
+  width: 100%;
+  position: static;
+  
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  overflow: hidden;
+}
+.container3 br{
+  display: none;
+}
+
+  .right-text3 {
+    padding-left: 16px;
+
+  }
+
+  .right-text3 h1 {
+    font-size: 38px;
+    
+}
+.right-text3 p{
+    font-size: 20px;
+    
+    
+  
+}
+
+   
+}
+
 @media (max-width: 2000px) and (min-width: 1410px){
  
   .blue1 {
@@ -422,14 +513,29 @@ align-items: center;
     width: 30%;
     display: table-cell;
     padding-right: 1cm;
-    
+    color: rgba(35, 25, 10, 0.80);
+/* Body text/80% */
+font-family: Plus Jakarta Sans;
+font-size: 15px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.225px;
     font-size: 3em;
   }
   .blue4 {
     height: 300px;
     width: 30%;
     display: table-cell;
-  
+    color: rgba(35, 25, 10, 0.80);
+/* Body text/80% */
+font-family: Plus Jakarta Sans;
+font-size: 15px;
+font-style: normal;
+padding-right: 20px;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.225px;
     font-size: 3em;
 
   }
@@ -525,12 +631,12 @@ max-height: 100%;
       width: 80%;
       padding-left: 20px;
       padding-top: 30px;
-      font-size: 30px;
+      font-size: 24px;
     }
     .blue4 {
         padding-left: 60px  10;
         
-        font-size: 30px;
+        font-size: 24px;
       }
   
     }
@@ -585,14 +691,15 @@ max-height: 100%;
     font-size: 35px;
   }
   .blue2 h2 {
-    font-size: 18px;
+    font-size: 25px;
+    padding-right: 20px;
   }
     .blue2 {
       display: block;
       height: auto;
       width: auto;
       font-size: 31px;
-      padding-left: 30px;
+      padding-left: 20px;
     }
     
     .blue3 {
@@ -600,7 +707,7 @@ max-height: 100%;
       height: auto;
       width: auto;
       font-size: 30px;
-      padding-left: 30px;
+      padding-left: 20px;
       
       
     }
@@ -609,8 +716,9 @@ max-height: 100%;
         height: auto;
         width: auto;
         font-size: 30px;
-        padding-left: 30px;
+        padding-left: 20px;
         padding-top: 20px;
+        padding-bottom: 10px;
       }
   }
 

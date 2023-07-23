@@ -306,6 +306,7 @@ padding-top: 2cm;
   position: absolute;
   right: 20px;
   bottom: 20px;
+  
 }
 
 .ron svg:hover{
@@ -317,7 +318,7 @@ padding-top: 2cm;
 .oneep {
   position: absolute;
   display: flex; 
-  color: white;
+  color: #E9E5E0;
 margin-left: 20px;
 bottom: 0;
 width: 300px;
@@ -329,7 +330,7 @@ font-family: 'Plus Jakarta Sans';
 .twoop {
   position: absolute;
   display: flex; 
-  color: white;
+  color: #E9E5E0;
   font-family: 'Plus Jakarta Sans';
   margin-left: 20px;
   bottom: 0;
@@ -372,6 +373,22 @@ width: 400px;
   
 }
 
+}
+
+
+@media (max-width: 1550px) {
+  .oneep {
+font-size: 17px;
+width: 200px;
+
+}
+
+.ron svg{
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+ width: 34px; 
+}
 }
 @media (max-width: 1500px) {
   .onep {
@@ -583,11 +600,18 @@ padding: 1cm;
 
 .container3 p br {
   display: none;
+  
 }
 
 .right-text3 p {
   font-size: 3em;
   font-family: 'Plus Jakarta Sans', sans-serif;
+  color: rgba(35, 25, 10, 0.80);
+
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.225px;
   
 } .right-text3 h1 {
     font-size: 47px;
@@ -727,6 +751,13 @@ padding: 1cm;
     height: 300px;
     width: 40%;
     display: table-cell;
+    color: rgba(35, 25, 10, 0.80);
+
+
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.225px;
     padding-right: 1cm;
     font-family: 'Plus Jakarta Sans';
     font-size: 3em;
@@ -741,6 +772,12 @@ padding: 1cm;
     display: table-cell;
   padding-right: 1cm;
     font-size: 3em;
+    color: rgba(35, 25, 10, 0.80);
+
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.225px;
 
   }
 
@@ -774,7 +811,7 @@ padding: 1cm;
         width: 40%;
         padding-bottom: 200px;
         display: table-cell;
-        padding-right: 2px;
+        padding-right: 20px;
         font-size: 20px;
     
       }
@@ -827,26 +864,28 @@ padding: 1cm;
       height: 200px;
       width: auto;
       font-size: 31px;
+      padding-right: 20px;
       
-      padding-left: 30px;
+      padding-left: 20px;
     }
     
     .first3 {
       display: block;
       height: auto;
       width: auto;
-      font-size: 30px;
-      padding-left: 30px;
-      
+      font-size: 20px;
+      padding-left: 20px;
+      padding-right: 20px;
       
     }
     .first4 {
         display: block;
         height: auto;
         width: auto;
-        font-size: 30px;
-        padding-left: 30px;
-        padding-top: 20px;
+        font-size: 20px;
+      padding-left: 20px;
+      padding-right: 20px;
+        padding-top: 1px;
       }
   }
 
@@ -911,6 +950,50 @@ padding: 1cm;
 
   }
 }
+
+
+@media (max-width: 1900px) and (min-width: 1000px) {
+  .poneep {
+  position: absolute;
+  display: flex; 
+width: 600px;
+margin-left: 20px;
+bottom: 0;
+  font-size: 10px; 
+  font-weight: 500; 
+  color: var(--white, #E9E5E0);
+
+/* Body text/white */
+font-family: Plus Jakarta Sans;
+
+
+line-height: normal;
+letter-spacing: 0.225px;
+
+}
+.tpoop {
+  position: absolute;
+  display: flex; 
+ width: 500px;
+  margin-left: 20px;
+  bottom: 0;
+  font-size: 10px; /* Adjust as needed */
+  font-weight: 500; 
+  padding-right: 0px;
+  color: var(--white, #E9E5E0);
+
+/* Body text/white */
+font-family: Plus Jakarta Sans;
+
+
+line-height: normal;
+letter-spacing: 0.225px;
+  
+}
+  
+}
+
+
 @media (min-width: 1000px){
   .ront {
   display: flex;
@@ -964,21 +1047,37 @@ margin-left: 20px;
 .poneep {
   position: absolute;
   display: flex; 
-  color: white;
+
 margin-left: 20px;
 bottom: 0;
   font-size: 30px; /* Adjust as needed */
-  font-weight: 500; /* Adjust as needed */
+  font-weight: 500; 
+  color: var(--white, #E9E5E0);
+
+/* Body text/white */
+font-family: Plus Jakarta Sans;
+
+
+line-height: normal;
+letter-spacing: 0.225px;
 
 }
 .tpoop {
   position: absolute;
   display: flex; 
-  color: white;
+ 
   margin-left: 20px;
   bottom: 0;
   font-size: 30px; /* Adjust as needed */
-  font-weight: 500; /* Adjust as needed */
+  font-weight: 500; 
+  color: var(--white, #E9E5E0);
+
+/* Body text/white */
+font-family: Plus Jakarta Sans;
+
+
+line-height: normal;
+letter-spacing: 0.225px;
   
 }
 
@@ -1232,7 +1331,8 @@ width: auto;
 background:#E9E5E0 ;
 height: 400px;
 gap: 5cm;
-padding-left: 0.5cm;
+padding-left: 20px;
+padding-right: 20px;
 display: flex;
 margin: 0 auto;
 
@@ -1292,7 +1392,7 @@ margin-right: 10px;
 display: block;
 font-size: 16px;
 
-    ;
+    
 
 }
 .hand {
@@ -1318,7 +1418,7 @@ height: auto;
       }
     
     .box {
-        width: 50%;  
+        width: 60%;  
         height: auto;
         margin: 0 auto;
         display:row ;
@@ -1337,8 +1437,9 @@ padding-top: cm;
 font-weight: 600;
 }
 .box p {
-padding-top: 1cm;
-font-size: 20px;
+padding-top: 1.5cm;
+font-size: 16px;
+
 font-weight: 500;
 
 }
@@ -1365,7 +1466,7 @@ margin-right: 10px;
 .hand1{
 display: block;
 font-size: 16px;
-    ;
+    
 
 }
 .hand {
@@ -1455,6 +1556,13 @@ border-radius: 30px;
     padding-right: 1cm;
     font-family: 'Plus Jakarta Sans';
     font-size: 3em;
+    color: rgba(35, 25, 10, 0.80);
+
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.225px;
+    
   }
 
   .blue3 br {
@@ -1471,8 +1579,14 @@ border-radius: 30px;
     width: 20%;
     display: table-cell;
   padding-right: 30px;
-    font-size: 3em;
+    font-size: 2.7em;
     font-family: 'Plus Jakarta Sans';
+    color: rgba(35, 25, 10, 0.80);
+
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.225px;
 
   }
 
@@ -1564,8 +1678,8 @@ display: none;
 
 
   .blue2 h2{
-    margin-bottom: -4cm;
-    font-size: 21px;
+    margin-bottom: -4.4cm;
+    font-size: 24px;
   }
     .blue1{
        display: block;
@@ -1577,26 +1691,27 @@ display: none;
       height: auto;
       width: auto;
       font-size: 27px;
-      
-      padding-left: 30px;
+      padding-right: 20px;
+      padding-left: 20px;
     }
     
     .blue3 {
       display: block;
       height: auto;
       width: auto;
-      font-size: 17px;
-      padding-left: 30px;
-      
+      font-size: 20px;
+      padding-left: 20px;
+      padding-right: 20px;
       
     }
     .blue4 {
         display: block;
         height: auto;
         width: auto;
-        font-size: 17px;
-        padding-left: 30px;
-        padding-top: 6px;
+        font-size: 20px;
+      padding-left: 20px;
+      padding-right: 20px;
+        padding-top: 1px;
       }
 
       .bttna{

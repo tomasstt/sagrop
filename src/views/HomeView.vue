@@ -10,7 +10,7 @@
       
         </div>
 
-       <router-link to="/about"> <button class="btno">O nas</button></router-link>
+       <router-link class="rl" to="/about"> <button class="btno">O nas</button></router-link>
       
       
       
@@ -311,7 +311,7 @@ import NewsletterAU from "../components/NewsletterAU.vue"
 
 
 .space1{
-  margin-top: 25cm;
+  margin-top: 27cm;
 } 
  .space {
   padding-top: 29cm;
@@ -322,7 +322,28 @@ import NewsletterAU from "../components/NewsletterAU.vue"
 }
 .space1{
   padding-top: 27cm;
-  margin-bottom: -3cm;
+  margin-bottom: -6cm;
+}}
+
+@media (max-width: 410px){
+.space1{
+  padding-top: 30cm;
+
+}}
+@media (max-width: 402px){
+.space1{
+  padding-top: 33cm;
+
+}}
+
+@media (max-width: 382px){
+.space1{
+  padding-top: 36cm;
+
+}}@media (max-width: 336px){
+.space1{
+  padding-top: 42cm;
+
 }}
 /* .weird {
   display: flex;
@@ -785,7 +806,7 @@ width: 330px;
   flex-wrap: nowrap;
   justify-content: center;
   gap: 20px;
-  padding-top: 5cm;
+
   
     
   }
@@ -988,13 +1009,14 @@ line-height: normal;
         padding-top: 0cm;
         margin-top: 1cm;
         text-align: center;
-        padding-left: 0;
-    }
+
+       }
     .redd {
       display: block;
       height: 150px;
         width: auto;
         padding-left: 0;
+        margin-left: 0;
       font-size: 3em;
       text-align: center;
       
@@ -1005,8 +1027,8 @@ line-height: normal;
       height: auto;
       width: auto;
       text-align: center;
-      padding-left: 0;
-      font-size: 16px;
+      padding-left: 15px;
+      font-size: 18px;
    
     }
     .redddd {
@@ -1014,8 +1036,8 @@ line-height: normal;
         height: auto;
         width: auto;
         text-align: center;
-       padding-left: 0;
-        font-size: 16px;
+        padding-left: 15px;
+        font-size: 18px;
   
       }
   }
@@ -1153,8 +1175,8 @@ color: rgba(35, 25, 10, 0.80);
       width: auto;
       font-size: 31px;
       
-      padding-right: 30px;
-      padding-left: 30px;
+      padding-right: 20px;
+      padding-left: 20px;
     }
     .blue3 br {
       display: none;
@@ -1168,8 +1190,8 @@ color: rgba(35, 25, 10, 0.80);
       width: auto;
       
       font-size: 20px;
-      padding-left: 30px;
-      padding-right: 30px;
+      padding-left: 20px;
+      padding-right: 20px;
       
       
       
@@ -1179,8 +1201,8 @@ color: rgba(35, 25, 10, 0.80);
         height: auto;
         width: auto;
         font-size: 20px;
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-left: 20px;
+        padding-right: 20px;
         
       }
   }
@@ -1525,6 +1547,7 @@ letter-spacing: 0.225px;
   }
 
   @media (min-width: 1000px){
+
 .btno{
     display: flex;
     flex-direction: row;
@@ -1550,19 +1573,33 @@ font-weight: 500;
 
 }}
 @media (max-width: 1000px){
-    .btno{
-      align-items: center;
-      display:grid ;
-      text-decoration: none;
+
+.rl{
+
+
+
+
+   
+
+
+  text-decoration: none;
+}
+  .btno{
+
+      display: flex;
+      
+      
       margin: 0 auto;
       font-family: 'Plus Jakarta Sans';
-      margin-top: 2cm;
+      margin-top: 1cm;
       place-content: center;
       justify-content: center;
-      cursor: pointer;
+      
      padding: 10px 30px;
      color: black;
       border: none;
+      cursor: pointer;
+      
       background: #E9E5E0;
       text-align: center;
       border-radius: 60px;
