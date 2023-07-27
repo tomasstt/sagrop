@@ -3,36 +3,38 @@
       <div class='bold-line'></div>
 <div class='container'>
 
-<div class="img"><img src="/images/signup.svg" alt=""></div>
+<div class="img"><img class="bg-image" src="/images/signup.svg" alt=""></div>
+<div class="form-container">
 <div class='window'>
   <div class='overlay'></div>
   <div class='content'>
     <div class='welcome'>Prihlásiť sa</div>
     <div class='subtitle'>Už máte účet? Prihlásiť sa</div>
-<div><button class='boost-round full-width'><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<!-- <div><button class='boost-round full-width'><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M10.0019 8.76736V11.442H13.8131C13.3148 13.0628 11.9606 14.2223 10.0019 14.2223C7.66964 14.2223 5.77836 12.3316 5.77836 10C5.77836 7.66836 7.669 5.77773 10.0019 5.77773C11.0506 5.77773 12.0077 6.16209 12.7465 6.79464L14.7167 4.82509C13.472 3.69109 11.8175 3 10.0019 3C6.13473 3 3 6.13409 3 10C3 13.8659 6.13473 17 10.0019 17C15.8794 17 17.1763 11.505 16.6004 8.77691L10.0019 8.76736Z" fill="#050402" fill-opacity="0.8"/>
 </svg>
 Prihlásiť sa cez Google</button></div>
-    <div class='spacing'>alebo</div>
+    <div class='spacing'>alebo</div> -->
     <div class='input-fields'>
-      <input type='text' placeholder='Meno' class='input-line full-width'>
+      <!-- <input type='text' placeholder='Meno' class='input-line full-width'> -->
       <input type='email' placeholder='Email' class='input-line full-width'>
       <input type='password' placeholder='Heslo' class='input-line full-width'>
 
     </div>
-    <!-- <div class='spacing'>or continue with <span class='highlight'>Facebook</span></div> -->
+  
     
       <label class="checkk">
         <input type="checkbox"  />
        <p> Súhlasím s podmienkami služby a Ochranou osobných údajov</p>
       </label>
-      <label class="check">
+      <!-- <label class="check">
         <input type="checkbox"  />
      <p>   Prihláste sa k odberu nášho newslettera!</p>
-      </label>
+      </label> -->
    
     <div><button class='ghost-round full-width'>Prihlásiť sa</button></div>
   </div>
+</div>
 </div>
 </div>
   </div>
@@ -48,10 +50,22 @@ Prihlásiť sa cez Google</button></div>
 
 
 
+.form-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+
+
 
 svg {
 position: absolute;
-top: 191px;
+top: 115px;
 left: 2cm;
 }
 .checkk {
@@ -228,34 +242,33 @@ margin-top: 25px;
 }
 
 .container {
-display: flex;
-align-items: center;
-justify-content: center;
-place-items: center;
-max-width: 100%;
-max-height: 100%;
-place-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 
-
-.img img {
-border-radius: 5px;
-margin-right: 271px;
-max-width: 100%; 
-margin-top: 30px;
-max-height: auto;
-overflow: hidden;
-height: 800px;
-width: 530px;
-max-width: 100%;
-
-
+img{
+  border-radius: 15px;
+  height: 100vh;
+scale: 0.85;
 }
+
+.img {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  
+}
+
+
 .content {
 padding-left: 25px;
 padding-right: 25px;
-  
+padding-top: 2cm;
 display: flex;
 -webkit-flex-flow: column;
 -ms-flex-flow: column;
@@ -265,7 +278,7 @@ z-index: 5;
 
 .welcome {
 font-weight: 200;
-margin-top: 75px;
+
 color: var(--black, #050402);
 font-family: 'Plus Jakarta Sans';
 font-weight: 500;
@@ -292,6 +305,16 @@ line-height: normal;
 width: 100%;
 height: 50px;
 }
+
+/* .window {
+
+background-color: #fff;
+box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+border-radius: 10px;
+padding: 2rem;
+max-width: 400px;
+width: 100%;
+} */
 
 .window {
 z-index: 100;
@@ -339,6 +362,7 @@ opacity:0.1;
 
 
 
+
 @media (max-width:1200px) {
 
 .overlay {
@@ -347,16 +371,16 @@ opacity:0.1;
   
 }
 .container{
-
+flex-direction: column;
 padding-top: 2cm;
 }
-img{
+.img{
   display: none;
 }
 
 .window {
   scale: 1;
-  margin-top: -1cm;
+  margin-top: 2cm;
   width: 100%;
   height: 100%;
 }

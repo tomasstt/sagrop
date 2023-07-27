@@ -71,7 +71,7 @@
   
   
   <p class="hand1">Začnite s výsadbou správnych semien pre <br> úspešnú úrodu. Objednajte si naše kvalitné <br> osivo ešte dnes.</p>
-<a href="/osiva">Zobrazit viac<svg  width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<a href="/osiva">Zobrazit viac<svg class="arr" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M14.43 5.93005L20.5 12.0001L14.43 18.0701" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M3.5 12H20.33" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
@@ -86,7 +86,7 @@
     </svg>
     
     
-   <p class="hand1">Zlepšite úrodu svojich plodín s našimi <br> hnojivami. Kvalita a účinnosť zaručená.</p> <a href="/hnojiva">Zobrazit viac<svg width="24" class="x" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <p class="hand1">Zlepšite úrodu svojich plodín s našimi <br> hnojivami. Kvalita a účinnosť zaručená.</p> <a href="/hnojiva">Zobrazit viac<svg width="24" class="arr" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M14.43 5.93005L20.5 12.0001L14.43 18.0701" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M3.5 12H20.33" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
@@ -98,7 +98,7 @@
     </svg>
     
     
-   <p class="hand1">Zlepšite úrodu svojich plodín s našimi <br> hnojivami. Kvalita a účinnosť zaručená.</p>          <a href="/chemia">Zobrazit viac<svg width="24" class="x" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+   <p class="hand1">Zlepšite úrodu svojich plodín s našimi <br> hnojivami. Kvalita a účinnosť zaručená.</p>          <a href="/chemia">Zobrazit viac<svg width="24" class="arr" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M14.43 5.93005L20.5 12.0001L14.43 18.0701" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M3.5 12H20.33" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
@@ -643,6 +643,12 @@ letter-spacing: 0.225px;
 
 }
 
+
+.arr{
+  position: absolute;
+  margin-top: -1px;
+  margin-left: 6px;
+}
 
 @media (max-width: 1000px){
   

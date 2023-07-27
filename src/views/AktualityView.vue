@@ -40,7 +40,6 @@
         </div>
         </div> 
       </div>
-      <span class="selected-option">{{ selectedArchiveOption }}</span>
     </div>
 </div>
 
