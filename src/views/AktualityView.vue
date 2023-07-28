@@ -79,7 +79,7 @@
 
                   
                   
-          <div class="box" v-for="(card, index) in filteredCards" :key="index">
+          <div class="box" v-for="(card, index) in paginatedCards" :key="index">
           <img class="fw1" :src="card.imageUrl" alt="">
           <h2>{{ card.title }}</h2>
           <p>{{ card.description }}</p>
@@ -148,6 +148,15 @@
 
                 
             </div>
+            <div class="pagination">
+    <button @click="prevPage" :disabled="currentPage === 1">Prev</button>
+    <span v-for="pageNumber in totalPages" :key="pageNumber">
+      <button @click="changePage(pageNumber)" :class="{ active: pageNumber === currentPage }">
+        {{ pageNumber }}
+      </button>
+    </span>
+    <button @click="nextPage" :disabled="currentPage === totalPages">Next</button>
+  </div>
              </div>
 
              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-cV5lumV66EPpxFsNmR5P5K5J6pxzrIMjFgaBzZSUO2Fm2z4MWf0ykInI2P4FffA2" crossorigin="anonymous">
@@ -172,7 +181,10 @@ export default {
       showArchiveDropdown: false,
       showArchiveDropdown: false,
       selectedArchiveOption: '',  
-        droppedFile: null,
+        droppedFile: null,    
+          cardsPerPage: 12, // Adjust this value as needed for the number of cards per page
+      currentPage: 1,
+
 
       cards: [],
       searchText:'',
@@ -187,6 +199,24 @@ export default {
     this.loadCardsFromStorage();
   },
   methods: {
+    changePage(pageNumber) {
+      this.currentPage = pageNumber;
+    },
+
+    // Method to go to the previous page
+    prevPage() {
+      if (this.currentPage > 1) {
+        this.currentPage--;
+      }
+    },
+
+    // Method to go to the next page
+    nextPage() {
+      if (this.currentPage < this.totalPages) {
+        this.currentPage++;
+      }
+    },
+
     browseFile() {
           this.$refs.fileInput.click();
         },
@@ -286,11 +316,23 @@ sortByOldest() {
     }
   },
   computed: {
-  filteredCards() {
-    return this.cards.filter(card => {
-      return card.title.toLowerCase().includes(this.searchText.toLowerCase());
-    });
-  },
+    filteredCards() {
+      return this.cards.filter((card) => {
+        return card.title.toLowerCase().includes(this.searchText.toLowerCase());
+      });
+    },
+
+    paginatedCards() {
+      const startIndex = (this.currentPage - 1) * this.cardsPerPage;
+      const endIndex = startIndex + this.cardsPerPage;
+      return this.filteredCards.slice(startIndex, endIndex);
+    },
+
+    totalPages() {
+      return Math.ceil(this.filteredCards.length / this.cardsPerPage);
+    },
+
+  
     archiveOptions() {
     const options = [];
 
