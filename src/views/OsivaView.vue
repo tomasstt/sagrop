@@ -1,5 +1,8 @@
 <template>
-    <div>
+  
+
+
+    <div >
         <div class="blue1">
             <section class="blue2"><h1 class="">Osivá</h1></section>
             
@@ -39,10 +42,17 @@ import GreenPart from "../components/GreenPart.vue"
 import Footer from "../components/Footer.vue"
     export default {
       components:{  GreenPart, Footer
-          }    }
+          } 
+
+  }
+  
+
+          
 </script>
 
 <style  scoped>
+
+
 @media (max-width: 1000px){
 .space {
 margin-top: 3cm;

@@ -1,5 +1,8 @@
 <template>
-    <div>
+  <div>
+    
+
+     
         <div class="blue1">
             <section class="blue2"><h1 class="">Ponuka organických <br> a anorganicých hnojív</h1></section>
             
@@ -8,10 +11,10 @@
             
             </div>
             
-            
+
     </div>
 
-
+   
 <div class="cont">
     <img class="ob1" src="/images/traktor.svg" alt="">
     <img class="ob2" src="/images/zelen.svg" alt="">
@@ -40,7 +43,7 @@ Sortiment týchto firiem, ktoré zastupuje naša spoločnosť vám vieme zabezpe
             
             </div>
 
-
+          
 
 
         <table class="custom-table">
@@ -93,6 +96,7 @@ import GreenPart from "../components/GreenPart.vue"
   data() {
     return {
       admin : true,
+      
       tableData: [
         { cell1: "Jačmeň kŕmny", cell2: "Cell 2", cell3: "Cell 3",cell4: "Cell 4", cell5: "Cell 5", cell6: "Cell 6", cell7:"Cell 7" },
         { cell1: "Kukurica kŕmna", cell2: "Cell 2", cell3: "Cell 3",cell4: "Cell 4", cell5: "Cell 5", cell6: "Cell 6", cell7:"Cell 7" },
@@ -105,7 +109,7 @@ import GreenPart from "../components/GreenPart.vue"
       
       ],
     };
-  },
+  }
   
 };
 
@@ -114,6 +118,10 @@ import GreenPart from "../components/GreenPart.vue"
 </script>
 
 <style  scoped>
+
+
+
+
 @media (min-width: 1000px){
 .space2 {
     padding-top: 18cm;

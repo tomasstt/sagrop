@@ -83,92 +83,47 @@
           <img class="fw1" :src="card.imageUrl" alt="">
           <h2>{{ card.title }}</h2>
           <p>{{ card.description }}</p>
-          <router-link :to="{ name: 'cardDetail', params: { id: index }, props: { card } }">
+          <!-- <router-link :to="{ name: 'cardDetail', params: { id: index }, props: { card } }">
         Zobraziť viac
-      </router-link>
+      </router-link> -->
           <button class="delete-button" v-if="!admin" @click="deleteCard(index)">Vymazať</button> 
               </div>
             </div>
-  
-                   
-                <!-- <div class="box">
-                    <img class="fw1" src="/images/flowers.svg" alt="">
-                    <h2>Cenník špeciálnych osív na rok 2023</h2> 
-                    <p>Pozrite si aktuálny cenník špeciálnych osív na rok 2022.</p> 
-                    <a href="#">Zobraziť viac</a>
-                </div>
-
-                <div class="box">
-                    <img class="fw1" src="/images/flowers.svg" alt="">
-                    <h2>Cenník špeciálnych osív na rok 2023</h2> 
-                    <p>Pozrite si aktuálny cenník špeciálnych osív na rok 2022.</p> 
-                    <a href="#">Zobraziť viac</a>
-                </div>
-
-                <div class="box">
-                    <img class="fw1" src="/images/flowers.svg" alt="">
-                    <h2>Cenník špeciálnych osív na rok 2023</h2> 
-                    <p>Pozrite si aktuálny cenník špeciálnych osív na rok 2022.</p> 
-                    <a href="#">Zobraziť viac</a>
-                </div>
-
-                <div class="box">
-                    <img class="fw1" src="/images/flowers.svg" alt="">
-                    <h2>Cenník špeciálnych osív na rok 2023</h2> 
-                    <p>Pozrite si aktuálny cenník špeciálnych osív na rok 2022.</p> 
-                    <a href="#">Zobraziť viac</a>
-                </div>
-                <div class="box">
-                    <img class="fw1" src="/images/flowers.svg" alt="">
-                    <h2>Cenník špeciálnych osív na rok 2023</h2> 
-                    <p>Pozrite si aktuálny cenník špeciálnych osív na rok 2022.</p> 
-                    <a href="#">Zobraziť viac</a>
-                </div>
-
-                <div class="box">
-                    <img class="fw1" src="/images/flowers.svg" alt="">
-                    <h2>Cenník špeciálnych osív na rok 2023</h2> 
-                    <p>Pozrite si aktuálny cenník špeciálnych osív na rok 2022.</p> 
-                    <a href="#">Zobraziť viac</a>
-                </div>
-                <div class="box">
-                    <img class="fw1" src="/images/flowers.svg" alt="">
-                    <h2>Cenník špeciálnych osív na rok 2023</h2> 
-                    <p>Pozrite si aktuálny cenník špeciálnych osív na rok 2022.</p> 
-                    <a href="#">Zobraziť viac</a>
-                </div>
-
-                <div class="box">
-                    <img class="fw1" src="/images/flowers.svg" alt="">
-                    <h2>Cenník špeciálnych osív na rok 2023</h2> 
-                    <p>Pozrite si aktuálny cenník špeciálnych osív na rok 2022.</p> 
-                    <a href="#">Zobraziť viac</a>
-                </div>
-                   -->
-
-                
             </div>
             <div class="pagination">
-    <button @click="prevPage" :disabled="currentPage === 1">Prev</button>
+    <button @click="prevPage" :disabled="currentPage === 1" class="arrow-btn">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.0002 13.28L5.65355 8.9333C5.14022 8.41997 5.14022 7.57997 5.65355 7.06664L10.0002 2.71997" stroke="#050402" stroke-opacity="0.6" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+    </button>
     <span v-for="pageNumber in totalPages" :key="pageNumber">
       <button @click="changePage(pageNumber)" :class="{ active: pageNumber === currentPage }">
         {{ pageNumber }}
       </button>
     </span>
-    <button @click="nextPage" :disabled="currentPage === totalPages">Next</button>
+    <button @click="nextPage" :disabled="currentPage === totalPages" class="arrow-btn">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.99978 2.72003L10.3464 7.0667C10.8598 7.58003 10.8598 8.42003 10.3464 8.93336L5.99978 13.28" stroke="#050402" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+    </button>
   </div>
              </div>
 
              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-cV5lumV66EPpxFsNmR5P5K5J6pxzrIMjFgaBzZSUO2Fm2z4MWf0ykInI2P4FffA2" crossorigin="anonymous">
 
 
+<Footer class="space"></Footer>
 </template>
+
 
 <script>
 import CardDetailViewVue from './CardDetailView.vue';
+import Footer from '../components/Footer.vue';
 export default {
   components: 
-    {CardDetailViewVue}
+    {CardDetailViewVue,Footer}
   ,
   data() {
     return {
@@ -179,20 +134,17 @@ export default {
       imageUrl: '',
       description: '',
       showArchiveDropdown: false,
-      showArchiveDropdown: false,
       selectedArchiveOption: '',  
-        droppedFile: null,    
-          cardsPerPage: 12, // Adjust this value as needed for the number of cards per page
+      droppedFile: null,    
+      cardsPerPage: 12, 
       currentPage: 1,
-
-
       cards: [],
       searchText:'',
       date: '', 
       isActive: false,
-          dragText: 'Drop files to upload',
-          file: null,
-          validExtensions: ["image/jpeg", "image/jpg", "image/png", "image/gif", "image/svg+xml"],
+      dragText: 'Drop files to upload',
+      file: null,
+      validExtensions: ["image/jpeg", "image/jpg", "image/png", "image/gif", "image/svg+xml", "image/jpg"],
     };
   },
   created() {
@@ -203,14 +155,14 @@ export default {
       this.currentPage = pageNumber;
     },
 
-    // Method to go to the previous page
+    
     prevPage() {
       if (this.currentPage > 1) {
         this.currentPage--;
       }
     },
 
-    // Method to go to the next page
+    
     nextPage() {
       if (this.currentPage < this.totalPages) {
         this.currentPage++;
@@ -267,30 +219,34 @@ export default {
   this.saveCardsToStorage();
 },
 sortByOldest() {
-    this.cards.sort((a, b) => {
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
-      return dateA - dateB;
-    });
-  },
-  sortByNewest() {
-    this.cards.sort((a, b) => {
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
-      return dateB - dateA;
-    });
-  },
+      this.cards.sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+        return dateA - dateB;
+      });
+    },
+
+    sortByNewest() {
+      this.cards.sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+       return dateA - dateB;
+      });
+    },
+
     selectArchiveOption(option) {
       this.selectedArchiveOption = option.label;
       this.showArchiveDropdown = false;
     },
 
     createCard() {
+      const currentDate = new Date();
       const newCard = {
         title: this.title,
         image: this.image,
         imageUrl: this.imageUrl,
-        description: this.description
+        description: this.description,
+        date: currentDate.toISOString(),
       };
       this.cards.push(newCard);
       this.saveCardsToStorage();
@@ -316,6 +272,11 @@ sortByOldest() {
     }
   },
   computed: {
+    
+    sortedCards() {
+      
+      return this.cards.slice().sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate));
+    },
     filteredCards() {
       return this.cards.filter((card) => {
         return card.title.toLowerCase().includes(this.searchText.toLowerCase());
@@ -366,6 +327,65 @@ sortByOldest() {
 
 
 <style scoped>
+.space{
+  margin-top: 27cm;
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  border: none;
+  font-family: 'Plus Jakarta Sans';
+  
+}
+
+.pagination button {
+  background-color: none;
+  border: none;
+  padding: 8px 12px;
+  margin: 0 2px;
+  cursor: pointer;
+  border: none;
+  color: #333;
+  background: none;
+  transition: background-color 0.3s ease;
+}
+
+.pagination button:hover {
+  background-color: none;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: none;
+}
+
+.pagination .active {
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  
+}
+
+.pagination .active:hover {
+  background-color: none;
+  opacity: 0.8;
+}
+
+/* Additional styles for arrow buttons */
+.arrow-btn {
+  font-size: 18px;
+  width: 40px;
+  background: none;
+  border: none;
+}
+
+
+
+
 
 .or{
   font-size: 17px;
@@ -448,7 +468,7 @@ padding:7px 20px;
   .delete-button{
 
 
-    margin-left: 1cm;
+  
     border: solid 1px black;
     
     background: transparent;

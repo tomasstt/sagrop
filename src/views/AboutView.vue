@@ -113,7 +113,7 @@
         <section>          
           <NewsletterAU class="Newsletter"></NewsletterAU>
 
-
+          
           <div class="blue1">
             <section class="blue2"><h1 class="">Sme tu s vami už <br> od roku 1996</h1> <h2>Pomáhame vám s úrodou už <br> 27 rokov.</h2></section>
             
@@ -312,6 +312,7 @@ padding-top: 2cm;
 .ron svg:hover{
       scale: 1.2;
       transition: ease-in-out 0.2s;
+      opacity: 0.8;
       
 }
 

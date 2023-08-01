@@ -45,7 +45,7 @@
 import Aktuality from "../components/Aktuality.vue"
     export default {
         components:{ Aktuality},
-        
+
   data() {
     return {
       admin : true,
@@ -98,6 +98,7 @@ margin:  auto;
 th {
  max-width: 20px;
 height: 90px;
+
 }
 th.first-header {
   border-top-left-radius: 20px;
@@ -136,6 +137,7 @@ th.first-header {
 
 td {
   max-width: 10px;
+  font-family: Plus Jakarta Sans;
 }
 th.last-header {
   border-top-right-radius: 20px;

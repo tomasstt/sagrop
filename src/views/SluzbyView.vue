@@ -230,11 +230,15 @@ import Newsletter from "../components/Newsletter.vue"
     
   }
 
+  
+
   .image-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   max-width: 100%;
+  margin-top: 0px;
+  
   width: 97%;
   margin: 0 auto;
   margin-bottom: 10cm;
@@ -248,7 +252,8 @@ import Newsletter from "../components/Newsletter.vue"
   border-radius: 20px;
   max-height: 100%;
   height: auto;
-  
+  margin-bottom: 2cm;
+  margin-top: 0px;
 }}
 
 @media (max-width: 1000px) {
@@ -294,13 +299,25 @@ height: auto;
   justify-content: center;
   align-items: center;
 }}
-@media (max-width: 2000px) {
+@media (max-width: 2000px)and (min-width: 1000px) {
+  
+  .image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+  max-width: 100%;
+  
+  gap: 20px;
+}
   .image-container img {
    margin-bottom: 2cm;
   max-width: 97.5%;
   border-radius: 20px;
   max-height: 100%;
   width: 2500px;
+  margin-top: 80px;
+
   height: auto;
   
 }}
@@ -312,7 +329,7 @@ height: auto;
   justify-content: center;
   
   max-width: 100%;
- margin-top: 130px;
+ margin-top: 30px;
   gap: 20px;
 }
 
