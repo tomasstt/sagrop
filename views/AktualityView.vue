@@ -1,0 +1,1156 @@
+<template>
+  <div>
+    <section>
+      <div class="blue1">
+        <section class="blue2"><h1 class="">Aktuality</h1></section>
+
+        <aside class="blue3"><p class="">Tu nájdete informácie o nových produktových <br> radoch, najnovších projektoch a iných <br> zaujímavých veciach, ktoré sa u nás dejú. Naša <br> snaha je udržiavať vás v obraze a informovať o <br> všetkom, čo sa deje v našej spoločnosti.</p></aside>
+        <aside class="blue4"><p class="">Sledujte naše novinky a buďte informovaní o <br> všetkých dôležitých zmenách a aktualizáciách. </p></aside>
+
+      </div>
+
+    </section>
+    <div class="bar">
+      <div class="search-bar">
+        <svg class="icon-search" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M7.66634 13.9999C11.1641 13.9999 13.9997 11.1644 13.9997 7.66659C13.9997 4.16878 11.1641 1.33325 7.66634 1.33325C4.16854 1.33325 1.33301 4.16878 1.33301 7.66659C1.33301 11.1644 4.16854 13.9999 7.66634 13.9999Z" stroke="#3B3731" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M14.6663 14.6666L13.333 13.3333" stroke="#3B3731" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+        <input class="search" type="text" v-model="searchText" placeholder="Hladat" />
+      </div>
+
+      <div class="spacer"></div>
+
+      <div class="buttons">
+        <button class="new" @click="sortByNewest">Najnovšie</button>
+        <button class="old" @click="sortByOldest">Najstaršie</button>
+
+        <div class="archive-dropdown">
+          <div class="dropdown">
+            <button @click="showArchiveDropdown = !showArchiveDropdown">
+              <span>Archív</span>
+              <svg class="archIcon" width="25px" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m8.25 3v6.75m0 0l-3-3m3 3l3-3M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"></path>
+              </svg>
+            </button>
+            <div v-if="showArchiveDropdown" class="dropdown-menu">
+              <ul>
+                <li v-for="option in archiveOptions" :key="option.label">
+                  <a @click="selectArchiveOption(option)">{{ option.label }}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <span class="selected-option">{{ selectedArchiveOption }}</span>
+      </div>
+    </div>
+
+    <div v-if="admin" class="admin-page">
+      <form @submit.prevent="createCard" class="form-container">
+        <div class="drag-area" :class="{ 'active': isActive }" @dragover.prevent="onDragOver" @dragleave="onDragLeave" @drop.prevent="onDrop">
+          <svg class="brow" xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46" fill="none">
+            <path d="M26.833 3.83325H17.2497C7.66634 3.83325 3.83301 7.66659 3.83301 17.2499V28.7499C3.83301 38.3333 7.66634 42.1666 17.2497 42.1666" stroke="#A6A29D" stroke-width="2.875" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M42.166 19.1665V24.9165" stroke="#A6A29D" stroke-width="2.875" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M42.1663 19.1666H34.4997C28.7497 19.1666 26.833 17.2499 26.833 11.4999V3.83325L42.1663 19.1666Z" stroke="#A6A29D" stroke-width="2.875" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M26.3732 34.9986C21.8691 35.3244 21.8691 41.8411 26.3732 42.1669H37.0299C38.3141 42.1669 39.5791 41.6877 40.5182 40.8252C43.6807 38.0652 41.9941 32.5452 37.8349 32.0277C36.3399 23.0386 23.3449 26.4502 26.4116 35.0177" stroke="#A6A29D" stroke-width="2.875" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+
+          <header v-text="dragText"></header>
+
+          <div class="or">or<a class="browse" @click="browseFile" > browse </a></div>
+          <input type="file"  ref="fileInput" required hidden @change="handleImageUpload">
+        </div>
+
+        <div class="input-container">
+          <input class='input-line full-width' type="text" v-model="title" placeholder="Názov" required>
+          <input id="up" class='input-line full-width' v-model="description" placeholder="Popis" required>
+        </div>
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <div class="container">
+    <div class="box-container">
+      <div class="box" v-for="(card, index) in filteredCards" :key="index">
+        <img class="fw1" :src="card.article_image_url" :alt="card.article_title">
+        <svg class="trash" v-if="admin" @click="deleteCard(card.id)" fill="none" width="33px" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"></path>
+          </svg>
+        <h2>{{ card.article_title }}</h2>
+        <p>{{ card.articleContent }}</p>
+        <p>{{ card.article_publication }}</p>
+      </div>
+    </div>
+    </div>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-cV5lumV66EPpxFsNmR5P5K5J6pxzrIMjFgaBzZSUO2Fm2z4MWf0ykInI2P4FffA2" crossorigin="anonymous">
+  </div>
+</template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      title: '',
+      admin: false,
+      cards: [],
+      image: null,
+      imageUrl: '',
+      description: '',
+      showArchiveDropdown: false,
+      selectedArchiveOption: '',
+      draggedFile: null,
+      searchText: '',
+      isActive: false,
+      dragText: 'Drop files to upload',
+      validExtensions: [
+        "image/jpeg",
+        "image/jpg",
+        "image/png",
+        "image/gif",
+        "image/svg+xml",
+      ],
+      filename: 'AktualityView.vue',
+    };
+  },
+  created() {
+    this.loadCardsFromBackend();
+    this.checkAdmin();
+  },
+  methods: {
+    /**
+     * Simulates an error and logs it to the backend using Axios.
+     * @param {Error} error - The error object to be logged to the backend.
+     */
+    logErrorToBackend(error) {
+      try {
+        // Log the error to the backend
+        const loggerEndpoint = 'http://127.0.0.1:5000/api/log';
+        const logData = { source: this.filename, message: error.message };
+
+        // Send the error log to the backend using Axios
+        axios.post(loggerEndpoint, logData).catch((error) => {
+          console.error('Error logging to backend:', error);
+        });
+
+        // You can also display the error message to the user or handle it as needed
+        console.error('Caught error:', error.message);
+      } catch (error) {
+        console.error('Error logging to backend:', error);
+      }
+    },
+
+    /**
+     * Handle image upload when the user selects an image.
+     * @param {Event} event - The input change event containing the selected image file.
+     */
+     async handleImageUpload(event) {
+      const file = event.target.files[0];
+
+      // Check if the selected file is an image
+      if (!this.validExtensions.includes(file.type)) {
+        this.logErrorToBackend(`Invalid file type. Please select an image file (jpeg, jpg, png, gif, svg).`);
+        return;
+      }
+
+      try {
+        const formData = new FormData();
+        formData.append('image', file);
+
+        // Send the image file to the server for upload
+        const response = await axios.post('http://127.0.0.1:5000/api/upload-image', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            Authorization: localStorage.getItem('token'),
+          },
+        });
+
+        // The server should respond with the URL of the uploaded image
+        this.imageUrl = response.data.imageUrl;
+      } catch (error) {
+        // Log the error message to the console
+        console.error('Error uploading image:', error.message);
+        this.logErrorToBackend(error);
+      }
+    },
+
+    /**
+     * Check the user's admin status.
+     * @returns {Promise<void>} - A Promise that resolves after checking the admin status or rejects on error.
+     */
+    async checkAdmin() {
+      try {
+        const token = localStorage.getItem('token');
+        const response = await axios.get('http://127.0.0.1:5000/api/check-admin', {
+          headers: { Authorization: token },
+        });
+        this.admin = response.data.isAdmin;
+      } catch (error) {
+        this.logErrorToBackend(error);
+      }
+    },
+
+    /**
+     * Load cards from the backend API.
+     * @returns {Promise<void>} - A Promise that resolves after loading the cards or rejects on error.
+     */
+    async loadCardsFromBackend() {
+      try {
+        const response = await axios.get('http://127.0.0.1:5000/api/articles');
+        this.cards = response.data;
+      } catch (error) {
+        this.logErrorToBackend(error);
+      }
+    },
+
+    /**
+     * Create a new card by sending a POST request to the backend API.
+     * @returns {Promise<void>} - A Promise that resolves after creating the card or rejects on error.
+     */
+    async createCard() {
+      try {
+        if (!this.cards) {
+          this.cards = []; // Initialize the cards array as an empty array if it's null
+        }
+        const response = await axios.post('http://127.0.0.1:5000/api/articles', {
+          articleTitle: this.title,
+          articleContent: this.description,
+          articlePublication: new Date().toISOString(),
+          articleImageUrl: this.imageUrl,
+        });
+        const newCard = response.data;
+        if (this.cards.length === 0) {
+          this.cards.push(newCard); // Add the new card at the end of the array if it's empty
+        } else {
+          this.cards.unshift(newCard); // Add the new card at the beginning of the array
+        }
+        this.resetForm();
+
+        await this.loadCardsFromBackend();
+      } catch (error) {
+        this.logErrorToBackend(error);
+      }
+    },
+
+    /**
+     * Delete a card by sending a DELETE request to the backend API.
+     * @param {number} id - The ID of the card to delete.
+     * @returns {Promise<void>} - A Promise that resolves after deleting the card or rejects on error.
+     */
+    async deleteCard(id) {
+      try {
+        await axios.delete(`http://127.0.0.1:5000/api/articles/${id}`);
+
+        // Remove the card from the local cards array
+        this.cards = this.cards.filter((card) => card.id !== id);
+
+        // Reload the cards from the backend to reflect the updated list
+        await this.loadCardsFromBackend();
+      } catch (error) {
+        this.logErrorToBackend(error);
+      }
+    },
+
+    browseFile() {
+      this.$refs.fileInput.click();
+    },
+
+    onDragOver(event) {
+      event.preventDefault();
+      this.isActive = true;
+      this.dragText = 'Release to Upload File';
+    },
+
+    onDragLeave() {
+      this.isActive = false;
+      this.dragText = 'Drop files to upload';
+    },
+
+    onDrop(event) {
+      this.draggedFile = event.dataTransfer.files[0];
+      this.showFile();
+      this.imageUrl = URL.createObjectURL(this.draggedFile);
+    },
+
+    showFile() {
+      if (this.validExtensions.includes(this.draggedFile.type)) {
+        const fileReader = new FileReader();
+        fileReader.onload = () => {
+          const fileURL = fileReader.result;
+          const imgTag = `<img src="${fileURL}" alt="image">`;
+          this.$el.querySelector('.drag-area').innerHTML = imgTag;
+        };
+        fileReader.readAsDataURL(this.draggedFile);
+      } else {
+        alert('This is not an Image File!');
+        this.isActive = false;
+        this.dragText = 'Drag & Drop to Upload File';
+      }
+    },
+
+    sortByOldest() {
+      try {
+        this.cards.sort((a, b) => new Date(a.article_publication) - new Date(b.article_publication));
+      } catch (error) {
+        this.logErrorToBackend(error);
+      }
+    },
+
+    sortByNewest() {
+      try {
+        this.cards.sort((a, b) => new Date(b.article_publication) - new Date(a.article_publication));
+      } catch (error) {
+        this.logErrorToBackend(error);
+      }
+    },
+
+    selectArchiveOption(option) {
+      this.selectedArchiveOption = option.label;
+      this.showArchiveDropdown = false;
+    },
+
+    resetForm() {
+      this.title = '';
+      this.image = null;
+      this.imageUrl = '';
+      this.description = '';
+      const fileInput = this.$refs.fileInput;
+      if (fileInput) fileInput.value = '';
+    },
+  },
+
+  computed: {
+    filteredCards() {
+      const searchText = this.searchText.toLowerCase().trim();
+      if (!searchText) {
+        return this.cards;
+      } else {
+        return this.cards.filter((card) => {
+          const titleMatch = card?.article_title?.toLowerCase().includes(searchText);
+          const contentMatch = card?.article_content?.toLowerCase().includes(searchText);
+          return titleMatch || contentMatch;
+        });
+      }
+    },
+    archiveOptions() {
+      const options = [];
+      const currentDate = new Date();
+      const currentYear = currentDate.getFullYear();
+      const currentMonth = currentDate.getMonth() + 1;
+
+      for (let year = currentYear; year >= 2016; year--) {
+        for (let month = 12; month >= 1; month--) {
+          options.push({
+            year,
+            month,
+            label: `${year}-${month.toString().padStart(2, '0')}`,
+          });
+
+          if (year === currentYear && month === currentMonth) {
+            break;
+          }
+        }
+      }
+      return options;
+    },
+  },
+};
+</script>
+
+<style scoped>
+
+.or{
+  font-size: 17px;
+}
+.browse {
+  text-decoration: underline;
+  font-size: 17px;
+  color: var(--green, #2C3714);
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+font-weight: 600;
+line-height: 32px; /* 188.235% */
+letter-spacing: 0.255px;
+cursor: pointer;
+  
+}
+
+.icon-search{
+  display: flex;
+  position: absolute;
+  margin-top: 10px;
+  margin-left: 11px;
+}
+
+@media (max-width: 1000px) {
+  
+.dropdown span{
+  display: none;
+}
+  .archIcon{
+    display: block;
+  }
+  .brow{
+    width: 30px;
+}
+
+
+
+  .drag-area header {
+    display: none;
+  }
+  .drag-area span {
+    
+    display: none;
+  }
+  
+  
+  .drag-area img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+
+}
+
+
+
+
+@media (min-width: 1000px) {
+  .dropdown span{
+  display: block;
+}
+  
+  .archIcon{
+    display: none;
+  }
+  .drag-area {
+  border: 2px dashed rgba(5, 4, 2, 0.40);
+    height: 303px;
+    width: 303px;
+    border-radius: 20px;
+    font-family: 'Plus Jakarta Sans';
+    display: flex;
+   flex: 1;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+
+  .drag-area.active {
+    border: 2px solid black;
+  }
+  .drag-area .icon {
+    font-size: 100px;
+    color: black;
+  }
+  .drag-area header {
+    font-size: 17px;
+    font-weight: 500;
+    color: black;
+    margin-top: 1cm;
+  }
+  .drag-area span {
+    font-size: 15px;
+    font-weight: 500;
+    color: black;
+    margin: 10px 0 15px 0;
+  }
+  
+  .drag-area button {
+    padding: 10px 25px;
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    background: black;
+    color: #5256ad;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .drag-area img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+}
+
+*{
+
+ box-sizing: border-box;
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  
+  padding-left: 50px;
+  
+}
+
+input {
+  border: transparent;
+}
+
+::-webkit-input-placeholder .input-line:focus +::input-placeholder {
+color: #fff;
+}
+
+.highlight {
+color: rgba(255, 255, 255, 0.8);
+font-weight: 400;
+cursor: pointer;
+transition: color .2s ease;
+}
+
+.highlight:hover {
+color: #fff;
+transition: color .2s ease;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: row; /* Set the form to be stacked vertically */
+
+}
+
+@media (min-width: 1000px) {
+#up{
+  line-height: 140px;
+}
+
+.trash{
+  margin-left: 14cm;
+}
+
+}
+
+@media (max-width: 999px) {
+  #up{
+  line-height: 40px;
+  
+}
+
+.trash {
+    display: flex;
+    justify-content: flex-end; /* Aligns the icon to the right end */
+    margin-left: 9cm;
+    align-items: center; /* To center items vertically if needed */
+  }
+
+
+}
+
+
+
+.spacing {
+-webkit-box-flex: 1;
+-webkit-flex-grow: 1;
+-ms-flex-positive: 1;
+flex-grow: 1;
+
+
+text-align: center;
+color: rgba(5, 4, 2, 0.80);
+text-align: center;
+font-size: 14px;
+font-family: 'Plus Jakarta Sans';
+font-style: normal;
+font-weight: 500;
+line-height: 22px;
+}
+
+.input-line:focus {
+outline: none;
+border-color: black;
+-webkit-transition: all .2s ease;
+transition: all .2s ease;
+}
+
+
+
+.ghost-round {
+cursor: pointer;
+background: none;
+border: none;
+background: black;
+border-radius: 25px;
+color: var(--white, #E9E5E0);
+-webkit-align-self: flex-end;
+-ms-flex-item-align: end;
+align-self: flex-end;
+font-size: 14px;
+
+font-family: 'Plus Jakarta Sans';
+font-style: normal;
+font-weight: 300;
+line-height: 2.8em;
+margin-top: 25px;
+margin-bottom: 25px;
+-webkit-transition: all .2s ease;
+transition: all .2s ease;
+}
+
+.ghost-round:hover {
+
+-webkit-transition: all .2s ease;
+transition: all .2s ease;
+}
+.search::placeholder {
+padding-left: 1px;
+
+  color: rgba(15, 11, 5, 0.40);
+font-family: "Plus Jakarta Sans";
+font-size: 13px;
+  
+}
+
+.search{
+display: grid;
+place-items: start;
+align-self: start;
+
+align-content: start;
+justify-content: start;
+text-indent: 10px; 
+
+
+}
+
+.boost-round {
+cursor: pointer;
+background: none;
+border: none;
+background: transparent;
+border-radius: 25px;
+
+border: solid 1px black;
+
+font-style: normal;
+font-weight: 500;
+line-height: 22px;
+color: rgba(5, 4, 2, 0.80);
+-webkit-align-self: flex-end;
+-ms-flex-item-align: end;
+align-self: flex-end;
+font-size: 14px;
+
+font-family: 'Plus Jakarta Sans';
+font-style: normal;
+font-weight: 300;
+line-height: 2.8em;
+margin-top: 25px;
+margin-bottom: 25px;
+-webkit-transition: all .2s ease;
+transition: all .2s ease;
+}
+
+.input-line {
+background: none;
+margin-bottom: 10px;
+line-height: 2.9em;
+color: rgba(5, 4, 2, 0.40);
+
+font-weight: 300;
+letter-spacing: 0px;
+letter-spacing: 0.02rem;
+font-size: 19px;
+font-size: 1.2rem;
+font-family: 'Plus Jakarta Sans';
+border-bottom: 1px rgba(5, 4, 2, 0.40) solid;
+-webkit-transition: all .2s ease;
+transition: all .2s ease;
+}
+@media (min-width: 1000px) {
+.full-width {
+width: 362px;
+}}
+
+@media (max-width: 1000px) {
+.full-width {
+width: 160px;
+}}
+
+/* CSS for the layout */
+.bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+
+}
+
+.search-bar {
+  flex: 1; /* Take up remaining space */
+  
+}
+
+.spacer {
+  flex: 1; /* Take up remaining space */
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  
+  gap:14px;
+}
+
+/* Add your existing button styles here */
+
+.old{
+  place-items: center;
+  display: flex;
+  border: solid 1px black;
+  background: transparent;
+  border-radius: 19px;
+  cursor: pointer;
+  padding:9px 20px;
+}
+
+.new{
+  display: flex;
+justify-content: flex-end;
+  right: 8cm;
+  border: solid 1px black;
+  background: transparent;
+  font-size: 13px;
+  border-radius: 19px;
+  cursor: pointer;
+  padding:9px 20px;
+}
+.custom-file-label {
+  background-color: transparent;
+  width: 303px;
+height: 303px;
+
+  border-radius: 20px;
+border: 1px dashed rgba(5, 4, 2, 0.40);
+  cursor: pointer;
+  display: inline-block;
+}
+
+.admin-page{
+  padding-top: 67px;
+  justify-content: start;
+  place-items: center;
+  display: flex;
+  color: rgb(0, 0, 0);
+padding-left: 20px;
+
+  margin: 0 auto;
+
+}
+
+
+.admin-page h1{
+  color: #ffffff;
+  font-size: 40px;
+ margin-right: 4cm;
+
+}
+
+@media (min-width: 1000px) {
+.admin-page button{
+background: rgb(0, 0, 0);
+color: rgb(255, 255, 255);
+border: none;
+place-items: start;
+place-content: start;
+justify-content: start;
+align-self: end;
+justify-content: start;
+font-family: 'Plus Jakarta Sans'; 
+font-size: 14px;
+border-radius: 20px;
+width: 100px;
+height: 40px;
+margin-left: -363px;
+cursor: pointer;
+
+}
+
+.dropdown button {
+  background: transparent;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 10px 30px;
+  margin-right:20px;
+}
+
+}
+@media (max-width: 1000px) {
+.admin-page button{
+background: rgb(0, 0, 0);
+color: rgb(255, 255, 255);
+border: none;
+
+
+
+
+
+font-family: 'Plus Jakarta Sans'; 
+font-size: 14px;
+border-radius: 20px;
+width: 100px;
+height: 40px;
+cursor: pointer;
+
+}
+
+}
+
+
+
+
+.fw1 {
+border-radius: 20px;
+width: 500px;
+height: 320px;
+}
+
+.container{
+  display: flex;
+  font-family: 'Plus Jakarta Sans';
+  margin-top: 2cm;
+  justify-content: center;
+}
+@media (min-width: 2000px) {
+  .container .box-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}
+
+/* For screens larger than or equal to 1000px but less than 2000px */
+@media (min-width: 1000px) and (max-width: 1999px) {
+  .container .box-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1299px) {
+  .container .box-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+/* For screens smaller than 1000px */
+@media (max-width: 999px) {
+  .container .box-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+  }
+}
+
+
+
+.container .box-container .box{
+border-radius: 5px;
+margin-left: 20px;
+margin-right: 20px;
+text-align: start;
+}
+
+.box {
+    line-height: 19px;
+}
+
+.box h2 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.box p {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.box a{
+    font-size: 15px;
+    font-weight: 600;
+    color: #2C3714;
+}
+
+
+.container .box-container .box img {
+
+   
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px;
+    
+}
+
+.blue1 {
+    display: table;
+    width: 100%;
+    padding-top: 3cm;
+    color: rgb(0, 0, 0);
+    
+  
+   
+  }
+  
+  .blue2 {
+    height: 300px;
+    width: 40%;
+    display: table-cell;
+    padding-left: 30px;
+    color: #050402;
+    font-family: 'Recia';
+font-style: normal;
+font-weight: 600;
+    font-size: 6em;
+  }
+  
+  .blue3 {
+    height: 300px;
+    width: 30%;
+    display: table-cell;
+    font-family: 'Plus Jakarta Sans';
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.225px;
+  padding-right: 20px;
+  color: rgba(35, 25, 10, 0.80);
+    font-size: 3em;
+  }
+  .blue3 br {
+    display: none;
+  }
+
+
+  .blue4 {
+    height: 300px;
+    width: 30%;
+    display: table-cell;
+    font-family: 'Plus Jakarta Sans';
+font-style: normal;
+font-weight: 500;
+padding-right: 20px;
+line-height: normal;
+letter-spacing: 0.225px;
+color: rgba(35, 25, 10, 0.80);
+    font-size: 3em;
+
+  }
+
+
+  @media (max-width: 2000px){
+    
+    .blue2 {
+        height: 300px;
+        width: 40%;
+        display: table-cell;
+        padding-left: 30px;
+        
+        font-size: 48px;
+      }
+      .blue3 br {
+    display: none;
+  }
+      .blue3 {
+        height: 300px;
+        width: 30%;
+        display: table-cell;
+      
+        font-size: 20px;
+      }
+      .blue4 {
+        height: 300px;
+        width: 30%;
+        display: table-cell;
+        padding-right: 20px;
+        font-size: 20px;
+    
+      }
+
+      .blue4 br {
+        display: none;
+      }
+    
+  }
+
+  @media (max-width: 1410px){
+
+    .blue2 {
+      display: block;
+      height: 300px;
+      width: 100%;
+      font-size: 6em;
+      
+    }
+    
+    .blue3 {
+      display: block;
+      height: 150px;
+      width: 100%;
+      padding-left: 30px;
+      font-size: 21px;
+    }
+    .blue4 {
+        padding-left: 60px  10;
+        padding-right: 30px;
+        font-size: 21px;
+      }
+
+      .blue4 br {
+        display: none;
+      }
+  
+    }
+
+    
+  @media (max-width: 1000px){
+    .blue1{
+       display: block;
+     
+       
+    }
+    .dropdown button {
+  background: transparent;
+  border:none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin-right:20px;
+}
+
+
+    .search-bar input {
+  
+  flex: 1;
+  place-content: start;
+  width: 93px;
+  padding: 9px 20px;
+  border: 1px solid #000;
+  border-radius: 20px;
+  outline: none;
+  background: #F4F0EB;}
+
+    .blue2 {
+      display: block;
+      height: auto;
+      width: auto;
+      font-size: 31px;
+      
+      padding-right: 30px;
+      padding-left: 30px;
+    }
+    .blue3 br {
+      display: none;
+    }
+    .blue1 br {
+      display: none;
+    }
+    .blue3 {
+      display: block;
+      height: auto;
+      width: auto;
+      
+      font-size: 20px;
+      padding-left: 30px;
+      padding-right: 30px;
+      
+      
+      
+    }
+    .blue4 {
+        display: block;
+        height: auto;
+        width: auto;
+        font-size: 20px;
+        padding-left: 30px;
+        padding-right: 30px;
+        
+      }
+  }
+
+
+    .search-bar {
+  display: block;
+  align-items: start;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  
+  place-content: start;
+}
+
+.search-bar input {
+  
+  flex: 1;
+  place-content: start;
+  padding: 9px 20px;
+  border: 1px solid #000;
+  border-radius: 20px;
+  outline: none;
+  background: #F4F0EB;}
+
+.archive-dropdown {
+  display: flex;
+  align-items: center;
+  
+
+}
+
+.dropdown {
+  position: relative;
+}
+
+
+
+.dropdown-menu {
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  top: 30px;
+  left: 0;
+  z-index: 1;
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu li {
+  margin-bottom: 5px;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f1f1f1;
+}
+
+.selected-option {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+
+</style>
