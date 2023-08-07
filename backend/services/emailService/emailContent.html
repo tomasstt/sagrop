@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Article Published</title>
+  <style>
+    /* Global styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #007bff;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+    main {
+      padding: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    footer {
+      background-color: #f5f5f5;
+      padding: 10px;
+      text-align: center;
+    }
+    footer p {
+      font-size: 12px;
+      color: #777;
+      margin: 0;
+    }
+
+    /* Custom styles */
+    .container {
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+    .article-title {
+      color: #007bff;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .article-content {
+      font-size: 16px;
+      color: #444;
+      line-height: 1.8;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+      margin-top: 20px;
+    }
+    .btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>New Article Published</h1>
+  </header>
+  <main>
+    <div class="container">
+      <h2 class="article-title">{{articleTitle}}</h2>
+      <div class="article-content">
+        {{articleContent}}
+      </div>
+      <a href="#" class="btn">Read More</a>
+    </div>
+  </main>
+  <footer>
+    <p>© 2023 Sagrop. All rights reserved.</p>
+  </footer>
+</body>
+</html>
