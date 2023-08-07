@@ -36,7 +36,7 @@ Sortiment týchto firiem, ktoré zastupuje naša spoločnosť vám vieme zabezpe
        <div class="space"> <GreenPart></GreenPart></div>
 
        <div class="blue1">
-            <section class="blue2"><h1 class="">Cenník Eko Hnojív </h1></section>
+            <section class="blue2"><h1 class="heh">Cenník Eko Hnojív </h1></section>
             
             <aside class="blue3"><p class="">Resp. doprava vo vlastnej réžii je možná zo skladu spoločnosti Sagrop Šala , Dlhá nad Váhom 927 05</p></aside>
             <aside class="blue4"><p class="">Všetky produkty sú vhodné pre  ekologické  poľnohospodárstvo. K dispozícii je aj  vo vode  rozpustná  humínová kyselina  -  CODAHUMUS S80</p></aside>
@@ -128,7 +128,7 @@ import GreenPart from "../components/GreenPart.vue"
 }}
 @media (max-width: 1000px){
 .space2 {
-margin-top: 2cm;
+margin-top: 6cm;
 }
 }
 @media (min-width: 1000px){
@@ -140,7 +140,6 @@ margin-top: 2cm;
     margin-top: 12cm;
   }
 }
-
 
 
 
@@ -183,6 +182,11 @@ th {
   font-weight: 600;
 }
 @media (max-width: 1000px){
+
+  .custom-table{
+    margin: -4cm auto;
+
+  }
 
   th{
     font-size: 15px;
@@ -312,9 +316,12 @@ margin-top: 2cm;
     width: 30%;
     display: table-cell;
     padding-right: 1cm;
-    font-weight: 300;
-    line-height: normal;
+    color: rgba(35, 25, 10, 0.80);
+font-style: normal;
+font-weight: 500;
+line-height: normal;
 letter-spacing: 0.225px;
+
 
 
     font-family: 'Plus Jakarta Sans', sans-serif;
@@ -329,6 +336,11 @@ letter-spacing: 0.225px;
     line-height: normal;
     font-weight: 300;
     font-family: 'Plus Jakarta Sans', sans-serif;
+letter-spacing: 0.225px;
+color: rgba(35, 25, 10, 0.80);
+font-style: normal;
+font-weight: 500;
+line-height: normal;
 letter-spacing: 0.225px;
 
   }
@@ -376,12 +388,27 @@ letter-spacing: 0.225px;
   @media (max-width: 1410px){
     .blue2 {
       display: block;
-      height: 200px;
+      height: 100px;
       width: 90%;
-      font-size: 5em;
+      font-size: 3em;
+      
   
       
     }
+
+    .cont {
+    margin-top: -4cm;
+    margin-bottom:0cm;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+ 
+  gap: 5px;
+  
+  
+}
+
     
     
     .blue3 {
@@ -390,13 +417,14 @@ letter-spacing: 0.225px;
       width: 90%;
       padding-left: 30px;
       padding-top: 30px;
-      font-size: 30px;
+      font-size: 25px;
       
     }
     .blue4 {
-      
+      padding-top: 0px;
         padding-left: 30px;
-        font-size: 30px;
+        font-size: 25px;
+        
         
       }
   
@@ -418,7 +446,7 @@ letter-spacing: 0.225px;
       height: auto;
       width: auto;
       font-size: 23px;
-      
+      height: 70px;
       padding-left: 16px;
     }
     
@@ -442,17 +470,25 @@ letter-spacing: 0.225px;
 
    
   }
+  
   .container3 {
   width: 55%;
   font-family: 'Plus Jakarta Sans', sans-serif;
-    padding-top: 2cm;
+    padding-top: 1.5cm;
   position: absolute;
   right: 0;
+  color: rgba(35, 25, 10, 0.80);
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.225px;
+
+  
 
 }
 
 .right-text3 p {
-  font-size: 24px;
+  font-size: 29px;
   font-family: 'Plus Jakarta Sans', sans-serif;
   
 }
@@ -471,11 +507,21 @@ letter-spacing: 0.225px;
   position: absolute;
   right: 0;
 
+}  .right-text3 p {
+  font-size: 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  
+  
 }
 
+
 }
-@media (max-width: 1100){
+@media (max-width: 2000px){
+  .right-text3 p {
+  font-size: 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   
+}
 
 }
 

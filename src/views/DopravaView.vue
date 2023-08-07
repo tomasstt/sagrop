@@ -54,24 +54,24 @@ components: {
 
 @media (max-width: 2000px){
 .space{
-    margin-top: 30cm;
+    margin-top: 3cm;
 }
 }
-@media (min-width: 1000px){
-.space{
-    margin-top: 30cm;
-}
-}
+
 
 
 
 @media (max-width: 1000px){
     .space{
-        margin-top: 0cm;
+        margin-top: 1cm;
     }
 }
 
-
+@media (min-width: 1000px){
+.space{
+    margin-top: 28cm;
+}
+}
 
 @media (max-width: 2000px) and (min-width: 1000px){
   .right-text3 h1 {
@@ -102,9 +102,10 @@ components: {
 .container3 {
   width: 59%;
   font-family: 'Plus Jakarta Sans', sans-serif;
-    padding-top: 2cm;
+    padding-top: 1cm;
   position: absolute;
   right: 0;
+  
 
 }
 
@@ -397,7 +398,7 @@ letter-spacing: 0.225px;
 
 
 .right-text3 p {
-  font-size: 20px;
+  font-size:29px;
   font-family: 'Plus Jakarta Sans', sans-serif;
   
 }
@@ -408,7 +409,30 @@ letter-spacing: 0.225px;
 }
 
 
+@media (max-width: 2000px){
+  .container3 {
+  width: 59%;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+    margin-top: -11cm;
+  position: absolute;
+  right: 0;
 
+
+}
+
+
+
+.right-text3 p {
+  font-size:20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+
+}
+
+.right-text3 {
+  padding-right: 30px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+}
 
 @media (max-width: 1000px){
   
@@ -417,7 +441,7 @@ letter-spacing: 0.225px;
   .container3 {
   width: 100%;
   position: static;
-  
+  padding-top: 70px;
   height: 100%;
   display: flex;
   justify-content: flex-end;
@@ -491,8 +515,7 @@ letter-spacing: 0.225px;
   }
   .blue2 h2 {
     font-size: 35px;
-    color: #2C3714;
-  }
+    color: var(--green, #2C3714);  }
  
   
 

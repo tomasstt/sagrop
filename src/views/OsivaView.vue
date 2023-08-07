@@ -6,8 +6,8 @@
         <div class="blue1">
             <section class="blue2"><h1 class="">Osivá</h1></section>
             
-            <aside class="blue3"><p class="">Naša ponuka zahŕňa širokú škálu herbicídov, insekticídov, fungicídov a ďalších chemikálií na ochranu a podporu rastu rastlín. Sme hrdí na to, že všetky naše výrobky sú starostlivo vybrané a testované, aby zaručili maximálnu účinnosť a bezpečnosť pre vaše plodiny a životné prostredie.</p></aside>
-            <aside class="blue4"><p class="">Snažíme sa neustále zlepšovať naše výrobky a služby, aby splnili potreby našich zákazníkov. Ak hľadáte spoľahlivého partnera pre vaše poľnohospodárske alebo lesné podnikanie, neváhajte nás kontaktovať. Tešíme sa na spoluprácu s vami!</p></aside>
+            <aside class="blue3"><p class="">Kompletné portfólio hybridov kukurice a slnečnice od firiem Pioneer Hi-Bred, Monsanto, Limagrain, Saatbau, KWS, Gabonakutató, Rapool, Syngenta, Kiskun, Martonvásár, …</p></aside>
+            <aside class="blue4"><p class="">Najnovší sortiment osív pšenice ozimnej od firiem VP Agro, Saatbau, Gabonakutató, Rapool a Selgen.</p></aside>
             
             </div>
             
@@ -23,10 +23,10 @@
 
   <div class="container3">
   <div class="right-text3">
-<p> Tieto firmy sú plne etablované v slovenskej poľno výrobe pri pestovaní hustosiatych obilnín (pšenica, jačmeň), kukurice, repky olejnej, cukrovej repy, špeciálnych plodín, vo vinohradoch a sadoch.</p>
+<p> Nové trendy pestovateľskej technológie v podobe hybridných osív ozimnej pšenice od firmy Rapool a hybridných osív ozimných jačmeňov od firmy Syngenta.</p>
 
 <p> 
-Sortiment týchto firiem, ktoré zastupuje naša spoločnosť vám vieme zabezpečiť. Ich aplikáciu a cenovú kalkuláciu vám navrhnú naši obchodno-odborní zástupcovia. Základné ceny špeciálnych prípravkov, stimulantov a biopreparátov nájdete v našom cenníku, ktorý vám pošleme na vyžiadanie e-mailom alebo poskytneme pri osobnom stretnutí.</p>
+  Ponuka osív ozimného jačmeňa a ovsa, jarných odrôd sladovníckeho jačmeňa a ostatných jarín, vrátane medziplodín pre potreby „greeningu“ v samostatných osivách ako aj miešankách podľa potreby.</p>
 </div>
 </div>
             
@@ -85,7 +85,7 @@ margin-top: 3cm;
   
   .blue2 {
     height: 300px;
-    width: 45%;
+    width: 42.5%;
     display: table-cell;
  padding-left: 30px;
     font-size: 50px;
@@ -110,8 +110,19 @@ margin-top: 3cm;
   .blue3 {
     height: 300px;
     width: 30%;
+    padding-top: 1cm;
+    
     display: table-cell;
     padding-right: 1cm;
+    color: rgba(35, 25, 10, 0.80);
+/* Body text/80% */
+font-family: Plus Jakarta Sans;
+
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.225px;
+
     
     font-family: 'Plus Jakarta Sans';
     font-size: 3em;
@@ -123,17 +134,27 @@ margin-top: 3cm;
     display: table-cell;
   padding-right: 30px;
     font-size: 3em;
+    color: rgba(35, 25, 10, 0.80);
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.225px;
 
   }
 
   @media (max-width: 2000px){
     
+
+    .blue1{
+
+      width: 92%;
+    }
     .blue2 {
         height: 300px;
         width: 45%;
         display: table-cell;
         padding-left: 20px;
-    
+      
         font-size: 38px;
       }
    
@@ -150,7 +171,7 @@ margin-top: 3cm;
       .blue4 {
         height: 100px;
         width: 40%;
-        padding-bottom: 200px;
+        padding-bottom: 240px;
         display: table-cell;
         padding-right: 2px;
         font-size: 20px;
@@ -164,12 +185,12 @@ margin-top: 3cm;
     
   }
 
-  @media (max-width: 1410px){
+  @media (max-width: 1410px) and (min-width: 1000px){
     .blue2 {
       display: block;
-      height: 200px;
+      height: 70px;
       width: 100%;
-      font-size: 5em;
+      font-size: 4em;
    
       
     }
@@ -177,16 +198,18 @@ margin-top: 3cm;
     
     .blue3 {
       display: block;
-      height: 150px;
+      height: 100px;
       width: 90%;
       padding-left: 20px;
       padding-top: 30px;
-      font-size: 30px;
+      font-size: 26px;
     }
     .blue4 {
         padding-top: 40px;
+        padding-bottom: 24px;
         padding-left: 20px;
-        font-size: 30px;
+        font-size: 26px;
+        
       }
   
     }
@@ -204,29 +227,31 @@ margin-top: 3cm;
     }
     .blue2 {
       display: block;
-      height: auto;
+      height: 0px;
       width: auto;
       font-size: 23px;
       
-      padding-left: 16px;
+      padding-left: 20px;
     }
     
     .blue3 {
       display: block;
-      height: auto;
+      height: 180px;
       width: auto;
       font-size: 20px;
-      padding-left: 16px;
+      padding-left: 20px;
+      padding-right: 0;
       
       
     }
     .blue4 {
         display: block;
-        height: auto;
+        height: 80px;
         width: auto;
         font-size: 20px;
-        padding-left: 16px;
-        padding-top: 20px;
+        padding-left: 20px;
+        padding-right: 0px;
+        padding-top: 30px;
       }
 
    
@@ -234,14 +259,19 @@ margin-top: 3cm;
   .container3 {
     width: 57.5%;
   font-family: 'Plus Jakarta Sans';
-    padding-top: 2cm;
+    padding-top: 1.5cm;
   position: absolute;
   right: 0;
+  color: rgba(35, 25, 10, 0.80);
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.225px;
 
 }
 
 .right-text3 p {
-  font-size: 24px;
+  font-size: 28px;
   
 }
 
@@ -269,6 +299,7 @@ margin-top: 3cm;
   justify-content: flex-end;
   align-items: center;
   overflow: hidden;
+  
 }
 
   .right-text3 {
@@ -288,6 +319,19 @@ margin-top: 3cm;
 }
 
    
+}
+
+@media (max-width: 2000px){
+  .right-text3 p{
+    font-size: 20px;
+    color: rgba(35, 25, 10, 0.80);
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.225px;
+    
+  
+}
 }
 .cont {
   display: flex;

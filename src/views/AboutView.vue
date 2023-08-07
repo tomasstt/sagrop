@@ -668,6 +668,7 @@ letter-spacing: 0.225px;
   justify-content: flex-end;
   align-items: center;
   overflow: hidden;
+  
 }
 
   .right-text3 {
@@ -682,8 +683,8 @@ letter-spacing: 0.225px;
 }
 
 .right-text3 p{
-    font-size: 17px;
-    
+    font-size: 20px;
+    font-family: "Plus jakarta Sans";
     
   
 }
@@ -1683,10 +1684,9 @@ display: none;
     display: none;
   }
 
-
   .blue2 h2{
     margin-bottom: -4.4cm;
-    font-size: 24px;
+    font-size: 27px;
   }
     .blue1{
        display: block;

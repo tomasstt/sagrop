@@ -2042,7 +2042,6 @@ color: white;
 
 
 
-
 @media (min-width: 1000px){
 
 
@@ -2052,7 +2051,7 @@ color: white;
     position: absolute;
 place-content: center;
 place-items: center;
-    height: 800px;
+    height: 700px;
     display: grid;
     padding-top: 5cm;
 
@@ -2117,6 +2116,32 @@ letter-spacing: 0.225px;
     height: auto;
     width: auto;
   }}
+  @media (max-width: 1084px) and (min-width: 1000px){
+  .box2 h1 {
+    font-size: 39px;
+    color: var(--green, #2C3714);
+font-size: 30px;
+font-family: 'Plus Jakarta Sans';
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+    
+}
+.box2 p {
+  font-family: 'Plus Jakarta Sans';
+font-style: normal;
+color: rgba(35, 25, 10, 0.80);
+
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.225px;
+    font-size: 17px;
+    font-weight: 500;
+    
+}
+
+}
+
   @media (max-width: 1000px){
     .ohc2 {
         padding-left: 30px;

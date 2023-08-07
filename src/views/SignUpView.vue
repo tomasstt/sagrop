@@ -1,53 +1,155 @@
 <template>
   <div>
-      <div class='bold-line'></div>
-<div class='container'>
-
-<div class="img"><img class="bg-image" src="/images/signup.svg" alt=""></div>
-<div class="form-container">
-<div class='window'>
-  <div class='overlay'></div>
-  <div class='content'>
-    <div class='welcome'>Prihlásiť sa</div>
-    <div class='subtitle'>Už máte účet? Prihlásiť sa</div>
-<!-- <div><button class='boost-round full-width'><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M10.0019 8.76736V11.442H13.8131C13.3148 13.0628 11.9606 14.2223 10.0019 14.2223C7.66964 14.2223 5.77836 12.3316 5.77836 10C5.77836 7.66836 7.669 5.77773 10.0019 5.77773C11.0506 5.77773 12.0077 6.16209 12.7465 6.79464L14.7167 4.82509C13.472 3.69109 11.8175 3 10.0019 3C6.13473 3 3 6.13409 3 10C3 13.8659 6.13473 17 10.0019 17C15.8794 17 17.1763 11.505 16.6004 8.77691L10.0019 8.76736Z" fill="#050402" fill-opacity="0.8"/>
-</svg>
-Prihlásiť sa cez Google</button></div>
-    <div class='spacing'>alebo</div> -->
-    <div class='input-fields'>
-      <!-- <input type='text' placeholder='Meno' class='input-line full-width'> -->
-      <input type='email' placeholder='Email' class='input-line full-width'>
-      <input type='password' placeholder='Heslo' class='input-line full-width'>
-
+    <div class='bold-line'></div>
+    <div class='container'>
+      <div class="img"><img class="bg-image" src="/images/signup.svg" alt=""></div>
+      <div class="form-container">
+        <div class='window'>
+          <div class='overlay'></div>
+          <div class='content'>
+            <div class='welcome'>Prihlásiť sa</div>
+            <div class='subtitle'>Už máte účet? Prihlásiť sa</div>
+            <div class="input-fields">
+      <input
+        type="email"
+        placeholder="Email"
+        class="input-line full-width"
+        ref="emailInput"
+        :class="{ 'invalid-input': showEmailError }"
+      />
+      <div v-if="showEmailError" class="error-message">Vyplňte prosím svoj e-mail!</div>
+      <input
+        type="password"
+        placeholder="Heslo"
+        class="input-line full-width"
+        ref="passwordInput"
+        :class="{ 'invalid-input': showPasswordError }"
+      />
+      <div v-if="showPasswordError" class="error-message">Vyplňte prosím svoje heslo!</div>
     </div>
-  
-    
-      <label class="checkk">
-        <input type="checkbox"  />
-       <p> Súhlasím s podmienkami služby a Ochranou osobných údajov</p>
-      </label>
-      <!-- <label class="check">
-        <input type="checkbox"  />
-     <p>   Prihláste sa k odberu nášho newslettera!</p>
-      </label> -->
-   
-    <div><button class='ghost-round full-width'>Prihlásiť sa</button></div>
+    <label class="checkk">
+      <input type="checkbox" />
+      <p>Súhlasím s podmienkami služby a Ochranou osobných údajov</p>
+    </label>
+    <div>
+      <button @click="validateForm" class="ghost-round full-width">Prihlásiť sa</button>
+    </div>
+    <div v-if="showSuccessMessage" class="success-message">Boli ste úspešne prihlásení</div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email Pop-up -->
+    <div id="emailPopup" v-if="showEmailPopup">
+      <div class="popup-content">
+        <h2>Please fill out your Email!</h2>
+        <button @click="closeEmailPopup">Close</button>
+      </div>
+    </div>
+
+    <div id="passwordPopup" v-if="showPasswordPopup">
+      <div class="popup-content">
+        <h2>Please fill out your Password!</h2>
+        <button @click="closePasswordPopup">Close</button>
+      </div>
+    </div>
   </div>
-</div>
-</div>
-</div>
-  </div>
+
 </template>
 
 <script>
-  export default {
-      
-  }
+export default {
+  data() {
+    return {
+      showEmailPopup: false,
+      showPasswordPopup: false,
+      showEmailError: false,
+      showPasswordError: false,
+      showSuccessMessage: false,
+    };
+  },
+  methods: {
+    validateForm() {
+      const email = this.$refs.emailInput.value;
+      const password = this.$refs.passwordInput.value;
+
+      if (!email && !password) {
+        this.showEmailError = true;
+        this.showPasswordError = true;
+        this.showSuccessMessage = false;
+      } else if (!email) {
+        this.showEmailError = true;
+        this.showPasswordError = false;
+        this.showSuccessMessage = false;
+      } else if (!password) {
+        this.showPasswordError = true;
+        this.showEmailError = false;
+        this.showSuccessMessage = false;
+      } else {
+        this.showEmailError = false;
+        this.showPasswordError = false;
+        this.showSuccessMessage = true;
+
+        // Both fields are filled
+        // Perform the form submission or other actions
+        console.log('Form submitted successfully!');
+      }
+    },
+
+    closeEmailPopup() {
+      this.showEmailPopup = false;
+    },
+    closePasswordPopup() {
+      this.showPasswordPopup = false;
+    },
+  },
+};
 </script>
 
 <style scoped >
+.invalid-input {
+  border-color: red;
+}
 
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+  font-weight: 500;
+  font-family: Plus jakarta sans;
+}
+
+.success-message {
+  font-family: Plus jakarta sans;
+  color: green;
+  font-size: 12px;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+
+#emailPopup,
+#passwordPopup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+
+
+/* Hide pop-ups by default */
+.hidden {
+  display: none;
+}
 
 
 .form-container {
@@ -63,11 +165,6 @@ Prihlásiť sa cez Google</button></div>
 
 
 
-svg {
-position: absolute;
-top: 115px;
-left: 2cm;
-}
 .checkk {
 color: var(--black, #050402);
 font-size: 12px;
@@ -252,7 +349,7 @@ margin-top: 25px;
 img{
   border-radius: 15px;
   height: 100vh;
-scale: 0.85;
+scale: 0.79;
 }
 
 .img {

@@ -15,40 +15,40 @@
         <div class="ront">
           <div class="">
             <div class="pon"><p class="ponep">Cenník špeciálnych osív na rok 2023</p>
-          <p class="poneep">Pozrite si aktuálny cenník špeciálnych osív na rok 2022.</p>
+          <p class="poneep">Pozrite si aktuálny cenník špeciálnych osív na rok 2022.</p> <router-link to="aktuality">
           <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="49.9411" height="49.9411" rx="24.9706" fill="#E9E5E0"/>
 <path d="M30.9812 27.5444L30.9812 18.9601L22.3969 18.9601" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M18.84 31.1011L30.8609 19.0803" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-</svg> 
+</svg> </router-link>
       <img class="fw1" src="/images/flowers.svg" alt="">
     </div> </div><div class="">  <div class="pon">
     <p class="tpop"> Cenník špeciálnych osív na rok 2023</p>
-    <p class="tpoop">Pozrite si aktuálny cenník špeciálnych osív na rok 2022.</p>
+    <p class="tpoop">Pozrite si aktuálny cenník špeciálnych osív na rok 2022.</p><router-link to="aktuality">
     <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="49.9411" height="49.9411" rx="24.9706" fill="#E9E5E0"/>
 <path d="M30.9812 27.5444L30.9812 18.9601L22.3969 18.9601" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M18.84 31.1011L30.8609 19.0803" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+</svg></router-link>
 
       <img class="fw2" src="/images/flowers.svg" alt="">
     </div></div> <div class="">  <div class="pon">
     <p class="tpop"> Cenník špeciálnych osív na rok 2023</p>
-    <p class="tpoop">Pozrite si aktuálny cenník špeciálnych osív na rok 2022.</p>
+    <p class="tpoop">Pozrite si aktuálny cenník špeciálnych osív na rok 2022.</p><router-link to="aktuality">
     <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="49.9411" height="49.9411" rx="24.9706" fill="#E9E5E0"/>
 <path d="M30.9812 27.5444L30.9812 18.9601L22.3969 18.9601" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M18.84 31.1011L30.8609 19.0803" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+</svg></router-link>
       <img class="fw3" src="/images/flowers.svg" alt="">
   </div>  </div><div class="">  <div class="pon">
     <p class="tpop"> Cenník špeciálnych osív na rok 2023</p>
-    <p class="tpoop">Pozrite si aktuálny cenník špeciálnych osív na rok 2022.</p>
+    <p class="tpoop">Pozrite si aktuálny cenník špeciálnych osív na rok 2022.</p><router-link to="aktuality">
     <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="49.9411" height="49.9411" rx="24.9706" fill="#E9E5E0"/>
 <path d="M30.9812 27.5444L30.9812 18.9601L22.3969 18.9601" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M18.84 31.1011L30.8609 19.0803" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+</svg></router-link>
       <img class="fw4" src="/images/flowers.svg" alt="">
     </div>   
     </div>
@@ -68,6 +68,7 @@ import Footer from "../components/Footer.vue"
 </script>
 
 <style  scoped>
+
 @media (min-width: 1000px){
 .space {
   padding-top: 30cm;
@@ -79,6 +80,9 @@ import Footer from "../components/Footer.vue"
 }}
 
 @media (max-width: 1000px){
+
+
+  
 .bttna{
  
  display: flex;
@@ -128,6 +132,9 @@ border-radius: 30px;
     padding-top: 4cm;
   }
 }
+
+
+
 @media (min-width: 1000px){
   .ront {
   display: flex;
@@ -135,6 +142,7 @@ border-radius: 30px;
   justify-content: center;
   margin: 0 auto;
   width: 100%;
+  font-family: 'Recia';
   gap: 20px;
     margin-top: 2cm;
   max-width: 100%;
@@ -156,17 +164,18 @@ border-radius: 30px;
   display: flex; 
   color: white;
 margin-left: 20px;
+margin-right: 20px;
   font-size: 38px; /* Adjust as needed */
   font-weight: 600; /* Adjust as needed */
-  
-
+font-family: plus jakarta sans;
 }
 .tpop {
   position: absolute;
   display: flex; 
   color: white;
+  font-family: plus jakarta sans;
   margin-left: 20px;
-
+margin-right: 20px;
   font-size: 38px; /* Adjust as needed */
   font-weight: 600; /* Adjust as needed */
   
@@ -177,27 +186,46 @@ margin-left: 20px;
   right: 20px;
   bottom: 20px;
 }
-
+.pon svg:hover{
+      scale: 1.2;
+      transition: ease-in-out 0.2s;
+      opacity: 0.8;
+      
+}
 .poneep {
-  font-family: 'Plus Jakarta Sans';
   position: absolute;
   display: flex; 
-  color: white;
+
 margin-left: 20px;
 bottom: 0;
-  font-size: 20px; /* Adjust as needed */
-  font-weight: 500; /* Adjust as needed */
+  font-size: 30px; /* Adjust as needed */
+  font-weight: 500; 
+  color: var(--white, #E9E5E0);
+
+/* Body text/white */
+font-family: Plus Jakarta Sans;
+
+
+line-height: normal;
+letter-spacing: 0.225px;
 
 }
 .tpoop {
   position: absolute;
   display: flex; 
-  color: white;
+ 
   margin-left: 20px;
-  font-family: 'Plus Jakarta Sans';
   bottom: 0;
-  font-size: 20px; /* Adjust as needed */
-  font-weight: 500; /* Adjust as needed */
+  font-size: 30px; /* Adjust as needed */
+  font-weight: 500; 
+  color: var(--white, #E9E5E0);
+
+/* Body text/white */
+font-family: Plus Jakarta Sans;
+
+
+line-height: normal;
+letter-spacing: 0.225px;
   
 }
 
@@ -215,6 +243,48 @@ border-radius: 20px;
   place-content: center;
 }
 }
+@media (max-width: 1900px) and (min-width: 1000px) {
+  .poneep {
+  position: absolute;
+  display: flex; 
+width: 300px;
+margin-left: 20px;
+bottom: 0;
+
+  font-size: 20px;
+  font-weight: 500; 
+  color: var(--white, #E9E5E0);
+
+/* Body text/white */
+font-family: Plus Jakarta Sans;
+
+
+line-height: normal;
+letter-spacing: 0.225px;
+
+}
+.tpoop {
+  position: absolute;
+  display: flex; 
+ width: 300px;
+  margin-left: 20px;
+  bottom: 0;
+  font-size: 20px; 
+  font-weight: 500; 
+  padding-right: 0px;
+  color: var(--white, #E9E5E0);
+
+/* Body text/white */
+font-family: Plus Jakarta Sans;
+
+
+line-height: normal;
+letter-spacing: 0.225px;
+  
+}
+  
+}
+
 @media (max-width: 1000px) {
   .ront > div {
     flex-basis: 100%;
@@ -223,8 +293,8 @@ border-radius: 20px;
 
   .pon {
   justify-content: center;
-  
-  position: relative;
+
+ position: relative;
   display: inline-block;
   width: 100%;
 }
@@ -238,7 +308,7 @@ border-radius: 20px;
 margin-left: 20px;
   font-size: 24px; /* Adjust as needed */
   font-weight: 600; /* Adjust as needed */
-
+font-family: Plus Jakarta Sans;
 }
 .tpop {
   position: absolute;
@@ -264,8 +334,9 @@ margin-left: 20px;
 margin-left: 20px;
 bottom: 0;
 width: 300px;
-  font-size: 20px; /* Adjust as needed */
+  font-size: 17px; /* Adjust as needed */
   font-weight: 500; /* Adjust as needed */
+  font-family: Plus jakarta sans;
 
 }
 .tpoop {
@@ -275,7 +346,8 @@ width: 300px;
   color: white;
   margin-left: 20px;
   bottom: 0;
-  font-size: 20px; /* Adjust as needed */
+  font-family: Plus jakarta sans;
+  font-size: 17px; /* Adjust as needed */
   font-weight: 500; /* Adjust as needed */
   
 }
@@ -288,6 +360,7 @@ width: 300px;
   gap: 10px;
 margin-top: -6cm;
   max-width: 100%;
+  font-family: 'Recia';
   
 }
 
@@ -309,9 +382,35 @@ border-radius: 20px;
    
   }
 
+  .ponep {
+  position: absolute;
+  display: flex; 
+  color: white;
+margin-left: 20px;
+margin-right: 20px;
+  font-size: 30px; /* Adjust as needed */
+  font-weight: 600; /* Adjust as needed */
+  font-family: Plus Jakarta Sans;
+
+}
+.tpop {
+
+  font-family: Plus Jakarta Sans;
+  position: absolute;
+  display: flex; 
+  color: white;
+  margin-left: 20px;
+margin-right: 20px;
+  font-size: 30px; /* Adjust as needed */
+  font-weight: 600; /* Adjust as needed */
+  
+}
+
 }
 
 @media (min-width: 1000px) {
+
+  
 .blue1 {
     display: table;
     width: 100%;
@@ -327,7 +426,7 @@ border-radius: 20px;
     font-family: Recia;
     display: table-cell;
     padding-left: 30px;
-    padding-right: 10px;
+    padding-right: 20px;
     font-size: 50px;
   }
 
@@ -354,12 +453,14 @@ border-radius: 20px;
     display: table-cell;
     padding-right: 30px;
     font-family: 'Plus Jakarta Sans';
+    color: rgba(35, 25, 10, 0.80);
     font-size: 3em;
   }
   .blue4 {
     height: 300px;
     width: 30%;
     display: table-cell;
+    color: rgba(35, 25, 10, 0.80);
   padding-right: 20px;
     font-size: 3em;
     font-family: 'Plus Jakarta Sans';
@@ -527,6 +628,31 @@ width: 300px;
   align-items: center;
 }}
 @media (max-width: 1150px) {
+
+
+  .ponep {
+  position: absolute;
+  display: flex; 
+  color: white;
+margin-left: 20px;
+margin-right: 20px;
+  font-size: 21px; /* Adjust as needed */
+  font-weight: 600; /* Adjust as needed */
+  font-family: Plus Jakarta Sans;
+
+}
+.tpop {
+
+  font-family: Plus Jakarta Sans;
+  position: absolute;
+  display: flex; 
+  color: white;
+  margin-left: 20px;
+margin-right: 20px;
+  font-size: 21px; /* Adjust as needed */
+  font-weight: 600; /* Adjust as needed */
+  
+}
   .oneep {
     width: 300px;
 
@@ -688,19 +814,20 @@ width: 330px;
     }
     .blue2 {
       display: block;
-      height: auto;
+      height: 40px;
       width: auto;
-      font-size: 23px;
+      font-size: 28px;
       
-      padding-left: 16px;
+      padding-left: 20px;
     }
     
     .blue3 {
       display: block;
-      height: auto;
+      height: 140px;
       width: auto;
       font-size: 20px;
-      padding-left: 16px;
+      padding-left: 20px;
+      font-family: "Plus Jakarta Sans";
       
       
     }
@@ -709,10 +836,10 @@ width: 330px;
         height: auto;
         width: auto;
         font-size: 20px;
-        padding-left: 16px;
+        padding-left: 20px;
+        font-family: "Plus Jakarta Sans";
         padding-top: 20px;
       }
-
    
   }
 </style>

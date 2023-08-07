@@ -48,7 +48,9 @@
 
 
           <div class="container3">
-  <div class="right-text3"><h1>Postrekovací dron</h1> <p> –  Efektivita: Postrekovacie drony sú schopné rýchlo a efektívne aplikovať pesticídy a herbicídy na veľkých pozemkoch poľnohospodárskej pôdy, čím zvyšujú produktivitu a znižujú náklady.</p>
+  
+            <div class="right-text3"><h1>Postrekovací dron</h1> <p> –  Efektivita: Postrekovacie drony sú schopné rýchlo a efektívne aplikovať pesticídy a herbicídy na veľkých pozemkoch poľnohospodárskej pôdy, čím zvyšujú produktivitu a znižujú náklady.</p>
+              <br>
 <p>
 –    Presnosť: Drony sú schopné aplikovať pesticídy a herbicídy s vysokou presnosťou, čím minimalizujú množstvo použitých chemikálií a znižujú riziko znečistenia pôdy a vody.</p>
 <br>
@@ -160,12 +162,22 @@ import Newsletter from "../components/Newsletter.vue"
 
 
 .right-text3 h1 {
-  font-size: 58px;
+  font-size: 48px;
   font-family: 'Recia';
+
+  
 }
 .right-text3 p {
   font-size: 20px;
   font-family: 'Plus Jakarta Sans', sans-serif;
+  color: rgba(35, 25, 10, 0.80);
+
+
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.225px;
+padding-right: 20px;
   
 }
 
@@ -474,12 +486,20 @@ gap: 20px;
 
 
 .right-text h1 {
-  font-size: 58px;
+  font-size: 48px;
   font-family: 'Recia';
 }
 .right-text p {
   font-size: 20px;
+  padding-right: 20px;
   font-family: 'Plus Jakarta Sans', sans-serif;
+  color: rgba(35, 25, 10, 0.80);
+
+
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.225px;
   
 }
 
@@ -576,9 +596,13 @@ margin-bottom: -9cm;
 
   .blue2 h1 {
     font-size: 60px;
+    color: var(--black, #050402);
+
   }
   .blue2 h2 {
     font-size: 35px;
+    color: var(--green, #2C3714);
+
   }
  
   
@@ -603,6 +627,11 @@ margin-bottom: -9cm;
     color: rgba(35, 25, 10, 0.80);
     font-family: 'Plus Jakarta Sans';
     font-size: 29px;
+    color: rgba(35, 25, 10, 0.80);
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.225px;
   }
   .blue4 {
     height: 300px;
@@ -759,6 +788,7 @@ max-height: 100%;
 
     .blue3 p {
         font-size: 20px;
+        
       }
       .blue4 p {
         font-size: 20px;
@@ -768,7 +798,8 @@ max-height: 100%;
     font-size: 35px;
   }
   .blue2 h2 {
-    font-size: 18px;
+    font-size: 28px;
+    
   }
     .blue2 {
       display: block;

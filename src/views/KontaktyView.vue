@@ -114,15 +114,14 @@ import Aktuality from '../components/Aktuality.vue';
 @media (max-width: 1000px) {
 
   .cont .ob2{
-width: 440px;
-padding-right: 5px;
-padding-left: 5px;
+width: 94%;
+
+
 }
 
 .cont .ob1{
-width: 440px;
-padding-right: 5px;
-padding-left: 5px;
+width: 94%;
+
 
 }
  
@@ -133,7 +132,7 @@ padding-left: 5px;
   justify-content: center;
   max-width: 100%;
  
-  gap: 0;
+  gap: 0px;
   
   
 }
@@ -146,7 +145,7 @@ padding-left: 5px;
     font-size: 20px;
   margin-top: -6cm;
   font-family: 'Plus Jakarta Sans';
-
+  color: rgba(35, 25, 10, 0.80);
 }
 
 .conta {
@@ -199,14 +198,16 @@ margin-left: 34px;
 @media (max-width: 1000px) {
 .conta p {
   width: 100%;
-    font-size: 18px;
- display: block;
+  
+  margin-left: 0px;
+  font-size: 20px;
+ display: block;font-family: "Plus Jakarta Sans";
 
 }
 
 .conta {
   margin-top: 5cm;
-
+margin-left: 20px;
 padding-right: 20px;
 
 }}
@@ -349,6 +350,7 @@ padding: 1cm;
   .blue3 {
     height: 300px;
     width: 30%;
+    color: rgba(35, 25, 10, 0.80);
     display: table-cell;
     padding-right: 1cm;
     font-family: 'Plus Jakarta Sans';
@@ -359,6 +361,7 @@ padding: 1cm;
     width: 30%;
     display: table-cell;
   padding-right: 20px;
+  color: rgba(35, 25, 10, 0.80);
   font-family: 'Plus Jakarta Sans';
     font-size: 26px;
 
@@ -463,11 +466,11 @@ padding: 1cm;
     }
     .blue2 {
       display: block;
-      height: auto;
+      height: 20px;
       width: auto;
       font-size: 23px;
       
-      padding-left: 16px;
+      padding-left: 20px;
     }
     
     .blue3 {
@@ -477,6 +480,14 @@ padding: 1cm;
       font-size: 20px;
       padding-left: 20px;
       padding-right: 20px;
+      color: rgba(35, 25, 10, 0.80);
+/* Body text/80% */
+font-family: Plus Jakarta Sans;
+
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.225px;
       
       
     }
@@ -487,6 +498,14 @@ padding: 1cm;
         font-size: 20px;
         padding-left: 20px;
         padding-top: 10px;
+        color: rgba(35, 25, 10, 0.80);
+/* Body text/80% */
+font-family: Plus Jakarta Sans;
+
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.225px;
       }
 
    

@@ -29,37 +29,43 @@
                 </template>
               </RouterLink>
             </li>
-            <li class="dropdown " :class="{ active: isSluzbyActive }">
+            <li class="dropdown " :class="{ active: isDropdownVisible }">
+              <span @click="toggleDropdown">
   <RouterLink @click="closeClick" active-class="active" :to="{ path: '/sluzby' }" exact>
-    Portfólio
-    
+    Portfólio </RouterLink>   
+    <span class="dropdown-icon" :class="{active: isActive}"> 
       <svg xmlns="http://www.w3.org/2000/svg" width="10" height="5" viewBox="0 0 10 5" fill="none">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M0.479988 0.302503C0.683074 0.128431 0.98275 0.128431 1.18584 0.302503L5.35263 3.874C5.60513 4.09043 5.60513 4.48106 5.35263 4.6975C5.14954 4.87157 4.84986 4.87157 4.64678 4.6975L0.479988 1.126C0.227482 0.909572 0.227481 0.518934 0.479988 0.302503Z" fill="#050402"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M8.81377 0.302503C9.01686 0.128431 9.31653 0.128431 9.51962 0.302503C9.77213 0.518935 9.77213 0.909572 9.51962 1.126L5.35283 4.6975C5.14974 4.87157 4.85007 4.87157 4.64698 4.6975C4.39447 4.48106 4.39447 4.09043 4.64698 3.874L8.81377 0.302503Z" fill="#050402"/>
 </svg>
-  
-  </RouterLink>
-  <ul class="dropdown-menu" v-if="isSluzbyActive">
+</span>
+</span>
+
+  <ul class="dropdown-menu" v-if="isDropdownVisible">
     
-    <li><RouterLink active-class="active" :to="{ path: '/hnojiva' }">Hnojiva</RouterLink></li>
-    <li><RouterLink active-class="active" :to="{ path: '/osiva' }">Osivá</RouterLink></li>
-    <li><RouterLink active-class="active" :to="{ path: '/chemia' }">Chemia</RouterLink></li>
+    <li><RouterLink @click="closeClick" active-class="active" :to="{ path: '/hnojiva' }">Hnojiva</RouterLink></li>
+    <li><RouterLink @click="closeClick" active-class="active" :to="{ path: '/osiva' }">Osivá</RouterLink></li>
+    <li  class="radius"><RouterLink @click="closeClick" active-class="active" :to="{ path: '/chemia' }">Chemia</RouterLink></li>
   </ul>
 </li>
-            <li class="dropdown " :class="{ active: isSluzbyActive }">
-  <RouterLink @click="closeClick" active-class="active" :to="{ path: '/sluzby' }" exact>
-    Služby
+            <li class="dropdown " :class="{ active: isDropdownVisible }">
+              <span @click="toggleDropdown">
+
+  <RouterLink @click="closeClick" active-class="active" :to="{ path: '/sluzby' }" exact>Služby</RouterLink>
+    <span class="dropdown-icon" :class="{active: isActive}">
       <svg xmlns="http://www.w3.org/2000/svg" width="10" height="5" viewBox="0 0 10 5" fill="none">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M0.479988 0.302503C0.683074 0.128431 0.98275 0.128431 1.18584 0.302503L5.35263 3.874C5.60513 4.09043 5.60513 4.48106 5.35263 4.6975C5.14954 4.87157 4.84986 4.87157 4.64678 4.6975L0.479988 1.126C0.227482 0.909572 0.227481 0.518934 0.479988 0.302503Z" fill="#050402"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M8.81377 0.302503C9.01686 0.128431 9.31653 0.128431 9.51962 0.302503C9.77213 0.518935 9.77213 0.909572 9.51962 1.126L5.35283 4.6975C5.14974 4.87157 4.85007 4.87157 4.64698 4.6975C4.39447 4.48106 4.39447 4.09043 4.64698 3.874L8.81377 0.302503Z" fill="#050402"/>
 </svg>
+</span>
+</span>
   
-  </RouterLink>
-  <ul class="dropdown-menu" v-if="isSluzbyActive">
+  
+  <ul class="dropdown-menu" v-if="isDropdownVisible">
     
-    <li><RouterLink active-class="active" :to="{ path: '/sluzby' }">Dron</RouterLink></li>
-    <li><RouterLink active-class="active" :to="{ path: '/doprava' }">Doprava</RouterLink></li>
-    <li><RouterLink active-class="active" :to="{ path: '/sklady' }">Sklady</RouterLink></li>
+    <li><RouterLink @click="closeClick" active-class="active" :to="{ path: '/sluzby' }">Dron</RouterLink></li>
+    <li><RouterLink @click="closeClick" active-class="active" :to="{ path: '/doprava' }">Doprava</RouterLink></li>
+    <li class="radius"><RouterLink @click="closeClick" active-class="active" :to="{ path: '/sklady' }">Sklady</RouterLink></li>
   </ul>
 </li>
 
@@ -127,12 +133,16 @@ import { RouterLink } from 'vue-router';
 
 <script>
 
+
+
 export default {
   data() {
     return {
       isScrolled: false,
       isMenuActive: false,
       isDropdownActive: false,
+      isDropdownVisible: window.innerWidth > 1400, // Set to true for bigger screens, false for mobile screens
+      isActive: false, 
      
     };
   }, computed: {
@@ -161,7 +171,27 @@ export default {
   beforeDestroy() {
     window.removeEventListener('scroll', this.handleScroll);
   },
-  methods: {
+
+  
+  methods: {      toggleDropdown() {
+      if (window.innerWidth <= 1400) {
+        this.isDropdownVisible = !this.isDropdownVisible;
+        this.isActive = this.isDropdownVisible; // Toggle isActive based on dropdown visibility
+        const mainListDiv = document.getElementById('mainListDiv');
+        if (this.isDropdownVisible) {
+          mainListDiv.style.display = 'block';
+        } else {
+          mainListDiv.style.display = 'none';
+        }
+      }
+    },
+
+
+      
+    toggleDropdown() {
+      this.isDropdownVisible = !this.isDropdownVisible;
+    },
+
     handleScroll() {
       if (window.pageYOffset > 50) {
         this.isScrolled = true;
@@ -171,14 +201,14 @@ export default {
       }
     },
     closeClick() {
-  if (window.innerWidth <= 1200) {
+  if (window.innerWidth <= 1300) {
     mainListDiv.style.display = 'none';
     this.isMenuActive = !this.isMenuActive;
   }
 },
 
     toggleMenu() {
-      if (window.innerWidth <= 1200) {
+      if (window.innerWidth <= 1400) {
   this.isMenuActive = !this.isMenuActive;
   const mainListDiv = document.getElementById('mainListDiv');
   if (this.isMenuActive) {
@@ -186,6 +216,8 @@ export default {
   } else {
     mainListDiv.style.display = 'none';
     this.isDropdownActive = false;
+    this.isDropdownVisible = false; // Hide dropdown when menu is closed
+
   }}
 },
     activeShit() {
@@ -201,11 +233,93 @@ export default {
 </script>
 <style scoped >
 
+
+.dropdown-icon {
+  /* Apply styles for the SVG icon on mobile screens */
+  cursor: pointer;
+  transition: transform 0.5s ease; /* Add a transition property for smooth animation */
+}
+.dropdown-icon.active svg {
+  transform: rotate(180deg);
+}
+@media (max-width: 1400px) {
+  .dropdown-icon {
+    /* Apply styles for the SVG icon on mobile screens */
+    padding-right: 20px;
+    cursor: pointer;
+  }
+  .dropdown-menu {
+    display: none;
+  }
+
+}
+
+@media (min-width: 1401px) {
+  /* Apply hover styles for bigger screens */
+  .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+
+  /* Rest of the styles for bigger screens... */
+}
+
+@media (max-width: 1000px) {
+  /* The .show_list class will hide the main menu on mobile */
+  .main_list.show_list {
+    display: none;
+  }
+
+  /* Display the dropdown menu when the parent li is active (clicked) */
+  .dropdown.active .dropdown-menu {
+    display: block;
+  }
+
+  /* Style the dropdown links for mobile */
+  .dropdown-menu li {
+   
+  }
+
+  .dropdown-menu li a {
+    display: block;
+    padding: 8px 15px;
+    border-radius: 0;
+    
+    transition: background-color 0.2s;
+  }
+
+  /* Remove hover effect on mobile */
+  .dropdown-menu li a:hover {
+    background-color: transparent;
+  }
+
+/* Better styling for dropdown menu */
+.dropdown-menu {
+  /* ... Existing styles ... */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 65px;
+  background-color: #e9e5e0;
+  /* Same background color as the navbar */
+  z-index: 1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  /* Add padding to separate dropdown items from the .navlinks */
+  padding-top: 5px;
+}
+
+}
+
+@media  (min-width:1000px) {
 .dropdown {
   position: relative;
 }    
 
+.radius{
 
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
 .dropdown-menu {
   display: none;
   position: absolute;
@@ -241,6 +355,8 @@ export default {
   padding: 10px;
   background: #E9E5E0;
   border-bottom: solid 1px gray;
+  
+
 }
 
 .dropdown-menu li a {
@@ -256,8 +372,71 @@ color: #2C3714;
 
 
 
+}
 
 
+@media  (max-width:1000px) {
+.dropdown {
+  position: relative;
+}    
+
+.radius{
+
+  /* border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px; */
+}
+.dropdown-menu {
+  display: none;
+
+
+  
+  z-index: 1;
+  background-color: #E9E5E0;
+
+}
+
+.dropdown-menu a {
+  background-color: #E9E5E0;
+  margin: 10px; 
+  
+  
+  
+
+}
+
+.dropdown.active .dropdown-menu {
+  display: none;
+
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  
+}
+
+/* Style the dropdown menu items */
+.dropdown-menu li {
+  padding: 10px;
+  background: #E9E5E0;
+  border-bottom: solid 1px gray;
+  
+
+}
+
+.dropdown-menu li a {
+  text-decoration: none;
+  color: #050402;
+}
+
+.dropdown-menu li a:hover{
+color: #2C3714;
+
+  
+}
+
+
+
+}
 
 
 
@@ -395,7 +574,7 @@ z-index: 10;
     }
 }
 
-@media screen and (max-width:1200px) {
+@media screen and (max-width:1400px) {
     .navTrigger {
         display: block;
     }

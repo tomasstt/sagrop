@@ -58,7 +58,7 @@
 
       <header v-text="dragText"></header>
       
-      <div class="or">or<a class="browse" @click="browseFile" > browse </a></div>
+      <div > <span class="or">or</span> <a class="browse" @click="browseFile" > súbory </a></div>
       <input type="file"  ref="fileInput" required hidden @change="handleImageUpload">
     </div>
       <!-- <label for="imageUpload" class="custom-file-label">Choose an image</label>
@@ -69,11 +69,9 @@
      
       <input id="up" class='input-line full-width' v-model="description" placeholder="Popis" required></div>
       
-      <button type="submit">Submit</button>
+      <button type="submit">Odoslať</button>
     </form>
   </div>
-
-
             <div class="container">
                 <div class="box-container">
 
@@ -406,7 +404,7 @@ cursor: pointer;
 .icon-search{
   display: flex;
   position: absolute;
-  margin-top: 10px;
+  margin-top: 17px;
   margin-left: 11px;
 }
 
@@ -414,7 +412,7 @@ cursor: pointer;
   .delete-button{
 
 
-margin-left: 0.5cm;
+
 border: solid 1px black;
 
 background: transparent;
@@ -428,6 +426,9 @@ padding:7px 20px;
 
 
 
+}
+.or{
+  font-size: 17px;
 }
 .dropdown span{
   display: none;
@@ -678,7 +679,7 @@ font-size: 13px;
 display: grid;
 place-items: start;
 align-self: start;
-
+margin-top: 8px;
 align-content: start;
 justify-content: start;
 text-indent: 10px; 
@@ -853,16 +854,14 @@ cursor: pointer;
 background: rgb(0, 0, 0);
 color: rgb(255, 255, 255);
 border: none;
-
-
-
-
-
 font-family: 'Plus Jakarta Sans'; 
 font-size: 14px;
 border-radius: 20px;
-width: 100px;
+width: 80px;
 height: 40px;
+position: absolute;
+margin-top: 3cm;
+margin-left: -10px;
 cursor: pointer;
 
 }
