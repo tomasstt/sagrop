@@ -2,19 +2,29 @@
   <div>
     <section>
       <div class="blue1">
-        <section class="blue2"><h1 class="">Aktuality</h1></section>
+        <section class="blue2">
+          <h1 class="">Aktuality</h1>
+        </section>
 
-        <aside class="blue3"><p class="">Tu nájdete informácie o nových produktových <br> radoch, najnovších projektoch a iných <br> zaujímavých veciach, ktoré sa u nás dejú. Naša <br> snaha je udržiavať vás v obraze a informovať o <br> všetkom, čo sa deje v našej spoločnosti.</p></aside>
-        <aside class="blue4"><p class="">Sledujte naše novinky a buďte informovaní o <br> všetkých dôležitých zmenách a aktualizáciách. </p></aside>
-
+        <aside class="blue3">
+          <p class="">Tu nájdete informácie o nových produktových <br> radoch, najnovších projektoch a iných <br>
+            zaujímavých veciach, ktoré sa u nás dejú. Naša <br> snaha je udržiavať vás v obraze a informovať o <br>
+            všetkom, čo sa deje v našej spoločnosti.</p>
+        </aside>
+        <aside class="blue4">
+          <p class="">Sledujte naše novinky a buďte informovaní o <br> všetkých dôležitých zmenách a aktualizáciách. </p>
+        </aside>
       </div>
-
     </section>
+
     <div class="bar">
       <div class="search-bar">
-        <svg class="icon-search" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-          <path d="M7.66634 13.9999C11.1641 13.9999 13.9997 11.1644 13.9997 7.66659C13.9997 4.16878 11.1641 1.33325 7.66634 1.33325C4.16854 1.33325 1.33301 4.16878 1.33301 7.66659C1.33301 11.1644 4.16854 13.9999 7.66634 13.9999Z" stroke="#3B3731" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M14.6663 14.6666L13.333 13.3333" stroke="#3B3731" stroke-linecap="round" stroke-linejoin="round"/>
+        <svg class="icon-search" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
+          fill="none">
+          <path
+            d="M7.66634 13.9999C11.1641 13.9999 13.9997 11.1644 13.9997 7.66659C13.9997 4.16878 11.1641 1.33325 7.66634 1.33325C4.16854 1.33325 1.33301 4.16878 1.33301 7.66659C1.33301 11.1644 4.16854 13.9999 7.66634 13.9999Z"
+            stroke="#3B3731" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M14.6663 14.6666L13.333 13.3333" stroke="#3B3731" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
 
         <input class="search" type="text" v-model="searchText" placeholder="Hladat" />
@@ -30,8 +40,11 @@
           <div class="dropdown">
             <button @click="showArchiveDropdown = !showArchiveDropdown">
               <span>Archív</span>
-              <svg class="archIcon" width="25px" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m8.25 3v6.75m0 0l-3-3m3 3l3-3M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"></path>
+              <svg class="archIcon" width="25px" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m8.25 3v6.75m0 0l-3-3m3 3l3-3M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z">
+                </path>
               </svg>
             </button>
             <div v-if="showArchiveDropdown" class="dropdown-menu">
@@ -56,44 +69,71 @@
             <path d="M42.1663 19.1666H34.4997C28.7497 19.1666 26.833 17.2499 26.833 11.4999V3.83325L42.1663 19.1666Z" stroke="#A6A29D" stroke-width="2.875" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M26.3732 34.9986C21.8691 35.3244 21.8691 41.8411 26.3732 42.1669H37.0299C38.3141 42.1669 39.5791 41.6877 40.5182 40.8252C43.6807 38.0652 41.9941 32.5452 37.8349 32.0277C36.3399 23.0386 23.3449 26.4502 26.4116 35.0177" stroke="#A6A29D" stroke-width="2.875" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-
           <header v-text="dragText"></header>
-
           <div class="or">or<a class="browse" @click="browseFile" > browse </a></div>
-          <input type="file"  ref="fileInput" required hidden @change="handleImageUpload">
+          <input type="file" ref="fileInput" required hidden @change="handleImageUpload">
         </div>
-
         <div class="input-container">
-          <input class='input-line full-width' type="text" v-model="title" placeholder="Názov" required>
-          <input id="up" class='input-line full-width' v-model="description" placeholder="Popis" required>
+          <input class="input-line full-width" type="text" v-model="title" placeholder="Názov" required>
+          <input id="up" class="input-line full-width" v-model="description" placeholder="Popis" required>
         </div>
-
-        <button type="submit">Submit</button>
+        <button type="submit" :disabled="isUploading">{{ isUploading ? 'Uploading...' : 'Submit' }}</button>
+          <!-- Image preview container -->
+          <div class="image-preview" v-if="imageUrl">
+            <img :src="imageUrl" alt="Image Preview" />
+          </div>
       </form>
     </div>
 
     <div class="container">
-    <div class="box-container">
-      <div class="box" v-for="(card, index) in filteredCards" :key="index">
-        <img class="fw1" :src="card.article_image_url" :alt="card.article_title">
-        <svg class="trash" v-if="admin" @click="deleteCard(card.id)" fill="none" width="33px" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"></path>
-          </svg>
-        <h2>{{ card.article_title }}</h2>
-        <p>{{ card.articleContent }}</p>
-        <p>{{ card.article_publication }}</p>
+      <div class="box-container">
+        <div class="box" v-for="(card, index) in paginatedCards" :key="index">
+          <!-- Display card content -->
+          <img class="fw1" :src="card.article_image_url" :alt="card.article_title">
+          <h2>{{ card.article_title }}</h2>
+          <p>{{ card.articleContent }}</p>
+          <p>{{ card.article_publication }}</p>
+          <button class="delete-button" v-if="admin" @click="deleteCard(card.id)">Vymazať</button>
+        </div>
       </div>
     </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+      <button @click="prevPage" :disabled="currentPage === 1" class="arrow-btn">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10.0002 13.28L5.65355 8.9333C5.14022 8.41997 5.14022 7.57997 5.65355 7.06664L10.0002 2.71997" stroke="#050402" stroke-opacity="0.6" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <span v-for="pageNumber in totalPages" :key="pageNumber">
+        <button @click="changePage(pageNumber)" :class="{ active: pageNumber === currentPage }">
+          <span class="page-number">{{ pageNumber }}</span>
+          <span v-if="pageNumber === currentPage" class="page-dot"></span>
+        </button>
+      </span>
+      <button @click="nextPage" :disabled="currentPage === totalPages" class="arrow-btn">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5.99978 2.72003L10.3464 7.0667C10.8598 7.58003 10.8598 8.42003 10.3464 8.93336L5.99978 13.28" stroke="#050402" stroke-opacity="0.6" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
     </div>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-cV5lumV66EPpxFsNmR5P5K5J6pxzrIMjFgaBzZSUO2Fm2z4MWf0ykInI2P4FffA2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha384-cV5lumV66EPpxFsNmR5P5K5J6pxzrIMjFgaBzZSUO2Fm2z4MWf0ykInI2P4FffA2" crossorigin="anonymous">
   </div>
+
+  <Footer class="space"></Footer>
 </template>
+
 
 <script>
 import axios from 'axios';
+import Footer from '../components/Footer.vue';
 
 export default {
+  components: 
+    { Footer }
+  ,
   data() {
     return {
       title: '',
@@ -106,7 +146,10 @@ export default {
       selectedArchiveOption: '',
       draggedFile: null,
       searchText: '',
+      cardsPerPage: 3, 
+      currentPage: 1,
       isActive: false,
+      isUploading: false,
       dragText: 'Drop files to upload',
       validExtensions: [
         "image/jpeg",
@@ -130,7 +173,7 @@ export default {
     logErrorToBackend(error) {
       try {
         // Log the error to the backend
-        const loggerEndpoint = 'http://127.0.0.1:5000/api/log';
+        const loggerEndpoint = 'http://127.0.0.1:5400/api/log';
         const logData = { source: this.filename, message: error.message };
 
         // Send the error log to the backend using Axios
@@ -162,15 +205,16 @@ export default {
         const formData = new FormData();
         formData.append('image', file);
 
-        // Send the image file to the server for upload
-        const response = await axios.post('http://127.0.0.1:5000/api/upload-image', formData, {
+        this.isUploading = true; // Set uploading status to true
+
+        const response = await axios.post('http://127.0.0.1:5400/api/upload-image', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
             Authorization: localStorage.getItem('token'),
           },
         });
 
-        // The server should respond with the URL of the uploaded image
+        this.isUploading = false; // Reset uploading status
         this.imageUrl = response.data.imageUrl;
       } catch (error) {
         // Log the error message to the console
@@ -186,7 +230,7 @@ export default {
     async checkAdmin() {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://127.0.0.1:5000/api/check-admin', {
+        const response = await axios.get('http://127.0.0.1:5400/api/check-admin', {
           headers: { Authorization: token },
         });
         this.admin = response.data.isAdmin;
@@ -201,7 +245,7 @@ export default {
      */
     async loadCardsFromBackend() {
       try {
-        const response = await axios.get('http://127.0.0.1:5000/api/articles');
+        const response = await axios.get('http://127.0.0.1:5400/api/articles');
         this.cards = response.data;
       } catch (error) {
         this.logErrorToBackend(error);
@@ -217,7 +261,7 @@ export default {
         if (!this.cards) {
           this.cards = []; // Initialize the cards array as an empty array if it's null
         }
-        const response = await axios.post('http://127.0.0.1:5000/api/articles', {
+        const response = await axios.post('http://127.0.0.1:5400/api/articles', {
           articleTitle: this.title,
           articleContent: this.description,
           articlePublication: new Date().toISOString(),
@@ -244,7 +288,7 @@ export default {
      */
     async deleteCard(id) {
       try {
-        await axios.delete(`http://127.0.0.1:5000/api/articles/${id}`);
+        await axios.delete(`http://127.0.0.1:5400/api/articles/${id}`);
 
         // Remove the card from the local cards array
         this.cards = this.cards.filter((card) => card.id !== id);
@@ -295,7 +339,8 @@ export default {
 
     sortByOldest() {
       try {
-        this.cards.sort((a, b) => new Date(a.article_publication) - new Date(b.article_publication));
+        this.filteredCards.sort((a, b) => new Date(a.article_publication) - new Date(b.article_publication));
+        this.currentPage = 1; // Reset current page to the first page after sorting
       } catch (error) {
         this.logErrorToBackend(error);
       }
@@ -303,7 +348,8 @@ export default {
 
     sortByNewest() {
       try {
-        this.cards.sort((a, b) => new Date(b.article_publication) - new Date(a.article_publication));
+        this.filteredCards.sort((a, b) => new Date(b.article_publication) - new Date(a.article_publication));
+        this.currentPage = 1; // Reset current page to the first page after sorting
       } catch (error) {
         this.logErrorToBackend(error);
       }
@@ -321,6 +367,22 @@ export default {
       this.description = '';
       const fileInput = this.$refs.fileInput;
       if (fileInput) fileInput.value = '';
+    },
+
+    changePage(pageNumber) {
+      this.currentPage = pageNumber;
+    },
+
+    prevPage() {
+      if (this.currentPage > 1) {
+        this.currentPage--;
+      }
+    },
+
+    nextPage() {
+      if (this.currentPage < this.totalPages) {
+        this.currentPage++;
+      }
     },
   },
 
@@ -358,11 +420,88 @@ export default {
       }
       return options;
     },
+    paginatedCards() {
+      const startIndex = (this.currentPage - 1) * this.cardsPerPage;
+      const endIndex = startIndex + this.cardsPerPage;
+      return this.filteredCards.slice(startIndex, endIndex).map(card => ({ ...card }));
+    },
+    totalPages() {
+      return Math.ceil(this.filteredCards.length / this.cardsPerPage);
+    },
   },
 };
 </script>
 
 <style scoped>
+.space{
+  margin-top: 27cm;
+}
+
+.image-preview {
+  margin-top: 10px;
+  text-align: center;
+  margin-left: 400px;
+}
+
+.image-preview img {
+  max-width: 100%;
+  max-height: 200px; /* Adjust the max height as needed */
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  border: none;
+  font-family: 'Plus Jakarta Sans';
+  
+}
+
+.pagination button {
+  background-color: none;
+  border: none;
+  padding: 8px 12px;
+  margin: 0 2px;
+  cursor: pointer;
+  border: none;
+  color: #333;
+  background: none;
+  transition: background-color 0.3s ease;
+}
+
+.pagination button:hover {
+  background-color: none;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: none;
+}
+
+.pagination .active {
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  
+}
+
+.pagination .active:hover {
+  background-color: none;
+  opacity: 0.8;
+}
+
+/* Additional styles for arrow buttons */
+.arrow-btn {
+  font-size: 18px;
+  width: 40px;
+  background: none;
+  border: none;
+}
+
+
+
+
 
 .or{
   font-size: 17px;
@@ -383,12 +522,41 @@ cursor: pointer;
 .icon-search{
   display: flex;
   position: absolute;
-  margin-top: 10px;
+  margin-top: 17px;
   margin-left: 11px;
 }
 
+.page-dot {
+  display: block;
+  width: 4px;
+  height: 4px;
+  margin: 4px auto 0;
+  border-radius: 50%;
+  background-color: #3B3731; /* Adjust the color as needed */
+}
+
 @media (max-width: 1000px) {
-  
+  .delete-button{
+
+
+
+border: solid 1px black;
+
+background: transparent;
+font-size: 13px;
+border-radius: 19px;
+cursor: pointer;
+padding:7px 20px;
+
+
+
+
+
+
+}
+.or{
+  font-size: 17px;
+}
 .dropdown span{
   display: none;
 }
@@ -423,6 +591,27 @@ cursor: pointer;
 
 
 @media (min-width: 1000px) {
+
+
+  .delete-button{
+
+
+  
+    border: solid 1px black;
+    
+    background: transparent;
+    font-size: 13px;
+    border-radius: 19px;
+    cursor: pointer;
+    padding:7px 20px;
+
+  
+
+  
+  
+  
+  }
+
   .dropdown span{
   display: block;
 }
@@ -617,7 +806,7 @@ font-size: 13px;
 display: grid;
 place-items: start;
 align-self: start;
-
+margin-top: 8px;
 align-content: start;
 justify-content: start;
 text-indent: 10px; 
@@ -792,16 +981,14 @@ cursor: pointer;
 background: rgb(0, 0, 0);
 color: rgb(255, 255, 255);
 border: none;
-
-
-
-
-
 font-family: 'Plus Jakarta Sans'; 
 font-size: 14px;
 border-radius: 20px;
-width: 100px;
+width: 80px;
 height: 40px;
+position: absolute;
+margin-top: 3cm;
+margin-left: -10px;
 cursor: pointer;
 
 }
