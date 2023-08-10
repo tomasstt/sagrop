@@ -1,33 +1,96 @@
 <template>
-    <div>
-        <div id="example1">
-        <h1>Prihláste sa k odberu <br> nášho newslettera!</h1>
+  <div>
+    <div id="example1">
+      <h1>Prihláste sa k odberu <br> nášho newslettera!</h1>
 
-        
+      <!-- Use @submit.prevent to prevent page refresh on form submission -->
+      <form @submit.prevent="submitForm">
         <div class="form__group field">
-  <input type="input" class="form__field" placeholder="Mail" name="name" id='name' required />
-  <label for="name" class="form__label">Vaša e-mailová adresa:</label>
-      </div>
-    
+          <input v-model="email" type="email" class="form__field" placeholder="Mail" name="name" id="name" required />
+          <label for="name" class="form__label">Vaša e-mailová adresa:</label>
+        </div>
 
-       <div class="containera">
-        <input type="submit" value="Prihlásiť sa">
-      </div>
-      <p>Táto stránka je chránená reCAPTCHA a platia zásady ochrany osobných údajov <br> a Zmluvné podmienky spoločnosti Google.</p>
+        <div class="containera">
+          <input type="submit" value="Prihlásiť sa">
+        </div>
+      </form>
+
+      <!-- Display response messages based on the value of responseMessage -->
+      <p v-if="responseMessage">{{ responseMessage }}</p>
       
+      <p>Táto stránka je chránená reCAPTCHA a platia zásady ochrany osobných údajov <br> a Zmluvné podmienky spoločnosti Google.</p>
     </div>
-    </div>
+  </div>
 </template>
 
 <script>
-    export default {
-        
-    }
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      email: '',
+      filename: 'NewsletterAU.vue', // Replace with the actual filename
+      responseMessage: '', // Response message to display to the user
+    };
+  },
+  methods: {
+    /**
+     * Logs an error to the backend and displays it to the user.
+     * @param {Error} error - The error object to be logged to the backend.
+     */
+    async logErrorToBackend(error) {
+      try {
+        const loggerEndpoint = 'http://127.0.0.1:5402/api/log'; // Replace with your actual logger endpoint
+        const logData = { source: this.filename, message: error.message };
+
+        await axios.post(loggerEndpoint, logData);
+
+        // Display the error message to the user or handle it as needed
+        console.error('Caught error:', error.message);
+      } catch (error) {
+        console.error('Error logging to backend:', error);
+      }
+    },
+
+    async submitForm() {
+      try {
+        const response = await this.addEmailToDatabase(this.email);
+        this.email = '';
+
+        // Set response message based on the server response
+        if (response.message) {
+          this.responseMessage = response.message;
+        }
+      } catch (error) {
+        if (error.response && error.response.status === 500) {
+          this.responseMessage = 'Email is already subscribed';
+        } else {
+          this.logErrorToBackend(error);
+        }
+      }
+    },
+
+    async addEmailToDatabase(email) {
+      try {
+        const endpoint = 'http://127.0.0.1:5402/api/add-email';
+        const data = { email };
+
+        const response = await axios.post(endpoint, data);
+        if (response.status !== 201) {
+          throw new Error(response.message);
+        }
+        return response.data; // Return the response data
+      } catch (error) {
+        this.logErrorToBackend(error);
+        throw error; // Re-throw the error for the caller to handle
+      }
+    },
+  },
+};
 </script>
 
-<style  scoped>
-
-
+<style scoped>
 .containera{
   cursor: pointer;
  
@@ -48,22 +111,18 @@
     object-fit: cover;
     
     margin:  auto ;
-    padding-left: 1cm;
+    padding-left: 1.9cm;
 
 }
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
   
 #example1 h1 {
   color: white;
   font-size: 28px;
-  
   }
   #example1 p {
     color: white;
     font-size: 12px;
-    font-family: 'Plus Jakarta Sans';
-    }
     }
   
 input[type=text]
@@ -159,7 +218,7 @@ font-weight: 500;
   box-shadow: none;
 }
 
-  
+  }
 
   
 

@@ -1,127 +1,138 @@
 <template>
-  
-    <div>
-        <section>
-          <div class="blue1">
-            <section class="blue2"><h1 class="">Aktuality</h1></section>
-            
-            <aside class="blue3"><p class="">Tu nájdete informácie o nových produktových <br> radoch, najnovších projektoch a iných <br> zaujímavých veciach, ktoré sa u nás dejú. Naša <br> snaha je udržiavať vás v obraze a informovať o <br> všetkom, čo sa deje v našej spoločnosti.</p></aside>
-            <aside class="blue4"><p class="">Sledujte naše novinky a buďte informovaní o <br> všetkých dôležitých zmenách a aktualizáciách. </p></aside>
-            
-            </div>
-           
+  <div>
+    <section>
+      <div class="blue1">
+        <section class="blue2">
+          <h1 class="">Aktuality</h1>
         </section>
-        <div class="bar">
-        <div class="search-bar"><svg class="icon-search" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-<path d="M7.66634 13.9999C11.1641 13.9999 13.9997 11.1644 13.9997 7.66659C13.9997 4.16878 11.1641 1.33325 7.66634 1.33325C4.16854 1.33325 1.33301 4.16878 1.33301 7.66659C1.33301 11.1644 4.16854 13.9999 7.66634 13.9999Z" stroke="#3B3731" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M14.6663 14.6666L13.333 13.3333" stroke="#3B3731" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
 
-      <input class="search" type="text" v-model="searchText" placeholder="Hladat" />
-      
-    </div>
+        <aside class="blue3">
+          <p class="">Tu nájdete informácie o nových produktových <br> radoch, najnovších projektoch a iných <br>
+            zaujímavých veciach, ktoré sa u nás dejú. Naša <br> snaha je udržiavať vás v obraze a informovať o <br>
+            všetkom, čo sa deje v našej spoločnosti.</p>
+        </aside>
+        <aside class="blue4">
+          <p class="">Sledujte naše novinky a buďte informovaní o <br> všetkých dôležitých zmenách a aktualizáciách. </p>
+        </aside>
+      </div>
+    </section>
 
-    <div class="spacer"></div>
-  <div class="buttons">
-<button class="new" @click="sortByNewest">Najnovšie</button>
-<button class="old" @click="sortByOldest">Najstaršie</button>
+    <div class="bar">
+      <div class="search-bar">
+        <svg class="icon-search" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
+          fill="none">
+          <path
+            d="M7.66634 13.9999C11.1641 13.9999 13.9997 11.1644 13.9997 7.66659C13.9997 4.16878 11.1641 1.33325 7.66634 1.33325C4.16854 1.33325 1.33301 4.16878 1.33301 7.66659C1.33301 11.1644 4.16854 13.9999 7.66634 13.9999Z"
+            stroke="#3B3731" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M14.6663 14.6666L13.333 13.3333" stroke="#3B3731" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
 
-<div class="archive-dropdown">
-      <div class="dropdown">
-        <button @click="showArchiveDropdown = !showArchiveDropdown"> <span>  Archív</span><svg class="archIcon" width="25px" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m8.25 3v6.75m0 0l-3-3m3 3l3-3M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"></path>
-</svg></button>
-        <div v-if="showArchiveDropdown" class="dropdown-menu">
-          <ul>
-            <li v-for="option in archiveOptions" :key="option.label">
-              <a @click="selectArchiveOption(option)">{{ option.label }}</a>
-            </li>
-          </ul>
+        <input class="search" type="text" v-model="searchText" placeholder="Hladat" />
+      </div>
+
+      <div class="spacer"></div>
+
+      <div class="buttons">
+        <button class="new" @click="sortByNewest">Najnovšie</button>
+        <button class="old" @click="sortByOldest">Najstaršie</button>
+
+        <div class="archive-dropdown">
+          <div class="dropdown">
+            <button @click="showArchiveDropdown = !showArchiveDropdown">
+              <span>Archív</span>
+              <svg class="archIcon" width="25px" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m8.25 3v6.75m0 0l-3-3m3 3l3-3M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z">
+                </path>
+              </svg>
+            </button>
+            <div v-if="showArchiveDropdown" class="dropdown-menu">
+              <ul>
+                <li v-for="option in archiveOptions" :key="option.label">
+                  <a @click="selectArchiveOption(option)">{{ option.label }}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-        </div> 
+        <span class="selected-option">{{ selectedArchiveOption }}</span>
       </div>
     </div>
-</div>
 
-
-        <div v-if="!admin" class="admin-page">
-    <form @submit.prevent="createCard" class="form-container">
-      
-      <div class="drag-area" :class="{ 'active': isActive }" @dragover.prevent="onDragOver" @dragleave="onDragLeave" @drop.prevent="onDrop" >
-       
-        <svg class="brow" xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46" fill="none">
-<path d="M26.833 3.83325H17.2497C7.66634 3.83325 3.83301 7.66659 3.83301 17.2499V28.7499C3.83301 38.3333 7.66634 42.1666 17.2497 42.1666" stroke="#A6A29D" stroke-width="2.875" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M42.166 19.1665V24.9165" stroke="#A6A29D" stroke-width="2.875" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M42.1663 19.1666H34.4997C28.7497 19.1666 26.833 17.2499 26.833 11.4999V3.83325L42.1663 19.1666Z" stroke="#A6A29D" stroke-width="2.875" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M26.3732 34.9986C21.8691 35.3244 21.8691 41.8411 26.3732 42.1669H37.0299C38.3141 42.1669 39.5791 41.6877 40.5182 40.8252C43.6807 38.0652 41.9941 32.5452 37.8349 32.0277C36.3399 23.0386 23.3449 26.4502 26.4116 35.0177" stroke="#A6A29D" stroke-width="2.875" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-      <header v-text="dragText"></header>
-      
-      <div > <span class="or">or</span> <a class="browse" @click="browseFile" > súbory </a></div>
-      <input type="file"  ref="fileInput" required hidden @change="handleImageUpload">
+    <div v-if="admin" class="admin-page">
+      <form @submit.prevent="createCard" class="form-container">
+        <div class="drag-area" :class="{ 'active': isActive }" @dragover.prevent="onDragOver" @dragleave="onDragLeave" @drop.prevent="onDrop">
+          <svg class="brow" xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46" fill="none">
+            <path d="M26.833 3.83325H17.2497C7.66634 3.83325 3.83301 7.66659 3.83301 17.2499V28.7499C3.83301 38.3333 7.66634 42.1666 17.2497 42.1666" stroke="#A6A29D" stroke-width="2.875" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M42.166 19.1665V24.9165" stroke="#A6A29D" stroke-width="2.875" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M42.1663 19.1666H34.4997C28.7497 19.1666 26.833 17.2499 26.833 11.4999V3.83325L42.1663 19.1666Z" stroke="#A6A29D" stroke-width="2.875" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M26.3732 34.9986C21.8691 35.3244 21.8691 41.8411 26.3732 42.1669H37.0299C38.3141 42.1669 39.5791 41.6877 40.5182 40.8252C43.6807 38.0652 41.9941 32.5452 37.8349 32.0277C36.3399 23.0386 23.3449 26.4502 26.4116 35.0177" stroke="#A6A29D" stroke-width="2.875" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <header v-text="dragText"></header>
+          <div class="or">or<a class="browse" @click="browseFile" > browse </a></div>
+          <input type="file" ref="fileInput" required hidden @change="handleImageUpload">
+        </div>
+        <div class="input-container">
+          <input class="input-line full-width" type="text" v-model="title" placeholder="Názov" required>
+          <input id="up" class="input-line full-width" v-model="description" placeholder="Popis" required>
+        </div>
+        <button type="submit" :disabled="isUploading">{{ isUploading ? 'Uploading...' : 'Submit' }}</button>
+          <!-- Image preview container -->
+          <div class="image-preview" v-if="imageUrl">
+            <img :src="imageUrl" alt="Image Preview" />
+          </div>
+      </form>
     </div>
-      <!-- <label for="imageUpload" class="custom-file-label">Choose an image</label>
-<input id="imageUpload" type="file" accept="image/jpeg" @change="handleImageUpload" required class="custom-file-input"> -->
 
-<div class="input-container">
-      <input class='input-line full-width' type="text" v-model="title" placeholder="Názov" required>
-     
-      <input id="up" class='input-line full-width' v-model="description" placeholder="Popis" required></div>
-      
-      <button type="submit">Odoslať</button>
-    </form>
-  </div>
-            <div class="container">
-                <div class="box-container">
+    <div class="container">
+      <div class="box-container">
+        <div class="box" v-for="(card, index) in paginatedCards" :key="index">
+          <!-- Display card content -->
+          <img class="fw1" :src="card.article_image_url" :alt="card.article_title">
+          <h2>{{ card.article_title }}</h2>
+          <p>{{ card.article_content }}</p>
+          <div class="timestamp">{{ formatDate(card.article_publication) }}</div> <!-- Format and display timestamp -->
+          <button class="delete-button" v-if="admin" @click="deleteCard(card.id)">Vymazať</button>
+        </div>
+      </div>
+    </div>
 
-                  
-                  
-          <div class="box" v-for="(card, index) in paginatedCards" :key="index">
-          <img class="fw1" :src="card.imageUrl" alt="">
-          <h2>{{ card.title }}</h2>
-          <p>{{ card.description }}</p>
-          <!-- <router-link :to="{ name: 'cardDetail', params: { id: index }, props: { card } }">
-        Zobraziť viac
-      </router-link> -->
-          <button class="delete-button" v-if="!admin" @click="deleteCard(index)">Vymazať</button> 
-              </div>
-            </div>
-            </div>
-            <div class="pagination">
-    <button @click="prevPage" :disabled="currentPage === 1" class="arrow-btn">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M10.0002 13.28L5.65355 8.9333C5.14022 8.41997 5.14022 7.57997 5.65355 7.06664L10.0002 2.71997" stroke="#050402" stroke-opacity="0.6" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-    </button>
-    <span v-for="pageNumber in totalPages" :key="pageNumber">
-      <button @click="changePage(pageNumber)" :class="{ active: pageNumber === currentPage }">
-        {{ pageNumber }}
+    <!-- Pagination -->
+    <div class="pagination">
+      <button @click="prevPage" :disabled="currentPage === 1" class="arrow-btn">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10.0002 13.28L5.65355 8.9333C5.14022 8.41997 5.14022 7.57997 5.65355 7.06664L10.0002 2.71997" stroke="#050402" stroke-opacity="0.6" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </button>
-    </span>
-    <button @click="nextPage" :disabled="currentPage === totalPages" class="arrow-btn">
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M5.99978 2.72003L10.3464 7.0667C10.8598 7.58003 10.8598 8.42003 10.3464 8.93336L5.99978 13.28" stroke="#050402" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+      <span v-for="pageNumber in totalPages" :key="pageNumber">
+        <button @click="changePage(pageNumber)" :class="{ active: pageNumber === currentPage }">
+          <span class="page-number">{{ pageNumber }}</span>
+          <span v-if="pageNumber === currentPage" class="page-dot"></span>
+        </button>
+      </span>
+      <button @click="nextPage" :disabled="currentPage === totalPages" class="arrow-btn">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5.99978 2.72003L10.3464 7.0667C10.8598 7.58003 10.8598 8.42003 10.3464 8.93336L5.99978 13.28" stroke="#050402" stroke-opacity="0.6" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
 
-    </button>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha384-cV5lumV66EPpxFsNmR5P5K5J6pxzrIMjFgaBzZSUO2Fm2z4MWf0ykInI2P4FffA2" crossorigin="anonymous">
   </div>
-             </div>
 
-             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-cV5lumV66EPpxFsNmR5P5K5J6pxzrIMjFgaBzZSUO2Fm2z4MWf0ykInI2P4FffA2" crossorigin="anonymous">
-
-
-<Footer class="space"></Footer>
+  <Footer class="space"></Footer>
 </template>
 
 
 <script>
-import CardDetailViewVue from './CardDetailView.vue';
+import axios from 'axios';
 import Footer from '../components/Footer.vue';
+
 export default {
   components: 
-    {CardDetailViewVue,Footer}
+    { Footer }
   ,
   data() {
     return {
@@ -132,104 +143,221 @@ export default {
       imageUrl: '',
       description: '',
       showArchiveDropdown: false,
-      selectedArchiveOption: '',  
-      droppedFile: null,    
+      selectedArchiveOption: '',
+      draggedFile: null,
+      searchText: '',
       cardsPerPage: 12, 
       currentPage: 1,
-      cards: [],
-      searchText:'',
-      date: '', 
       isActive: false,
+      isUploading: false,
       dragText: 'Drop files to upload',
-      file: null,
-      validExtensions: ["image/jpeg", "image/jpg", "image/png", "image/gif", "image/svg+xml", "image/jpg"],
+      validExtensions: [
+        "image/jpeg",
+        "image/jpg",
+        "image/png",
+        "image/gif",
+        "image/svg+xml",
+      ],
+      filename: 'AktualityView.vue',
     };
   },
   created() {
-    this.loadCardsFromStorage();
+    this.loadCardsFromBackend();
+    this.checkAdmin();
   },
   methods: {
-    changePage(pageNumber) {
-      this.currentPage = pageNumber;
-    },
+    /**
+     * Simulates an error and logs it to the backend using Axios.
+     * @param {Error} error - The error object to be logged to the backend.
+     */
+    logErrorToBackend(error) {
+      try {
+        // Log the error to the backend
+        const loggerEndpoint = 'http://127.0.0.1:5402/api/log';
+        const logData = { source: this.filename, message: error.message };
 
-    
-    prevPage() {
-      if (this.currentPage > 1) {
-        this.currentPage--;
+        // Send the error log to the backend using Axios
+        axios.post(loggerEndpoint, logData).catch((error) => {
+          console.error('Error logging to backend:', error);
+        });
+
+        // You can also display the error message to the user or handle it as needed
+        console.error('Caught error:', error.message);
+      } catch (error) {
+        console.error('Error logging to backend:', error);
       }
     },
 
+    /**
+     * Handle image upload when the user selects an image.
+     * @param {Event} event - The input change event containing the selected image file.
+     */
+     async handleImageUpload(event) {
+      const file = event.target.files[0];
+
+      // Check if the selected file is an image
+      if (!this.validExtensions.includes(file.type)) {
+        this.logErrorToBackend(`Invalid file type. Please select an image file (jpeg, jpg, png, gif, svg).`);
+        return;
+      }
+
+      try {
+        const formData = new FormData();
+        formData.append('image', file);
+
+        this.isUploading = true; // Set uploading status to true
+
+        const response = await axios.post('http://127.0.0.1:5402/api/upload-image', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            Authorization: localStorage.getItem('token'),
+          },
+        });
+
+        this.isUploading = false; // Reset uploading status
+        this.imageUrl = response.data.imageUrl;
+      } catch (error) {
+        // Log the error message to the console
+        console.error('Error uploading image:', error.message);
+        this.logErrorToBackend(error);
+      }
+    },
+
+    /**
+     * Check the user's admin status.
+     * @returns {Promise<void>} - A Promise that resolves after checking the admin status or rejects on error.
+     */
+    async checkAdmin() {
+      try {
+        const token = localStorage.getItem('token');
+        const response = await axios.get('http://127.0.0.1:5402/api/check-admin', {
+          headers: { Authorization: token },
+        });
+        this.admin = response.data.isAdmin;
+      } catch (error) {
+        this.logErrorToBackend(error);
+      }
+    },
+
+    /**
+     * Load cards from the backend API.
+     * @returns {Promise<void>} - A Promise that resolves after loading the cards or rejects on error.
+     */
+    async loadCardsFromBackend() {
+      try {
+        const response = await axios.get('http://127.0.0.1:5402/api/articles');
+        this.cards = response.data;
+      } catch (error) {
+        this.logErrorToBackend(error);
+      }
+    },
+
+    /**
+     * Create a new card by sending a POST request to the backend API.
+     * @returns {Promise<void>} - A Promise that resolves after creating the card or rejects on error.
+     */
+    async createCard() {
+      try {
+        if (!this.cards) {
+          this.cards = []; // Initialize the cards array as an empty array if it's null
+        }
+        const response = await axios.post('http://127.0.0.1:5402/api/articles', {
+          articleTitle: this.title,
+          articleContent: this.description,
+          articlePublication: new Date().toISOString(),
+          articleImageUrl: this.imageUrl,
+        });
+        const newCard = response.data;
+        if (this.cards.length === 0) {
+          this.cards.push(newCard); // Add the new card at the end of the array if it's empty
+        } else {
+          this.cards.unshift(newCard); // Add the new card at the beginning of the array
+        }
+        this.resetForm();
+
+        await this.loadCardsFromBackend();
+      } catch (error) {
+        this.logErrorToBackend(error);
+      }
+    },
     
-    nextPage() {
-      if (this.currentPage < this.totalPages) {
-        this.currentPage++;
+    formatDate(timestamp) {
+      const date = new Date(timestamp);
+      return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+    },
+
+    /**
+     * Delete a card by sending a DELETE request to the backend API.
+     * @param {number} id - The ID of the card to delete.
+     * @returns {Promise<void>} - A Promise that resolves after deleting the card or rejects on error.
+     */
+    async deleteCard(id) {
+      try {
+        await axios.delete(`http://127.0.0.1:5402/api/articles/${id}`);
+
+        // Remove the card from the local cards array
+        this.cards = this.cards.filter((card) => card.id !== id);
+
+        // Reload the cards from the backend to reflect the updated list
+        await this.loadCardsFromBackend();
+      } catch (error) {
+        this.logErrorToBackend(error);
       }
     },
 
     browseFile() {
-          this.$refs.fileInput.click();
-        },
-        onFileChange(event) {
-          const file = event.target.files[0];
-      this.image = file;
-      this.imageUrl = URL.createObjectURL(file);
-        },
-        onDragOver(event) {
-          event.preventDefault();
-          this.isActive = true;
-          this.dragText = "Release to Upload File";
-        },
-        onDragLeave() {
-          this.isActive = false;
-          this.dragText = "Drop files to upload";
-        },
-        onDrop(event) {
-         
-          this.file = event.dataTransfer.files[0];
-          this.showFile();
-          this.imageUrl = URL.createObjectURL(file);
-        },
-        showFile() {
-          if (this.validExtensions.includes(this.file.type)) {
-            const fileReader = new FileReader();
-            fileReader.onload = () => {
-              const fileURL = fileReader.result;
-              const imgTag = `<img src="${fileURL}" alt="image">`;
-              this.$el.querySelector(".drag-area").innerHTML = imgTag;
-            };
-            fileReader.readAsDataURL(this.file);
-          } else {
-            alert("This is not an Image File!");
-            this.isActive = false;
-            this.dragText = "Drag & Drop to Upload File";
-          }
-        },
-
-    handleImageUpload(event) {
-      const file = event.target.files[0];
-      this.image = file;
-      this.imageUrl = URL.createObjectURL(file);
+      this.$refs.fileInput.click();
     },
-    
-    deleteCard(index) {
-  this.cards.splice(index, 1);
-  this.saveCardsToStorage();
-},
-sortByOldest() {
-      this.cards.sort((a, b) => {
-        const dateA = new Date(a.date);
-        const dateB = new Date(b.date);
-        return dateA - dateB;
-      });
+
+    onDragOver(event) {
+      event.preventDefault();
+      this.isActive = true;
+      this.dragText = 'Release to Upload File';
+    },
+
+    onDragLeave() {
+      this.isActive = false;
+      this.dragText = 'Drop files to upload';
+    },
+
+    onDrop(event) {
+      this.draggedFile = event.dataTransfer.files[0];
+      this.showFile();
+      this.imageUrl = URL.createObjectURL(this.draggedFile);
+    },
+
+    showFile() {
+      if (this.validExtensions.includes(this.draggedFile.type)) {
+        const fileReader = new FileReader();
+        fileReader.onload = () => {
+          const fileURL = fileReader.result;
+          const imgTag = `<img src="${fileURL}" alt="image">`;
+          this.$el.querySelector('.drag-area').innerHTML = imgTag;
+        };
+        fileReader.readAsDataURL(this.draggedFile);
+      } else {
+        alert('This is not an Image File!');
+        this.isActive = false;
+        this.dragText = 'Drag & Drop to Upload File';
+      }
+    },
+
+    sortByOldest() {
+      try {
+        this.filteredCards.sort((a, b) => new Date(a.article_publication) - new Date(b.article_publication));
+        this.currentPage = 1; // Reset current page to the first page after sorting
+      } catch (error) {
+        this.logErrorToBackend(error);
+      }
     },
 
     sortByNewest() {
-      this.cards.sort((a, b) => {
-        const dateA = new Date(a.date);
-        const dateB = new Date(b.date);
-       return dateA - dateB;
-      });
+      try {
+        this.filteredCards.sort((a, b) => new Date(b.article_publication) - new Date(a.article_publication));
+        this.currentPage = 1; // Reset current page to the first page after sorting
+      } catch (error) {
+        this.logErrorToBackend(error);
+      }
     },
 
     selectArchiveOption(option) {
@@ -237,98 +365,100 @@ sortByOldest() {
       this.showArchiveDropdown = false;
     },
 
-    createCard() {
-      const currentDate = new Date();
-      const newCard = {
-        title: this.title,
-        image: this.image,
-        imageUrl: this.imageUrl,
-        description: this.description,
-        date: currentDate.toISOString(),
-      };
-      this.cards.push(newCard);
-      this.saveCardsToStorage();
-      this.resetForm();
-    },
     resetForm() {
-  this.title = '';
-  this.image = null;
-  this.imageUrl = '';
-  this.description = '';
-
-  const fileInput = document.querySelector('input[type="file"]');
-  fileInput.value = ''; 
-},
-    saveCardsToStorage() {
-      localStorage.setItem('cards', JSON.stringify(this.cards));
+      this.title = '';
+      this.image = null;
+      this.imageUrl = '';
+      this.description = '';
+      const fileInput = this.$refs.fileInput;
+      if (fileInput) fileInput.value = '';
     },
-    loadCardsFromStorage() {
-      const storedCards = localStorage.getItem('cards');
-      if (storedCards) {
-        this.cards = JSON.parse(storedCards);
+
+    changePage(pageNumber) {
+      this.currentPage = pageNumber;
+    },
+
+    prevPage() {
+      if (this.currentPage > 1) {
+        this.currentPage--;
       }
-    }
-  },
-  computed: {
-    
-    sortedCards() {
-      
-      return this.cards.slice().sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate));
-    },
-    filteredCards() {
-      return this.cards.filter((card) => {
-        return card.title.toLowerCase().includes(this.searchText.toLowerCase());
-      });
     },
 
+    nextPage() {
+      if (this.currentPage < this.totalPages) {
+        this.currentPage++;
+      }
+    },
+  },
+
+  computed: {
+    filteredCards() {
+      const searchText = this.searchText.toLowerCase().trim();
+      if (!searchText) {
+        return this.cards;
+      } else {
+        return this.cards.filter((card) => {
+          const titleMatch = card?.article_title?.toLowerCase().includes(searchText);
+          const contentMatch = card?.article_content?.toLowerCase().includes(searchText);
+          return titleMatch || contentMatch;
+        });
+      }
+    },
+    archiveOptions() {
+      const options = [];
+      const currentDate = new Date();
+      const currentYear = currentDate.getFullYear();
+      const currentMonth = currentDate.getMonth() + 1;
+
+      for (let year = currentYear; year >= 2016; year--) {
+        for (let month = 12; month >= 1; month--) {
+          options.push({
+            year,
+            month,
+            label: `${year}-${month.toString().padStart(2, '0')}`,
+          });
+
+          if (year === currentYear && month === currentMonth) {
+            break;
+          }
+        }
+      }
+      return options;
+    },
     paginatedCards() {
       const startIndex = (this.currentPage - 1) * this.cardsPerPage;
       const endIndex = startIndex + this.cardsPerPage;
-      return this.filteredCards.slice(startIndex, endIndex);
+      return this.filteredCards.slice(startIndex, endIndex).map(card => ({ ...card }));
     },
-
     totalPages() {
       return Math.ceil(this.filteredCards.length / this.cardsPerPage);
     },
-
-  
-    archiveOptions() {
-    const options = [];
-
-    const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
-    const currentMonth = currentDate.getMonth() + 1;
-
-    
-    for (let year = currentYear; year >= 2016; year--) {
-      for (let month = 12; month >= 1; month--) {
-        options.push({
-          year,
-          month,
-          label: `${year}-${month.toString().padStart(2, '0')}`
-        });
-
-        if (year === currentYear && month === currentMonth) {
-          break;
-        }
-      }
-    }
-
-    return options;
   },
-  
-
-},
-
 };
 </script>
-
 
 <style scoped>
 .space{
   margin-top: 27cm;
 }
 
+.timestamp {
+  font-size: 14px; /* Adjust the font size as needed */
+  color: #999;
+  margin-top: 6px;
+  text-align: right; /* Align the timestamp to the right */
+}
+
+.image-preview {
+  margin-top: 10px;
+  text-align: center;
+  margin-left: 400px;
+}
+
+.image-preview img {
+  max-width: 100%;
+  max-height: 200px; /* Adjust the max height as needed */
+}
 
 .pagination {
   display: flex;
@@ -406,6 +536,15 @@ cursor: pointer;
   position: absolute;
   margin-top: 17px;
   margin-left: 11px;
+}
+
+.page-dot {
+  display: block;
+  width: 4px;
+  height: 4px;
+  margin: 4px auto 0;
+  border-radius: 50%;
+  background-color: #3B3731; /* Adjust the color as needed */
 }
 
 @media (max-width: 1000px) {

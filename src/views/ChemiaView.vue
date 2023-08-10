@@ -82,7 +82,7 @@ margin-top: 3cm;
   
   .blue2 {
     height: 300px;
-    width: 42.6%;
+    width: 45%;
     display: table-cell;
   padding-left: 30px;
   font-family:'Recia' ;
@@ -115,13 +115,7 @@ margin-top: 3cm;
     font-weight: 300;
     line-height: normal;
 letter-spacing: 0.225px;
-color: rgba(35, 25, 10, 0.80);
 
-
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-letter-spacing: 0.225px;
 
 
     font-family: 'Plus Jakarta Sans', sans-serif;
@@ -131,13 +125,11 @@ letter-spacing: 0.225px;
     height: 300px;
     width: 30%;
     display: table-cell;
-padding-right: 30px;
+  padding-right: 30px;
     font-size: 3em;
     padding-top: 2cm;
     line-height: normal;
-     color: rgba(35, 25, 10, 0.80);
-
-    font-weight: 500;
+    font-weight: 300;
     font-family: 'Plus Jakarta Sans', sans-serif;
 letter-spacing: 0.225px;
 
@@ -147,7 +139,7 @@ letter-spacing: 0.225px;
     
     .blue2 {
         height: 300px;
-        width: 42.5%;
+        width: 45%;
         display: table-cell;
         padding-left: 30px;
     
@@ -162,13 +154,6 @@ letter-spacing: 0.225px;
         display: table-cell;
         padding-left: 10px;
         font-size: 20px;
-        color: rgba(35, 25, 10, 0.80);
-
-
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-letter-spacing: 0.225px;
       }
       .blue4 {
         height: 100px;
@@ -177,13 +162,7 @@ letter-spacing: 0.225px;
         display: table-cell;
         padding-right: 30px;
         font-size: 20px;
-        color: rgba(35, 25, 10, 0.80);
 
-
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-letter-spacing: 0.225px;
 
     
       }
@@ -199,43 +178,27 @@ letter-spacing: 0.225px;
   @media (max-width: 1410px){
     .blue2 {
       display: block;
-      height: 90px;
+      height: 200px;
       width: 90%;
-      font-size: 4em;
-      
+      font-size: 5em;
   
       
     }
-
-    .cont {
-    margin-top: -4cm;
-    margin-bottom:0cm;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 100%;
- 
-  gap: 5px;
-  
-  
-}
-
     
     
     .blue3 {
       display: block;
       height: 150px;
       width: 90%;
-      padding-left: 30px;
+      padding-left: 20px;
       padding-top: 30px;
-      font-size: 25px;
+      font-size: 30px;
       
     }
     .blue4 {
-      padding-top: 0px;
-        padding-left: 30px;
-        font-size: 25px;
-        
+      
+        padding-left: 20px;
+        font-size: 30px;
         
       }
   
@@ -282,45 +245,20 @@ letter-spacing: 0.225px;
    
   }
   .container3 {
-  width: 56.5%;
+  width: 55%;
   font-family: 'Plus Jakarta Sans', sans-serif;
     padding-top: 2cm;
-    padding-right: 20px;
   position: absolute;
   right: 0;
+
+}
+
+.right-text3 p {
+  font-size: 24px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   
-
 }
 
-@media (min-width: 1000px){
-.right-text3 p {
-  font-size: 29px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  color: rgba(35, 25, 10, 0.80);
-
-
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-letter-spacing: 0.225px;
-}
-}
-
-
-
-@media (max-width: 2000px){
-.right-text3 p {
-  font-size: 20px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  color: rgba(35, 25, 10, 0.80);
-
-margin-left: 10px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-letter-spacing: 0.225px;
-}
-}
 .right-text3 {
   padding-right: 20px;
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -423,7 +361,6 @@ letter-spacing: 0.225px;
 @media (max-width: 1410px){
   .ront {
     padding-top: 4cm;
-    
   }
 }
 </style>

@@ -10,36 +10,41 @@
             <div class='welcome'>Prihlásiť sa</div>
             <div class='subtitle'>Už máte účet? Prihlásiť sa</div>
             <div class="input-fields">
-      <input
-        type="email"
-        placeholder="Email"
-        class="input-line full-width"
-        ref="emailInput"
-        :class="{ 'invalid-input': showEmailError }"
-      />
-      <div v-if="showEmailError" class="error-message">Vyplňte prosím svoj e-mail!</div>
-      <input
-        type="password"
-        placeholder="Heslo"
-        class="input-line full-width"
-        ref="passwordInput"
-        :class="{ 'invalid-input': showPasswordError }"
-      />
-      <div v-if="showPasswordError" class="error-message">Vyplňte prosím svoje heslo!</div>
-    </div>
-    <label class="checkk">
-      <input type="checkbox" />
-      <p>Súhlasím s podmienkami služby a Ochranou osobných údajov</p>
-    </label>
-    <div>
-      <button @click="validateForm" class="ghost-round full-width">Prihlásiť sa</button>
-    </div>
-    <div v-if="showSuccessMessage" class="success-message">Boli ste úspešne prihlásení</div>
-
+              <input
+                type="email"
+                placeholder="Email"
+                class="input-line full-width"
+                ref="emailInput"
+                :class="{ 'invalid-input': showEmailError }"
+              />
+              <div v-if="showEmailError" class="error-message">Vyplňte prosím svoj e-mail!</div>
+              <input
+                type="password"
+                placeholder="Heslo"
+                class="input-line full-width"
+                ref="passwordInput"
+                :class="{ 'invalid-input': showPasswordError }"
+              />
+              <div v-if="showPasswordError" class="error-message">Vyplňte prosím svoje heslo!</div>
+            </div>
+            <label class="checkk">
+              <input type="checkbox" />
+              <p>Súhlasím s podmienkami služby a Ochranou osobných údajov</p>
+            </label>
+            <div>
+              <button @click="login" class='ghost-round full-width'>Prihlásiť sa</button>
+            </div>
+            <div v-if="showSuccessMessage" class="success-message">Boli ste úspešne prihlásení</div>
+            <!-- Display error messages -->
+            <div v-if="errorMessage" class="error-message">
+              <p v-for="(error, index) in errorMessage" :key="index">
+                {{ error }}
+              </p>
+            </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
     <!-- Email Pop-up -->
     <div id="emailPopup" v-if="showEmailPopup">
@@ -56,10 +61,11 @@
       </div>
     </div>
   </div>
-
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data() {
     return {
@@ -68,51 +74,105 @@ export default {
       showEmailError: false,
       showPasswordError: false,
       showSuccessMessage: false,
+      errorMessage: null, // Initialize errorMessage to null
+      filename: 'SignUpView.vue',
+      successBoxStyle: '', // Add successBoxStyle to control the success box appearance
     };
   },
+
   methods: {
-    validateForm() {
-      const email = this.$refs.emailInput.value;
-      const password = this.$refs.passwordInput.value;
-
-      if (!email && !password) {
-        this.showEmailError = true;
-        this.showPasswordError = true;
-        this.showSuccessMessage = false;
-      } else if (!email) {
-        this.showEmailError = true;
-        this.showPasswordError = false;
-        this.showSuccessMessage = false;
-      } else if (!password) {
-        this.showPasswordError = true;
-        this.showEmailError = false;
-        this.showSuccessMessage = false;
-      } else {
-        this.showEmailError = false;
-        this.showPasswordError = false;
-        this.showSuccessMessage = true;
-
-        // Both fields are filled
-        // Perform the form submission or other actions
-        console.log('Form submitted successfully!');
-      }
-    },
-
     closeEmailPopup() {
       this.showEmailPopup = false;
     },
     closePasswordPopup() {
       this.showPasswordPopup = false;
     },
+
+    /**
+     * Simulates an error and logs it to the backend using Axios.
+     * @param {Error} error - The error object to be logged to the backend.
+     */
+    logErrorToBackend(error) {
+      try {
+        // Log the error to the backend
+        const loggerEndpoint = 'http://127.0.0.1:5402/api/log';
+        const logData = { source: this.filename, message: error.message };
+
+        // Send the error log to the backend using Axios
+        axios.post(loggerEndpoint, logData).catch((error) => {
+          console.error('Error logging to backend:', error);
+        });
+
+        // You can also display the error message to the user or handle it as needed
+        console.error('Caught error:', error.message);
+      } catch (error) {
+        console.error('Error logging to backend:', error);
+      }
+    },
+
+    /**
+     * Perform user login by sending a POST request to the backend login API endpoint.
+     */
+    async login() {
+      const userData = {
+        email: this.$refs.emailInput.value,
+        password: this.$refs.passwordInput.value,
+      };
+
+      try {
+        const response = await axios.post('http://127.0.0.1:5402/api/login', userData);
+        const token = response.data.token;
+        localStorage.setItem('token', token);
+
+        // Check if user is admin
+        const isAdmin = response.data.admin;
+
+        // Show the success message for a few seconds
+        this.showSuccessMessage = true;
+        setTimeout(() => {
+          this.showSuccessMessage = false;
+        }, 5000);
+
+        // Show successful sign-in message in green box for admins
+        if (isAdmin) {
+          this.successBoxStyle = 'background-color: green; color: white; padding: 10px;';
+        } else {
+          this.successBoxStyle = '';
+        }
+
+        // Clear error message
+        this.errorMessage = null;
+      } catch (error) {
+        console.error('Error logging in:', error.message);
+        this.logErrorToBackend(error);
+
+        // Handle specific error messages for status code 400 and 401
+        if (error.response) {
+          if (error.response.status === 400 && error.response.data && error.response.data.errors) {
+            const errors = error.response.data.errors;
+            let errorMessages = [];
+            errors.forEach((err) => {
+              errorMessages.push(err.msg);
+            });
+            this.errorMessage = errorMessages;
+          } else if (error.response.status === 401) {
+            this.errorMessage = ['Neplatný e-mail alebo heslo.'];
+          } else {
+            this.errorMessage = ['Pri prihlasovaní došlo k chybe.'];
+          }
+        } else {
+          this.errorMessage = ['Pri prihlasovaní došlo k chybe.'];
+        }
+
+        // Clear success message
+        this.showSuccessMessage = false;
+      }
+    },
   },
 };
 </script>
 
-<style scoped >
-.invalid-input {
-  border-color: red;
-}
-
+<style scoped>
 .error-message {
   color: red;
   font-size: 12px;
@@ -122,36 +182,12 @@ export default {
 }
 
 .success-message {
-  font-family: Plus jakarta sans;
   color: green;
   font-size: 12px;
   margin-top: 10px;
   font-weight: 500;
+  font-family: Plus jakarta sans;
 }
-
-
-#emailPopup,
-#passwordPopup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-}
-
-
-
-/* Hide pop-ups by default */
-.hidden {
-  display: none;
-}
-
-
 .form-container {
   flex: 1;
   display: flex;
@@ -159,50 +195,25 @@ export default {
   align-items: center;
 }
 
-
-
-
-
-
+svg {
+position: absolute;
+top: 191px;
+left: 2cm;
+}
 
 .checkk {
 color: var(--black, #050402);
 font-size: 12px;
 font-family: 'Plus Jakarta Sans';
 font-style: normal;
-
 font-weight: 400;
-
-
 display: flex;
-
-
 flex-shrink: 0;
 }
 
 .checkk p {
 margin-top: 23px;
 margin-left: 15px;
-}
-
-.check {
-color: var(--black, #050402);
-font-size: 12px;
-font-family: 'Plus Jakarta Sans';
-font-style: normal;
-
-font-weight: 400;
-
-
-display: flex;
-
-
-flex-shrink: 0;
-
-}
-
-.check p {
-  margin-left: 15px;
 }
 
 input {

@@ -1,70 +1,147 @@
 <template>
-    <div>
+  <div>
+    <!-- Display a table with commodities -->
+    <table class="custom-table">
+      <thead>
+        <tr>
+          <th class="first-header">Komodity</th>
+          <th>Dopyt</th>
+          <th>Ponuka</th>
+          <th>Cena</th>
+          <th>Množstvo</th>
+          <th>Termín</th>
+          <th class="last-header">Parita</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Loop through commodities to display in the table -->
+        <tr v-for="(commodity, index) in commodities" :key="index">
+          <!-- Display commodity name column -->
+          <td class="cell1" :class="{ 'lastf-cell': index === commodities.length - 1 }">
+            <span v-if="!admin">{{ commodity.name }}</span>
+            <input v-else v-model="commodity.name" />
+          </td>
+          <!-- Display commodity inquiry column -->
+          <td>
+            <span v-if="!admin">{{ commodity.inquiry }}</span>
+            <input v-else v-model="commodity.inquiry" />
+          </td>
+          <!-- Display commodity offer column -->
+          <td>
+            <span v-if="!admin">{{ commodity.offer }}</span>
+            <input v-else v-model="commodity.offer" />
+          </td>
+          <!-- Display commodity price column -->
+          <td>
+            <span v-if="!admin">{{ commodity.price }}</span>
+            <input v-else v-model="commodity.price" />
+          </td>
+          <!-- Display commodity amount column -->
+          <td>
+            <span v-if="!admin">{{ commodity.amount }}</span>
+            <input v-else v-model="commodity.amount" />
+          </td>
+          <!-- Display commodity date column -->
+          <td>
+            <span v-if="!admin">{{ commodity.date }}</span>
+            <input v-else v-model="commodity.date" />
+          </td>
+          <!-- Display commodity parita column -->
+          <td class="cell7" :class="{ 'lasts-cell': index === commodities.length - 1 }">
+            <span v-if="!admin">{{ commodity.parita }}</span>
+            <input v-else v-model="commodity.parita" />
+          </td>
+        </tr>
+      </tbody>
+    </table>
 
+    <!-- Show the "Save" button only for admin users -->
+    <button v-if="admin" @click="saveCommodities">Save</button>
 
-        <table class="custom-table">
-    <thead>
-      <tr>
-        <th class="first-header">Komodity</th>
-        <th>Dopyt</th>
-        <th>Ponuka</th>
-        <th>Cena</th>
-        <th>Množstvo</th>
-        <th>Termín </th>
-        <th class="last-header">Parita</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="(row, index) in tableData" :key="index">
-        <td class="cell1" :class="{ 'lastf-cell': index === tableData.length - 1 }">
-            <span v-if="!admin">{{ row.cell1 }}</span>
-            <input v-else v-model="row.cell1" /></td>
-        <td><span v-if="!admin">{{ row.cell2 }}</span>
-            <input v-else v-model="row.cell2" /></td>
-        <td><span v-if="!admin">{{ row.cell3 }}</span>
-            <input v-else v-model="row.cell3" /></td>
-        <td><span v-if="!admin">{{ row.cell4 }}</span>
-            <input v-else v-model="row.cell4" /></td>
-        <td><span v-if="!admin">{{ row.cell5 }}</span>
-            <input v-else v-model="row.cell5" /></td>
-        <td><span v-if="!admin">{{ row.cell6 }}</span>
-            <input v-else v-model="row.cell6" /></td>
-        <td class="cell7" :class="{ 'lasts-cell': index === tableData.length - 1 }"><span v-if="!admin">{{ row.cell7 }}</span>
-            <input v-else v-model="row.cell7" /></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-        <Aktuality></Aktuality>
-    </div>
+    <!-- Include the Aktuality component to display other data -->
+    <Aktuality></Aktuality>
+    <Footer class="space"></Footer>
+  </div>
 </template>
 
 <script>
+import Aktuality from "../components/Aktuality.vue";
+import Footer from '../components/Footer.vue';
+import axios from "axios";
 
-import Aktuality from "../components/Aktuality.vue"
-    export default {
-        components:{ Aktuality},
+export default {
+  components: { 
+    Aktuality,
+    Footer,
+   },
 
   data() {
     return {
-      admin : true,
-      tableData: [
-        { cell1: "Jačmeň kŕmny", cell2: "Cell 2", cell3: "Cell 3",cell4: "Cell 4", cell5: "Cell 5", cell6: "Cell 6", cell7:"Cell 7" },
-        { cell1: "Kukurica kŕmna", cell2: "Cell 2", cell3: "Cell 3",cell4: "Cell 4", cell5: "Cell 5", cell6: "Cell 6", cell7:"Cell 7" },
-        { cell1: "Pšenica P", cell2: "Cell 2", cell3: "Cell 3",cell4: "Cell 4", cell5: "Cell 5", cell6: "Cell 6", cell7:"Cell 7" },
-        { cell1: "Pšenica A", cell2: "Cell 2", cell3: "Cell 3",cell4: "Cell 4", cell5: "Cell 5", cell6: "Cell 6", cell7:"Cell 7" },
-        { cell1: "Pšenica E", cell2: "Cell 2", cell3: "Cell 3",cell4: "Cell 4", cell5: "Cell 5", cell6: "Cell 6", cell7:"Cell 7" },
-        { cell1: "Repka olejná", cell2: "Cell 2", cell3: "Cell 3",cell4: "Cell 4", cell5: "Cell 5", cell6: "Cell 6", cell7:"Cell 7" },
-        { cell1: "Slnečnica čierna", cell2: "Cell 2", cell3: "Cell 3",cell4: "Cell 4", cell5: "Cell 5", cell6: "Cell 6", cell7:"Cell 7" },
-        { cell1: "Slnečnica HO", cell2: "Cell 2", cell3: "Cell 3",cell4: "Cell 4", cell5: "Cell 5", cell6: "Cell 6", cell7:"Cell 7"},
-      
-      ],
+      admin: false,
+      commodities: [],
     };
   },
-  
+
+  created() {
+    // Load commodities and check admin status when the component is created
+    this.loadCommodities();
+    this.checkAdmin();
+  },
+
+  methods: {
+    /**
+     * Check the user's admin status.
+     * @returns {Promise<void>} - A Promise that resolves after checking the admin status or rejects on error.
+     */
+    async checkAdmin() {
+      try {
+        const token = localStorage.getItem("token");
+        const response = await axios.get("http://127.0.0.1:5402/api/check-admin", {
+          headers: { Authorization: token },
+        });
+        this.admin = response.data.isAdmin;
+      } catch (error) {
+        console.error("Error checking admin status:", error.message);
+      }
+    },
+
+    /**
+     * Load commodities from the backend API.
+     * @returns {Promise<void>} - A Promise that resolves after loading the commodities or rejects on error.
+     */
+    async loadCommodities() {
+      try {
+        const response = await axios.get("http://127.0.0.1:5402/api/commodities");
+        this.commodities = response.data;
+      } catch (error) {
+        console.error("Error loading commodities from backend:", error.message);
+      }
+    },
+
+    /**
+     * Save or update the commodities in the database.
+     * @returns {Promise<void>} - A Promise that resolves after saving or updating the commodities or rejects on error.
+     */
+    async saveCommodities() {
+      try {
+        // Iterate through each commodity and save/update it individually
+        for (const commodity of this.commodities) {
+          // Check if the commodity has an ID
+          if (commodity.id) {
+            // If the commodity has an ID, it means it already exists in the database, so update it
+            await axios.put(`http://127.0.0.1:5402/api/commodities/${commodity.id}`, commodity);
+          } else {
+            // If the commodity does not have an ID, it is a new commodity, so save it as a new entry in the database
+            await axios.post("http://127.0.0.1:5402/api/commodities", commodity);
+          }
+        }
+
+      } catch (error) {
+        console.error("Error saving commodities:", error.message);
+      }
+    },
+  },
 };
-    
 </script>
 
 <style  scoped>
@@ -98,8 +175,12 @@ margin:  auto;
 th {
  max-width: 20px;
 height: 90px;
-
 }
+
+.space {
+  padding-top: 29cm;
+}
+
 th.first-header {
   border-top-left-radius: 20px;
   

@@ -14,7 +14,6 @@ import OsivaView from "../views/OsivaView.vue"
 import DopravaView from  "../views/DopravaView.vue"
 import SkladyView from "../views/SkladyView.vue"
 import CardDetailView from "../views/CardDetailView.vue"
-import CennikView from "../views/CennikView.vue"
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -35,7 +34,7 @@ const router = createRouter({
             component: SluzbyView
             },
             {
-                path: "/admin",
+                path: "/signup",
                 name: "signup", 
                 component: SignUpView
                 },
@@ -76,11 +75,6 @@ const router = createRouter({
                                 component: DopravaView,
                               },
                               {
-                                path:"/cennik",
-                                name:"/cennik",
-                                component: CennikView,
-                              },
-                              {
                                 path: "/sklady",
                                 name: "sklady",
                                 component: SkladyView,
@@ -98,11 +92,7 @@ const router = createRouter({
 
                             
                             
-    ],scrollBehavior(to, from, savedPosition) {
-      // always scroll to top
-      return { top: 0 }
-    },
-  
+    ]
 
 })
 
