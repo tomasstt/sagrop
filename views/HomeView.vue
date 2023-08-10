@@ -134,19 +134,6 @@
          </div>
          <aside class="van"><p class=""></p></aside>
          <aside class="peop"><p class=""></p></aside>
-          
-
-     
-      </section>
-      <section>
-        <div class="blue1">
-          <section class="blue2"><h1 class="">Aktuality</h1></section>
-          
-          <aside class="blue3"><p class="">Tu nájdete informácie o nových produktových <br> radoch, najnovších projektoch a iných <br> zaujímavých veciach, ktoré sa u nás dejú. Naša <br> snaha je udržiavať vás v obraze a informovať o <br> všetkom, čo sa deje v našej spoločnosti.</p></aside>
-          <aside class="blue4"><p class="">Sledujte naše novinky a buďte informovaní o <br> všetkých dôležitých zmenách a aktualizáciách. </p></aside>
-          
-          </div>
-         <router-link to="/aktuality"> <button class="bttna"> Zobrazit Viac</button></router-link>
       </section>
 
       <!-- <section>
@@ -174,31 +161,7 @@
 </div> -->
 
 
-      <div class="ront2">
-       <div class="ron"><p class="onep">Cenník špeciálnych osív na rok 2023</p>
-        <p class="oneep">Pozrite si aktuálny cenník špeciálnych osív na rok 2022.</p>
-        <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="49.9411" height="49.9411" rx="24.9706" fill="#E9E5E0"/>
-<path d="M30.9812 27.5444L30.9812 18.9601L22.3969 18.9601" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M18.84 31.1011L30.8609 19.0803" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
- <img class="fw11" src="/images/flowers.svg" alt="">
-
-</div>
-<div class="ron">
-  <p class="twop"> Cenník špeciálnych osív na rok 2023</p>
-  <p class="twoop">Pozrite si aktuálny cenník špeciálnych osív na rok 2022.</p>
-  <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="49.9411" height="49.9411" rx="24.9706" fill="#E9E5E0"/>
-<path d="M30.9812 27.5444L30.9812 18.9601L22.3969 18.9601" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M18.84 31.1011L30.8609 19.0803" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-  <img class="fw22" src="/images/flowers.svg" alt="">
-  
-</div>
-     </div>
+<Aktuality></Aktuality>
 
       <section>
         <div class="blue1">
@@ -296,11 +259,13 @@
 <script>
 import Footer from  "../components/Footer.vue"
 import NewsletterAU from "../components/NewsletterAU.vue"
+import Aktuality from "../components/Aktuality.vue";
 
   export default {
       components: {
   Footer,
-  NewsletterAU
+  NewsletterAU,
+  Aktuality
 }
 }
 

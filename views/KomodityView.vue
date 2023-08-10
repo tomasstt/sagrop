@@ -60,15 +60,20 @@
 
     <!-- Include the Aktuality component to display other data -->
     <Aktuality></Aktuality>
+    <Footer class="space"></Footer>
   </div>
 </template>
 
 <script>
 import Aktuality from "../components/Aktuality.vue";
+import Footer from '../components/Footer.vue';
 import axios from "axios";
 
 export default {
-  components: { Aktuality },
+  components: { 
+    Aktuality,
+    Footer,
+   },
 
   data() {
     return {
@@ -91,7 +96,7 @@ export default {
     async checkAdmin() {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get("http://127.0.0.1:5000/api/check-admin", {
+        const response = await axios.get("http://127.0.0.1:5402/api/check-admin", {
           headers: { Authorization: token },
         });
         this.admin = response.data.isAdmin;
@@ -106,7 +111,7 @@ export default {
      */
     async loadCommodities() {
       try {
-        const response = await axios.get("http://127.0.0.1:5000/api/commodities");
+        const response = await axios.get("http://127.0.0.1:5402/api/commodities");
         this.commodities = response.data;
       } catch (error) {
         console.error("Error loading commodities from backend:", error.message);
@@ -124,14 +129,13 @@ export default {
           // Check if the commodity has an ID
           if (commodity.id) {
             // If the commodity has an ID, it means it already exists in the database, so update it
-            await axios.put(`http://127.0.0.1:5000/api/commodities/${commodity.id}`, commodity);
+            await axios.put(`http://127.0.0.1:5402/api/commodities/${commodity.id}`, commodity);
           } else {
             // If the commodity does not have an ID, it is a new commodity, so save it as a new entry in the database
-            await axios.post("http://127.0.0.1:5000/api/commodities", commodity);
+            await axios.post("http://127.0.0.1:5402/api/commodities", commodity);
           }
         }
 
-        console.log("Commodities saved successfully.");
       } catch (error) {
         console.error("Error saving commodities:", error.message);
       }
@@ -171,8 +175,12 @@ margin:  auto;
 th {
  max-width: 20px;
 height: 90px;
-
 }
+
+.space {
+  padding-top: 29cm;
+}
+
 th.first-header {
   border-top-left-radius: 20px;
   

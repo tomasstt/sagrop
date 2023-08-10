@@ -91,8 +91,8 @@
           <!-- Display card content -->
           <img class="fw1" :src="card.article_image_url" :alt="card.article_title">
           <h2>{{ card.article_title }}</h2>
-          <p>{{ card.articleContent }}</p>
-          <p>{{ card.article_publication }}</p>
+          <p>{{ card.article_content }}</p>
+          <div class="timestamp">{{ formatDate(card.article_publication) }}</div> <!-- Format and display timestamp -->
           <button class="delete-button" v-if="admin" @click="deleteCard(card.id)">Vymazať</button>
         </div>
       </div>
@@ -146,7 +146,7 @@ export default {
       selectedArchiveOption: '',
       draggedFile: null,
       searchText: '',
-      cardsPerPage: 3, 
+      cardsPerPage: 12, 
       currentPage: 1,
       isActive: false,
       isUploading: false,
@@ -173,7 +173,7 @@ export default {
     logErrorToBackend(error) {
       try {
         // Log the error to the backend
-        const loggerEndpoint = 'http://127.0.0.1:5400/api/log';
+        const loggerEndpoint = 'http://127.0.0.1:5402/api/log';
         const logData = { source: this.filename, message: error.message };
 
         // Send the error log to the backend using Axios
@@ -207,7 +207,7 @@ export default {
 
         this.isUploading = true; // Set uploading status to true
 
-        const response = await axios.post('http://127.0.0.1:5400/api/upload-image', formData, {
+        const response = await axios.post('http://127.0.0.1:5402/api/upload-image', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
             Authorization: localStorage.getItem('token'),
@@ -230,7 +230,7 @@ export default {
     async checkAdmin() {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://127.0.0.1:5400/api/check-admin', {
+        const response = await axios.get('http://127.0.0.1:5402/api/check-admin', {
           headers: { Authorization: token },
         });
         this.admin = response.data.isAdmin;
@@ -245,7 +245,7 @@ export default {
      */
     async loadCardsFromBackend() {
       try {
-        const response = await axios.get('http://127.0.0.1:5400/api/articles');
+        const response = await axios.get('http://127.0.0.1:5402/api/articles');
         this.cards = response.data;
       } catch (error) {
         this.logErrorToBackend(error);
@@ -261,7 +261,7 @@ export default {
         if (!this.cards) {
           this.cards = []; // Initialize the cards array as an empty array if it's null
         }
-        const response = await axios.post('http://127.0.0.1:5400/api/articles', {
+        const response = await axios.post('http://127.0.0.1:5402/api/articles', {
           articleTitle: this.title,
           articleContent: this.description,
           articlePublication: new Date().toISOString(),
@@ -280,6 +280,11 @@ export default {
         this.logErrorToBackend(error);
       }
     },
+    
+    formatDate(timestamp) {
+      const date = new Date(timestamp);
+      return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+    },
 
     /**
      * Delete a card by sending a DELETE request to the backend API.
@@ -288,7 +293,7 @@ export default {
      */
     async deleteCard(id) {
       try {
-        await axios.delete(`http://127.0.0.1:5400/api/articles/${id}`);
+        await axios.delete(`http://127.0.0.1:5402/api/articles/${id}`);
 
         // Remove the card from the local cards array
         this.cards = this.cards.filter((card) => card.id !== id);
@@ -435,6 +440,13 @@ export default {
 <style scoped>
 .space{
   margin-top: 27cm;
+}
+
+.timestamp {
+  font-size: 14px; /* Adjust the font size as needed */
+  color: #999;
+  margin-top: 6px;
+  text-align: right; /* Align the timestamp to the right */
 }
 
 .image-preview {
