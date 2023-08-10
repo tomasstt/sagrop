@@ -26,6 +26,7 @@ const nodemailer = require('nodemailer');
 
 const { getAllEmailAddresses } = require('../../db');
 const { logData } = require('../../logging/logger');
+const { log } = require('console');
 
 require('dotenv').config({ path: path.resolve(__dirname, '../../.env') });
 
@@ -44,7 +45,7 @@ const sendEmailToSubscribers = async (articleTitle, articleContent) => {
 
     // Validate email addresses
     if (emails.length === 0) {
-      console.log('No email addresses found in the mailing list');
+      logData('emailService.js', 'No email addresses found in the mailing list');
       return;
     }
 
@@ -89,7 +90,7 @@ const sendEmailToSubscribers = async (articleTitle, articleContent) => {
     }
 
     // All emails sent successfully
-    console.log('Emails sent successfully to subscribers');
+    logData('emailService.js', 'Emails sent to all subscribers');
   } catch (error) {
     logData('emailService.js', `Error sending emails to subscribers: ${error.message}`);
     throw error;

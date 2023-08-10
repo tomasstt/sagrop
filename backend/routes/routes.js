@@ -22,6 +22,7 @@
 */
 
 const express = require('express');
+const validator = require('validator');
 const path = require('path');
 const router = express.Router();
 const { body, validationResult } = require('express-validator');
@@ -31,12 +32,13 @@ const limiter = rateLimit({
   max: 100, // Limit each IP to 100 requests per windowMs
 });
 
-const { getAdminUserByEmail } = require('../db');
+const { getAdminUserByEmail, addEmailToDatabase } = require('../db');
 const { generateToken, authenticateAdmin, comparePasswords } = require('../auth');
 const articleService = require('../services/articleService/articleService');
 const commoditiesService = require('../services/commoditiesService/commoditiesService');
 const { handleImageUpload } = require('../controllers/imageUploadController');
 const { logData } = require('../logging/logger');
+const { log } = require('console');
 
 require('dotenv').config();
 
@@ -64,21 +66,21 @@ router.post(
     const { email, password } = req.body;
 
     try {
-      console.log('Attempting to find user by email:', email);
+      logData('routes.js', `Attempting to find user by email: ${email}`);
 
       // Get the user from the database based on the provided email
       const user = await getAdminUserByEmail(email);
 
       // If user not found or invalid credentials, return 401
       if (!user || !await comparePasswords(password, user.password)) {
-        console.log('User not found or invalid credentials for email:', email);
+        logData('routes.js', `User not found or invalid credentials for email: ${email}`);
         return res.status(401).json({ message: 'Neplatný e-mail alebo heslo.' });
       }
 
       // Admin user is found and authenticated
       const adminUser = { email: user.email, id: user.id }; // Assuming user object has an 'id' property
 
-      console.log('User found and authenticated:', adminUser.email);
+      logData('routes.js', `User found and authenticated: ${adminUser.email}`);
 
       // Check if the user is an admin (you may have a different method to determine this)
       const isAdmin = true; // Assuming the user is an admin in this example
@@ -203,7 +205,7 @@ router.delete('/articles/:id', async (req, res) => {
     if (!article) {
       return res.status(404).json({ message: 'Article not found.' });
     }
-    console.log(article.article_image_url)
+    
     // Delete the article image if it exists
     if (article.article_image_url) {
       const imagePath = path.join(__dirname, '../public/uploads', article.article_image_url);
@@ -307,6 +309,71 @@ router.delete('/commodities/:id', async (req, res) => {
     res.status(500).json({ message: 'Error deleting commodity' });
   }
 });
+
+/**
+ * Add an email address to the database.
+ *
+ * @route POST /api/add-email
+ * @param {string} email - The email address to add to the database.
+ * @returns {object} A message indicating the success or failure of the operation.
+ * @throws {400} If the email is missing or invalid.
+ * @throws {401} If the user is not authenticated as an admin.
+ * @throws {500} If there is an error adding the email to the database.
+ */
+router.post('/add-email',
+  async (req, res) => {
+    const { email } = req.body;
+
+    try {
+      // Validate email address
+      if (!email || !validator.isEmail(email)) {
+        return res.status(400).json({ message: 'Invalid email address.' });
+      }
+
+      // Call the addEmailToDatabase function from db.js to add the email address
+      await addEmailToDatabase(email);
+
+      res.status(201).json({ message: 'Email address added successfully.' });
+    } catch (error) {
+      logData('routes.js', `Error adding ${ email }: ${error.message}`);
+      res.status(500).json({ message: error.message });
+    }
+  }
+);
+
+/**
+ * Send email to all subscribers about a new article being published.
+ *
+ * @route POST /api/send-article-email
+ * @param {string} articleTitle - The title of the new article.
+ * @param {string} articleContent - The content of the new article.
+ * @returns {object} A message indicating the success or failure of the operation.
+ * @throws {400} If the article title or content is missing.
+ * @throws {401} If the user is not authenticated as an admin.
+ * @throws {500} If there is an error sending emails to subscribers.
+ */
+router.post('/send-article-email',
+  authenticateAdmin, // Middleware to authenticate admin user
+  async (req, res) => {
+    const { articleTitle, articleContent } = req.body;
+
+    try {
+      // Validate article title and content
+      if (!articleTitle || !articleContent) {
+        return res.status(400).json({ message: 'Article title and content are required.' });
+      }
+
+      // Call the sendEmailToSubscribers function from emailService.js to send emails
+      await sendEmailToSubscribers(articleTitle, articleContent);
+
+      res.status(200).json({ message: 'Emails sent successfully to subscribers.' });
+    } catch (error) {
+      logData('routes.js', `Error sending article emails: ${error.message}`);
+      res.status(500).json({ message: error.message });
+    }
+  }
+);
+
 
 /**
  * Logs data received from the client to the server console.

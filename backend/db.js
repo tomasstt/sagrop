@@ -126,6 +126,36 @@ const getAllEmailAddresses = async () => {
 };
 
 /**
+ * Adds an email address to the mailing list in the database.
+ *
+ * @param {string} email - The email address to add to the mailing list.
+ * @returns {Promise<void>} - A Promise that resolves after adding the email or rejects on error.
+ * @throws {Error} - If there's an error adding the email.
+ */
+const addEmailToDatabase = async (email) => {
+  try {
+    // Check if the email already exists in the database
+    const existingEmail = await pool.query('SELECT * FROM mailing_list WHERE email = $1', [email]);
+
+    if (existingEmail.rows.length > 0) {
+      throw new Error('Email address already exists in the mailing list');
+    }
+
+    // Insert the email into the mailing_list table
+    await pool.query('INSERT INTO mailing_list (email) VALUES ($1)', [email]);
+
+    // Reorder the table IDs sequentially
+    await reorderTableIdsSequentially('mailing_list');
+  } catch (error) {
+    logData('db.js', `Error adding email to database: ${error.message}`);
+
+    // Reorder the table IDs sequentially even if there's an error
+    await reorderTableIdsSequentially('mailing_list');
+    throw new Error(error);
+  }
+};
+
+/**
  * Saves an article to the database.
  * @param {string} articleTitle - The title of the article.
  * @param {string} articleContent - The content of the article.
@@ -144,7 +174,7 @@ const saveArticle = async (articleTitle, articleContent, articlePublication, art
     await pool.query(query, values);
 
     // After successful addition, perform the error check to update the article IDs sequentially
-    await updateArticleIdsSequentially();
+    await reorderTableIdsSequentially('articles');
   } catch (error) {
     logData('db.js', `Error saving article: ${error.message}`);
     console.error('Error saving article:', error.message);
@@ -221,7 +251,6 @@ const updateArticle = async (id, articleTitle, articleContent, articlePublicatio
 
     await pool.query(query, values);
     logData('db.js', `Article updated successfully. ID: ${id}`);
-    console.log('Article updated successfully.');
   } catch (error) {
     logData('db.js', `Error updating article: ${error.message}`);
     console.error('Error updating article:', error.message);
@@ -242,10 +271,9 @@ const deleteArticle = async (id) => {
     await pool.query(query, values);
 
     // After successful deletion, perform the error check to update the article IDs sequentially
-    await updateArticleIdsSequentially();
-
+    await reorderTableIdsSequentially('articles');
+    
     logData('db.js', `Article deleted successfully. ID: ${id}`);
-    console.log('Article deleted successfully.');
   } catch (error) {
     logData('db.js', `Error deleting article: ${error.message}`);
     console.error('Error deleting article:', error.message);
@@ -254,32 +282,33 @@ const deleteArticle = async (id) => {
 };
 
 /**
- * Perform an error check to update the IDs of all articles sequentially.
- * This function should be called after any operation that may affect the article IDs.
- * @returns {Promise<void>} - A Promise that resolves after updating the article IDs or rejects on error.
+ * Reorder the IDs of the specified table sequentially.
+ * This function should be called after any operation that may affect the IDs.
+ * @param {string} tableName - The name of the table to reorder.
+ * @returns {Promise<void>} - A Promise that resolves after updating the IDs or rejects on error.
  */
-const updateArticleIdsSequentially = async () => {
+const reorderTableIdsSequentially = async (tableName) => {
   try {
-    // Retrieve all articles from the database in ascending order by ID
-    const query = 'SELECT id FROM articles ORDER BY id';
+    // Retrieve all rows from the specified table in ascending order by ID
+    const query = `SELECT id FROM ${tableName} ORDER BY id`;
     const result = await pool.query(query);
-    const articles = result.rows;
+    const rows = result.rows;
 
-    // Update the IDs of the remaining articles sequentially starting from 1
-    for (let i = 0; i < articles.length; i++) {
-      const articleId = articles[i].id;
-      // Skip if the article already has the correct ID
-      if (articleId === i + 1) continue;
+    // Update the IDs of the remaining rows sequentially starting from 1
+    for (let i = 0; i < rows.length; i++) {
+      const rowId = rows[i].id;
+      // Skip if the row already has the correct ID
+      if (rowId === i + 1) continue;
 
-      // Update the article's ID to the correct sequential value
-      const updateQuery = 'UPDATE articles SET id = $1 WHERE id = $2';
-      const updateValues = [i + 1, articleId];
+      // Update the row's ID to the correct sequential value
+      const updateQuery = `UPDATE ${tableName} SET id = $1 WHERE id = $2`;
+      const updateValues = [i + 1, rowId];
       await pool.query(updateQuery, updateValues);
     }
   } catch (error) {
-    logData('db.js', `Error updating article IDs: ${error.message}`);
-    console.error('Error updating article IDs:', error.message);
-    throw new Error('Error updating article IDs');
+    logData('db.js', `Error updating ${tableName} IDs: ${error.message}`);
+    console.error(`Error updating ${tableName} IDs:`, error.message);
+    throw new Error(`Error updating ${tableName} IDs`);
   }
 };
 
@@ -393,5 +422,6 @@ module.exports = {
   getAllCommodities,
   updateCommodity,
   deleteCommodity,
+  addEmailToDatabase,
   pool, // Export the pool as well, in case it's needed externally
 };
