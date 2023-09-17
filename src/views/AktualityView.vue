@@ -62,7 +62,7 @@
 		</div>
 
 		<div v-if="admin" class="admin-page">
-			<form @submit.prevent="createArticle" class="form-container" ref="articleForm">
+			<form @submit.prevent="createArticle"  class="form-container" ref="articleForm">
 				<div class="drag-area" :class="{ active: isActive }" @dragover.prevent="onDragOver" @change="handleImageUpload" @dragleave="onDragLeave" ref="dragArea" @drop.prevent="onDrop">
 					<svg class="brow" xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46" fill="none">
 						<path d="M26.833 3.83325H17.2497C7.66634 3.83325 3.83301 7.66659 3.83301 17.2499V28.7499C3.83301 38.3333 7.66634 42.1666 17.2497 42.1666" stroke="#A6A29D" stroke-width="2.875" stroke-linecap="round" stroke-linejoin="round" />
@@ -78,7 +78,7 @@
 					<input class="input-line full-width" type="text" v-model="title" placeholder="Názov" required />
 					<textarea rows="3" cols="20" class="input-line full-width spafe" v-model="description" placeholder="Popis" required />
 				</div>
-				<button type="submit" @click="clearImage" :disabled="isUploading">{{ isUploading ? "Uploading..." : "Submit" }}</button>
+				<button  type="submit" @click="clearImage" :disabled="isUploading">{{ isUploading ? "Uploading..." : "Submit" }}</button>
 				<!-- Image preview container -->
 				<div class="image-preview" v-if="imageUrl">
 					<h2 class="preview-text">Nahratý obrazok:</h2>
