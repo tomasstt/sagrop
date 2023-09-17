@@ -2,48 +2,56 @@
 	<div>
 		<div class="ront2">
 			<div class="ron">
-				<p class="onep">Služby dronom</p>
-				<p class="oneep">Monitorovacie a postrekovacie služby</p>
-				<router-link to="sluzby">
-					<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<rect width="49.9411" height="49.9411" rx="24.9706" fill="#E9E5E0" />
-						<path d="M30.9812 27.5444L30.9812 18.9601L22.3969 18.9601" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-						<path d="M18.84 31.1011L30.8609 19.0803" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" /></svg
-				></router-link>
+				<a href="/sluzby">
+					<p class="onep">Služby dronom</p>
+					<p class="oneep">Monitorovacie a postrekovacie služby</p>
+					<router-link to="sluzby">
+						<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<rect width="49.9411" height="49.9411" rx="24.9706" fill="#E9E5E0" />
+							<path d="M30.9812 27.5444L30.9812 18.9601L22.3969 18.9601" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M18.84 31.1011L30.8609 19.0803" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" /></svg
+					></router-link>
 
-				<img class="fw11" src="/images/dronik.svg" alt="" />
+					<img class="fw11" src="/images/dronik.svg" alt="" />
+				</a>
 			</div>
 			<div class="ron">
-				<p class="onep">Doprava</p>
-				<p class="oneep">
-					Komodity, hnojivá, osivá <br />
-					a chémia
-				</p>
-				<router-link to="/doprava">
-					<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<rect width="49.9411" height="49.9411" rx="24.9706" fill="#E9E5E0" />
-						<path d="M30.9812 27.5444L30.9812 18.9601L22.3969 18.9601" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-						<path d="M18.84 31.1011L30.8609 19.0803" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" /></svg
-				></router-link>
+				<a href="/doprava">
+					<p class="onep">Doprava</p>
+					<p class="oneep">
+						Komodity, hnojivá, osivá <br />
+						a chémia
+					</p>
+					<router-link to="/doprava">
+						<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<rect width="49.9411" height="49.9411" rx="24.9706" fill="#E9E5E0" />
+							<path d="M30.9812 27.5444L30.9812 18.9601L22.3969 18.9601" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M18.84 31.1011L30.8609 19.0803" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" /></svg
+					></router-link>
 
-				<img class="fw11" src="/images/doprava.svg" alt="" />
+					<img class="fw11" src="/images/doprava.svg" alt="" />
+				</a>
 			</div>
 			<div class="ron">
-				<p class="onep">Sklady</p>
-				<p class="oneep">
-					Skladovanie komodít <br />
-					v našich skladoch
-				</p>
-				<router-link to="sklady">
-					<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<rect width="49.9411" height="49.9411" rx="24.9706" fill="#E9E5E0" />
-						<path d="M30.9812 27.5444L30.9812 18.9601L22.3969 18.9601" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-						<path d="M18.84 31.1011L30.8609 19.0803" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" /></svg
-				></router-link>
+				<a href="/sklady">
+					<p class="onep">Sklady</p>
+					<p class="oneep">
+						Skladovanie komodít <br />
+						v našich skladoch
+					</p>
+					<router-link to="sklady">
+						<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<rect width="49.9411" height="49.9411" rx="24.9706" fill="#E9E5E0" />
+							<path d="M30.9812 27.5444L30.9812 18.9601L22.3969 18.9601" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M18.84 31.1011L30.8609 19.0803" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" /></svg
+					></router-link>
 
-				<img class="fw11" src="/images/sklad.svg" alt="" />
+					<img class="fw11" src="/images/sklad.svg" alt="" />
+				</a>
 			</div>
 			<div class="ron">
+				<a href="#">
+
 				<p class="twop">Žatevné služby</p>
 				<p class="twoop">
 					Ponuka strojov <br />
@@ -55,6 +63,7 @@
 					<path d="M18.84 31.1011L30.8609 19.0803" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 				</svg>
 				<img class="fw22" src="/images/zatva.svg" alt="" />
+				</a>
 			</div>
 		</div>
 
