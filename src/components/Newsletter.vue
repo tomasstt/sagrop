@@ -7,10 +7,12 @@
 			</h1>
 
 			<!-- Use @submit.prevent to prevent page refresh on form submission -->
+			<!-- Use @submit.prevent to prevent page refresh on form submission -->
 			<form @submit.prevent="submitForm">
-				<div class="form__group field">
+				<div class="form__group field" :class="{ 'has-error': hasError }">
 					<input v-model="email" type="email" class="form__field" placeholder="Mail" name="name" id="name" required />
 					<label for="name" class="form__label">Vaša e-mailová adresa:</label>
+					<div v-if="hasError" class="error-message">{{ validationError }}</div>
 				</div>
 
 				<div class="containera">
@@ -19,9 +21,9 @@
 			</form>
 
 			<!-- Display response messages based on the value of responseMessage -->
-			<p v-if="responseMessage">{{ responseMessage }}</p>
+			<p class="response" v-if="responseMessage">{{ responseMessage }}</p>
 
-			<p>
+			<p class="unText">
 				Táto stránka je chránená reCAPTCHA a platia zásady ochrany osobných údajov <br />
 				a Zmluvné podmienky spoločnosti Google.
 			</p>
@@ -36,9 +38,14 @@ export default {
 	data() {
 		return {
 			email: "",
-			filename: "Newsletter.vue", // Replace with the actual filename
+			filename: "NewsletterAU.vue", // Replace with the actual filename
 			responseMessage: "", // Response message to display to the user
+			hasError: false, // Track whether there's an error
+			validationError: "", // Store the error message
 		}
+	},
+	created() {
+		this.apiUrl = import.meta.env.VITE_API_ENDPOINT
 	},
 	methods: {
 		/**
@@ -47,7 +54,7 @@ export default {
 		 */
 		async logErrorToBackend(error) {
 			try {
-				const loggerEndpoint = "http://127.0.0.1:5402/api/log" // Replace with your actual logger endpoint
+				const loggerEndpoint = `${this.apiUrl}/log`
 				const logData = { source: this.filename, message: error.message }
 
 				await axios.post(loggerEndpoint, logData)
@@ -70,7 +77,7 @@ export default {
 				}
 			} catch (error) {
 				if (error.response && error.response.status === 500) {
-					this.responseMessage = "Email is already subscribed"
+					this.responseMessage = "E-mail je už prihlásený"
 				} else {
 					this.logErrorToBackend(error)
 				}
@@ -81,7 +88,7 @@ export default {
 			try {
 				const token = localStorage.getItem("token")
 
-				const endpoint = "http://127.0.0.1:5402/api/add-email"
+				const endpoint = `${this.apiUrl}/add-email`
 				const data = { email }
 
 				const response = await axios.post(endpoint, data, {
@@ -101,15 +108,23 @@ export default {
 </script>
 
 <style scoped>
-p {
+.response {
 	font-family: plus jakarta sans;
+	color: red;
+	font-size: 12px;
 }
-label {
+
+.error-message {
+	color: red; /* Example: Red color for the error message */
 	font-family: plus jakarta sans;
+	font-size: 12px;
+	margin-top: 10px;
 }
+
 .containera {
 	cursor: pointer;
 }
+
 @media (max-width: 1000px) {
 	#example1 {
 		border-radius: 2em;
@@ -119,7 +134,7 @@ label {
 		max-width: 90%;
 		/* 1900px */
 		border-left: solid #e9e5e0 1px;
-		border-right: solid #e9e5e0 1px;
+		border-right: solid #e9e5e0 px;
 		background-position: right;
 		height: 360px;
 		padding: 15px;
@@ -132,6 +147,7 @@ label {
 	#example1 h1 {
 		color: white;
 		font-size: 28px;
+		font-family: Recia;
 	}
 	#example1 p {
 		color: white;
@@ -185,6 +201,7 @@ label {
 		border-bottom: 1px solid gray;
 		outline: 0;
 		font-size: 1.3rem;
+		font-family: plus jakarta sans;
 		color: white;
 		padding: 7px 0;
 		background: transparent;
@@ -193,6 +210,7 @@ label {
 
 	.form__field::placeholder {
 		color: transparent;
+		font-family: plus jakarta sans;
 	}
 
 	.form__field:placeholder-shown ~ .form__label {
@@ -208,16 +226,17 @@ label {
 		display: block;
 		transition: 0.2s;
 		font-size: 1rem;
-		font-family: plus jakarta sans;
+		font-family: Plus jakarta sans;
 		color: gray;
+		font-family: plus jakarta sans;
 	}
 
 	.form__field:focus {
 		padding-bottom: 6px;
 		font-weight: 700;
 		border-width: 3px;
+		background: none;
 		border-image: linear-gradient(to right);
-		font-family: plus jakarta sans;
 	}
 
 	/* Reset input */
@@ -228,6 +247,9 @@ label {
 }
 
 @media (min-width: 1000px) {
+	.unText {
+		font-family: Plus jakarta sans;
+	}
 	#example1 {
 		border-radius: 2em;
 		background: url(/images/yell.svg) no-repeat;
@@ -247,10 +269,16 @@ label {
 	}
 
 	#example1 h1 {
-		color: white;
+		color: #fff;
+		leading-trim: both;
+		text-edge: cap;
+		font-family: Recia;
 		font-size: 48px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: normal;
 	}
-	#example1 p {
+	#example1 .unText {
 		color: white;
 		font-size: 12px;
 	}
@@ -296,7 +324,7 @@ label {
 	}
 
 	.form__field {
-		font-family: inherit;
+		font-family: plus jakarta sans;
 		width: 40%;
 		border: 0;
 		border-bottom: 1px solid gray;
@@ -323,6 +351,7 @@ label {
 		top: 0;
 		display: block;
 		transition: 0.2s;
+		font-family: Plus jakarta sans;
 		font-size: 1rem;
 		color: gray;
 	}

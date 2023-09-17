@@ -53,12 +53,12 @@ router.post(
 
 	// Request body validation middleware for email and password
 	[
-		body("email").isEmail().normalizeEmail().withMessage("Invalid email format."),
+		body("email").isEmail().normalizeEmail().withMessage("Neplatný formát e-mailu."),
 		body("password")
 			.isLength({ min: 8 })
-			.withMessage("Password must be at least 8 characters.")
+			.withMessage("Heslo musí mať aspoň 8 znakov.")
 			.matches(/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])/)
-			.withMessage("Password must contain at least one uppercase letter, one lowercase letter, and one digit."),
+			.withMessage("Heslo musí obsahovať aspoň jedno veľké písmeno, jedno malé písmeno a jednu číslicu."),
 	],
 
 	// Rate limiting to prevent brute-force attacks
@@ -83,7 +83,7 @@ router.post(
 			// If user not found or invalid credentials, return 401
 			if (!user || !(await comparePasswords(password, user.password))) {
 				logData("routes.js", `User not found or invalid credentials for email: ${email}`)
-				return res.status(401).json({ message: "Invalid email or password." })
+				return res.status(401).json({ message: "Neplatný e-mail alebo heslo." })
 			}
 
 			// User is authenticated, prepare user data
@@ -101,7 +101,7 @@ router.post(
 		} catch (error) {
 			// Log and handle internal server error
 			logData("routes.js", `Error occurred during login: ${error.message}`)
-			res.status(500).json({ message: "Login failed. Please try again later." })
+			res.status(500).json({ message: "Prihlásenie zlyhalo. Skúste to prosím neskôr." })
 		}
 	}
 )
@@ -442,7 +442,7 @@ router.post("/add-email", async (req, res) => {
 	try {
 		// Validate email address
 		if (!email || !validator.isEmail(email)) {
-			return res.status(400).json({ message: "Invalid email address." })
+			return res.status(400).json({ message: "Neplatná e-mailová adresa." })
 		}
 
 		// Call the addEmailToDatabase function from db.js to add the email address
@@ -450,11 +450,11 @@ router.post("/add-email", async (req, res) => {
 
 		// Log and respond with success
 		logData("routes.js", `Email address added: ${email}`, "info")
-		res.status(201).json({ message: "Email address added successfully." })
+		res.status(201).json({ message: "Úspešne pridaná e-mailová adresa." })
 	} catch (error) {
 		// Log and handle errors
 		logData("routes.js", `Error adding ${email}: ${error.message}`, "error")
-		res.status(500).json({ message: "Error adding email address." })
+		res.status(500).json({ message: "Chyba pri pridávaní e-mailovej adresy." })
 	}
 })
 
@@ -481,12 +481,12 @@ router.post("/send-article-email", authenticateAndAuthorize, async (req, res) =>
 		// Log and respond with success
 		logData("routes.js", `Article emails sent for: ${articleTitle}`, "info") // Add this line
 
-		res.status(200).json({ message: "Emails sent successfully to subscribers." })
+		res.status(200).json({ message: "Úspešne odoslané e-maily odberateľom." })
 	} catch (error) {
 		// Log and handle errors
 		logData("routes.js", `Error sending article emails: ${error.message}`, "error") // Add this line
 
-		res.status(500).json({ message: "Error sending article emails." })
+		res.status(500).json({ message: "Chyba odosielania e-mailov s článkami." })
 	}
 })
 

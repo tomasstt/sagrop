@@ -24,8 +24,10 @@
 		<router-link to="/aktuality"> <button class="bttna">Zobrazit Viac</button></router-link>
 		<!-- Article section -->
 		<div class="ront">
+		
 			<div class="" v-for="(article, index) in displayedArticles" :key="index">
 				<div class="pon">
+					<a href="/aktuality">
 					<div class="gradient-overlay"></div>
 
 					<p class="ponep">{{ article.article_title }}</p>
@@ -37,9 +39,12 @@
 							<path d="M18.84 31.1011L30.8609 19.0803" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 						</svg>
 					</router-link>
+					
 					<img class="fw1" :src="article.article_image_url" :alt="article.article_title" />
+					</a>
 				</div>
 			</div>
+		
 		</div>
 	</div>
 </template>

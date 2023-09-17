@@ -7,10 +7,12 @@
 			</h1>
 
 			<!-- Use @submit.prevent to prevent page refresh on form submission -->
+			<!-- Use @submit.prevent to prevent page refresh on form submission -->
 			<form @submit.prevent="submitForm">
-				<div class="form__group field">
+				<div class="form__group field" :class="{ 'has-error': hasError }">
 					<input v-model="email" type="email" class="form__field" placeholder="Mail" name="name" id="name" required />
 					<label for="name" class="form__label">Vaša e-mailová adresa:</label>
+					<div v-if="hasError" class="error-message">{{ validationError }}</div>
 				</div>
 
 				<div class="containera">
@@ -19,7 +21,7 @@
 			</form>
 
 			<!-- Display response messages based on the value of responseMessage -->
-			<p v-if="responseMessage">{{ responseMessage }}</p>
+			<p class="response" v-if="responseMessage">{{ responseMessage }}</p>
 
 			<p class="unText">
 				Táto stránka je chránená reCAPTCHA a platia zásady ochrany osobných údajov <br />
@@ -38,6 +40,8 @@ export default {
 			email: "",
 			filename: "NewsletterAU.vue", // Replace with the actual filename
 			responseMessage: "", // Response message to display to the user
+			hasError: false, // Track whether there's an error
+			validationError: "", // Store the error message
 		}
 	},
 	created() {
@@ -50,7 +54,7 @@ export default {
 		 */
 		async logErrorToBackend(error) {
 			try {
-				const loggerEndpoint = `${this.apiUrl}/log` // Replace with your actual logger endpoint
+				const loggerEndpoint = `${this.apiUrl}/log`
 				const logData = { source: this.filename, message: error.message }
 
 				await axios.post(loggerEndpoint, logData)
@@ -73,7 +77,7 @@ export default {
 				}
 			} catch (error) {
 				if (error.response && error.response.status === 500) {
-					this.responseMessage = "Email is already subscribed"
+					this.responseMessage = "E-mail je už prihlásený"
 				} else {
 					this.logErrorToBackend(error)
 				}
@@ -104,6 +108,20 @@ export default {
 </script>
 
 <style scoped>
+.response {
+	font-family: plus jakarta sans;
+	color: red;
+	font-size: 12px;
+
+}
+
+.error-message {
+	color: red; /* Example: Red color for the error message */
+	font-family: plus jakarta sans;
+	font-size: 12px;
+	margin-top: 10px;
+}
+
 .containera {
 	cursor: pointer;
 }
@@ -184,6 +202,7 @@ export default {
 		border-bottom: 1px solid gray;
 		outline: 0;
 		font-size: 1.3rem;
+		font-family: plus jakarta sans;
 		color: white;
 		padding: 7px 0;
 		background: transparent;
@@ -192,12 +211,14 @@ export default {
 
 	.form__field::placeholder {
 		color: transparent;
+		font-family: plus jakarta sans;
 	}
 
 	.form__field:placeholder-shown ~ .form__label {
 		font-size: 1.3rem;
 		cursor: text;
 		top: 20px;
+		font-family: plus jakarta sans;
 	}
 
 	.form__label {
@@ -208,6 +229,7 @@ export default {
 		font-size: 1rem;
 		font-family: Plus jakarta sans;
 		color: gray;
+		font-family: plus jakarta sans;
 	}
 
 	.form__field:focus {
@@ -257,7 +279,7 @@ export default {
 		font-weight: 600;
 		line-height: normal;
 	}
-	#example1 p {
+	#example1 .unText {
 		color: white;
 		font-size: 12px;
 	}
@@ -303,7 +325,7 @@ export default {
 	}
 
 	.form__field {
-		font-family: inherit;
+		font-family: plus jakarta sans;
 		width: 40%;
 		border: 0;
 		border-bottom: 1px solid gray;

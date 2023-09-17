@@ -202,8 +202,10 @@
 					<li class="dropdowns">
 						<div v-if="isDropdownVisible" :class="{ active: isOHCHovered }" class="ohc" @mouseenter="showDropdown" @mouseleave="hideDropdown">
 							<div class="connec" @mouseenter="isOHCHovered = true"></div>
-
+							<a href="/osiva">
+										
 							<div active-class="active" class="box dropdown-item" :class="{ active: activeItem === 'osiva' }" @mouseenter="activeItem = 'osiva'">
+								
 								<aside class="hand" active-class="active">
 									<p class="hand1">01</p>
 									<h1>Osivá</h1>
@@ -221,15 +223,16 @@
 										Zlepšite úrodu svojich plodín s našimi <br />
 										osivami. Kvalita a účinnosť zaručená.
 									</p>
-									<a href="/osiva"
+									<a class="under" href="/osiva"
 										>Zobrazit viac<svg class="arr" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M14.43 5.93005L20.5 12.0001L14.43 18.0701" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 											<path d="M3.5 12H20.33" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 										</svg>
 									</a>
 								</aside>
+							
 							</div>
-
+						</a><a href="/hnojiva">
 							<div class="box dropdown-item" :class="{ active: activeItem === 'hnojiva' }" @mouseenter="activeItem = 'hnojiva'">
 								<aside class="hand">
 									<p class="hand1">02</p>
@@ -245,7 +248,7 @@
 										Zlepšite úrodu svojich plodín s našimi <br />
 										hnojivami. Kvalita a účinnosť zaručená.
 									</p>
-									<a href="/hnojiva"
+									<a class="under" href="/hnojiva"
 										>Zobrazit viac<svg width="24" class="arr" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M14.43 5.93005L20.5 12.0001L14.43 18.0701" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 											<path d="M3.5 12H20.33" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
@@ -253,6 +256,7 @@
 									</a>
 								</aside>
 							</div>
+						</a><a href="/chemia">
 							<div class="box dropdown-item" :class="{ active: activeItem === 'chemia' }" @mouseenter="activeItem = 'chemia'">
 								<aside class="hand">
 									<p class="hand1">03</p>
@@ -268,7 +272,7 @@
 										Zlepšite úrodu svojich plodín s našou <br />
 										chémiou. Kvalita a účinnosť zaručená.
 									</p>
-									<a href="/chemia"
+									<a  class="under" href="/chemia"
 										>Zobrazit viac<svg width="24" class="arr" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M14.43 5.93005L20.5 12.0001L14.43 18.0701" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 											<path d="M3.5 12H20.33" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
@@ -276,6 +280,7 @@
 									</a>
 								</aside>
 							</div>
+						</a>
 						</div>
 					</li>
 				</span>
@@ -413,6 +418,7 @@ export default {
 </script>
 
 <style scoped>
+
 .rams {
 	top: 30px;
 	position: relative;
@@ -560,6 +566,12 @@ export default {
 		justify-content: center;
 		align-items: center;
 	}
+}
+
+.dropdowns a {
+	width: 40%;
+	margin-right: 111px;
+	text-decoration: none;
 }
 @media (max-width: 1150px) {
 	.oneep {
@@ -752,9 +764,10 @@ export default {
 }
 
 .box a {
-	color: black;
+	color: #2c3714;
 	font-size: 15px;
 	font-weight: 600;
+	text-decoration: underline;
 }
 .x {
 	list-style: none;

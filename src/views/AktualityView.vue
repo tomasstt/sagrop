@@ -62,7 +62,7 @@
 		</div>
 
 		<div v-if="admin" class="admin-page">
-			<form @submit.prevent="createArticle"  class="form-container" ref="articleForm">
+			<form @submit.prevent="createArticle" class="form-container" ref="articleForm">
 				<div class="drag-area" :class="{ active: isActive }" @dragover.prevent="onDragOver" @change="handleImageUpload" @dragleave="onDragLeave" ref="dragArea" @drop.prevent="onDrop">
 					<svg class="brow" xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46" fill="none">
 						<path d="M26.833 3.83325H17.2497C7.66634 3.83325 3.83301 7.66659 3.83301 17.2499V28.7499C3.83301 38.3333 7.66634 42.1666 17.2497 42.1666" stroke="#A6A29D" stroke-width="2.875" stroke-linecap="round" stroke-linejoin="round" />
@@ -76,9 +76,9 @@
 				</div>
 				<div class="input-container">
 					<input class="input-line full-width" type="text" v-model="title" placeholder="Názov" required />
-					<textarea rows="3" cols="20" class="input-line full-width spafe" v-model="description" placeholder="Popis" required />
+					<textarea rows="3" cols="20" class="input-line full-width spafe" v-model="description" placeholder="Popis" required maxlength="200" @input="updateCharacterCount"></textarea>
 				</div>
-				<button  type="submit" @click="clearImage" :disabled="isUploading">{{ isUploading ? "Uploading..." : "Submit" }}</button>
+				<button type="submit" @click="clearImage" :disabled="isUploading">{{ isUploading ? "Uploading..." : "Submit" }}</button>
 				<!-- Image preview container -->
 				<div class="image-preview" v-if="imageUrl">
 					<h2 class="preview-text">Nahratý obrazok:</h2>
@@ -168,7 +168,21 @@ export default {
 		this.checkAdmin()
 		this.loadArticlesFromBackend()
 	},
+	computed: {
+		remainingCharacters() {
+			return 200 - this.description.length
+		},
+	},
+
 	methods: {
+		updateCharacterCount() {
+			// Calculate the remaining characters by subtracting the current character count from the maximum limit (200)
+			const remainingCharacters = 200 - this.description.length
+
+			// Update the data property that holds the remaining character count
+			this.remainingCharacters = remainingCharacters
+		},
+
 		/**
 		 * Simulates an error and logs it to the backend using Axios.
 		 * @param {Error} error - The error object to be logged to the backend.
@@ -908,6 +922,7 @@ input {
 	flex-direction: row; /* Set the form to be stacked vertically */
 }
 
+
 @media (min-width: 1000px) {
 	#up {
 		line-height: 140px;
@@ -1219,6 +1234,7 @@ input {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		gap: 20px;
+		
 	}
 }
 
@@ -1228,7 +1244,6 @@ input {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		gap: 20px;
-		
 	}
 }
 
@@ -1246,6 +1261,20 @@ input {
 		grid-template-columns: repeat(1, 1fr);
 		gap: 20px;
 	}
+	.box h2 {
+	font-size: 18px;
+	font-weight: 600;
+	word-wrap: break-word;
+	max-width: 360px;
+
+}
+
+.box p {
+	font-size: 15px;
+	font-weight: 500;
+	word-wrap: break-word;
+	max-width: 360px;
+}
 }
 
 .container .box-container .box {
@@ -1258,19 +1287,23 @@ input {
 .box {
 	line-height: 19px;
 	max-width: 800px;
+	word-wrap: break-word;
+
 }
 
 .box h2 {
 	font-size: 18px;
 	font-weight: 600;
-	
+	word-wrap: break-word;
+	max-width: 420px;
+
 }
 
 .box p {
 	font-size: 15px;
 	font-weight: 500;
 	word-wrap: break-word;
-	width: auto;
+	max-width: 420px;
 }
 
 .box a {
@@ -1279,13 +1312,21 @@ input {
 	color: #2c3714;
 }
 
-.container .box-container .box img {
-	width: 100%;
-	height: auto;
-	object-fit: cover;
-	border-radius: 20px;
+
+.container .box-container .box {
+  /* Set the width and height for the image container */
+  max-width: 580px; /* Adjust to your desired width */
+
+  /* Add border-radius for rounded corners */
+  border-radius: 20px;
 }
 
+.container .box-container .box img {
+  /* Ensure the image maintains its aspect ratio and fills the container */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .blue1 {
 	display: table;
 	width: 100%;
@@ -1335,8 +1376,47 @@ input {
 	color: rgba(35, 25, 10, 0.8);
 	font-size: 28px;
 }
+@media (max-width: 1000px) {
+	.container .box-container .box {
+  /* Set the width and height for the image container */
+  min-width: 100px; /* Adjust to your desired width */
 
+  /* Add border-radius for rounded corners */
+  border-radius: 20px;
+}
+
+}
+
+@media (max-width: 1600px) {
+	.container .box-container .box {
+  /* Set the width and height for the image container */
+  max-width: 450px; /* Adjust to your desired width */
+
+  /* Add border-radius for rounded corners */
+  border-radius: 20px;
+}
+.box p {
+	font-size: 15px;
+	font-weight: 500;
+	word-wrap: break-word;
+	max-width: 320px;
+}
+
+.box h2 {
+	font-size: 18px;
+	font-weight: 600;
+	word-wrap: break-word;
+	max-width: 320px;
+
+}}
 @media (max-width: 2000px) {
+	.container .box-container .box {
+  /* Set the width and height for the image container */
+  max-width: auto; /* Adjust to your desired width */
+
+  /* Add border-radius for rounded corners */
+  border-radius: 20px;
+}
 	.blue1 {
 		padding-top: 2.4cm;
 	}
