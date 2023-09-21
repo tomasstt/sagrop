@@ -98,6 +98,7 @@
 				</div>
 			</div>
 			<div class="copyright">Copyright &copy; 2023 Sagrop All Rights reserved</div>
+			<div class="acronym">Made by <a href="http://acronym.sk/">Acronym</a> </div>
 			<div class="admin-container">
 				<router-link class="admin" to="/admin">Prihlásiť sa</router-link>
 			</div>
@@ -266,6 +267,18 @@ export default {}
 		height: 1cm;
 		margin: 0 auto;
 		padding-top: 1cm;
+	}
+	.acronym{
+		padding-left: 0cm;
+		font-size: 14px;
+		font-weight: 100;
+		width: 96%;
+		
+		margin: 0 auto;
+		
+	}
+	.acronym a {
+		color: rgb(255, 255, 255);
 	}
 
 	.fir {
@@ -449,6 +462,18 @@ export default {}
 		height: 1cm;
 		margin: 0 auto;
 		padding-top: 1cm;
+	}
+	.acronym{
+		padding-left: 0cm;
+		font-size: 13px;
+		font-weight: 100;
+		width: 96%;
+		
+		margin: 0 auto;
+		
+	}
+	.acronym a {
+		color: rgb(255, 255, 255);
 	}
 
 	.fir {
