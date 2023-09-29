@@ -127,7 +127,7 @@
 						<p class="onep">Služby dronom</p>
 						<p class="oneep">Monitorovacie a postrekovacie služby</p>
 						<a to="sluzby">
-							<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<svg width="44" height="44" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<rect width="49.9411" height="49.9411" rx="24.9706" fill="#E9E5E0" />
 								<path d="M30.9812 27.5444L30.9812 18.9601L22.3969 18.9601" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 								<path d="M18.84 31.1011L30.8609 19.0803" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" /></svg
@@ -146,7 +146,7 @@
 							a chémia
 						</p>
 						<a to="doprava">
-							<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<svg width="44" height="44" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<rect width="49.9411" height="49.9411" rx="24.9706" fill="#E9E5E0" />
 								<path d="M30.9812 27.5444L30.9812 18.9601L22.3969 18.9601" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 								<path d="M18.84 31.1011L30.8609 19.0803" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" /></svg
@@ -165,7 +165,7 @@
 							v našich skladoch
 						</p>
 						<a to="sklady">
-							<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<svg width="44" height="44" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<rect width="49.9411" height="49.9411" rx="24.9706" fill="#E9E5E0" />
 								<path d="M30.9812 27.5444L30.9812 18.9601L22.3969 18.9601" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 								<path d="M18.84 31.1011L30.8609 19.0803" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" /></svg
@@ -182,7 +182,7 @@
 						Ponuka strojov <br />
 						na poľe
 					</p>
-					<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<svg width="44" height="44" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
 						<rect width="49.9411" height="49.9411" rx="24.9706" fill="#E9E5E0" />
 						<path d="M30.9812 27.5444L30.9812 18.9601L22.3969 18.9601" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 						<path d="M18.84 31.1011L30.8609 19.0803" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
@@ -428,6 +428,7 @@ export default {
 	z-index: 10;
 	height: 30px;
 }
+
 @media (min-width: 1000px) {
 	.boxs {
 		place-items: center;
@@ -566,6 +567,23 @@ export default {
 		justify-content: center;
 		align-items: center;
 	}
+}
+@media (max-width: 2000px) {
+
+.ron svg {
+	position: absolute;
+	right: 30px;
+	bottom: 45px;
+	width: 38px;
+}
+
+.ron svg:hover {
+	scale: 1.2;
+	transition: ease-in-out 0.2s;
+	opacity: 0.8;
+}
+
+
 }
 
 .dropdowns a {
