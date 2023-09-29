@@ -98,11 +98,11 @@
 				</div>
 			</div>
 			<div class="copyright">
-				Copyright &copy; 2023 Sagrop All Rights reserved | Made with
+				Copyright &copy; 2023 Sagrop All Rights reserved <div class="center"> Made with
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
 					<path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
 				</svg>
-				by <a href="http://acronym.sk/"> Acronym.sk</a>
+				by <a href="http://acronym.sk/"> Acronym.sk</a></div>
 			</div>
 			<div class="admin-container">
 				<router-link class="admin" to="/admin">Prihlásiť sa</router-link>
@@ -128,6 +128,7 @@ export default {}
 	align-items: center;
 }
 
+
 .admin {
 	color: rgb(109, 208, 46);
 
@@ -140,6 +141,10 @@ export default {}
 }
 
 @media (min-width: 1000px) {
+	.copyright .center{
+	text-align: center;
+	margin-top: -16px;
+}
 	.blacko {
 		background: #050402;
 		margin-top: -26cm;
@@ -347,6 +352,11 @@ export default {}
 		height: auto;
 		color: white;
 	}
+	.copyright .center{
+		margin-top: 24px;
+	text-align: start;
+	
+}
 
 	footer img {
 		margin-left: 30px;
