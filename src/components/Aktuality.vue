@@ -231,7 +231,6 @@ export default {
 		position: absolute;
 		display: flex;
 		color: var(--white, #e9e5e0);
-
 		margin-left: 30px;
 
 		font-family: Plus jakarta sans;
@@ -267,9 +266,10 @@ export default {
 	.poneep {
 		position: absolute;
 		display: flex;
-		padding: 20px;
+		
 		margin-left: 20px;
 		bottom: 0;
+		
 		padding-right: 80px;
 		font-size: 20px; /* Adjust as needed */
 		font-weight: 500;
@@ -430,6 +430,7 @@ export default {
 		color: white;
 		margin-left: 20px;
 		bottom: 0;
+		
 		padding-right: 80px;
 		font-size: 16px; /* Adjust as needed */
 		font-weight: 500; /* Adjust as needed */
@@ -466,6 +467,26 @@ export default {
 		border-radius: 20px;
 	}
 }
+.pon {
+    /* ... your existing styles ... */
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    overflow: hidden; /* Add this to hide overflowing content */
+}
+
+.ponep {
+    /* ... your existing styles ... */
+    max-width: 100%;
+}
+
+.poneep {
+    /* ... your existing styles ... */
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
 @media (max-width: 2000px) {
 	.blue1 {
 		display: table;
@@ -479,9 +500,10 @@ export default {
 		position: absolute;
 		display: flex;
 		color: white;
+		
 		margin-left: 20px;
 		margin-right: 20px;
-		font-size: 30px; /* Adjust as needed */
+		font-size: 22px; /* Adjust as needed */
 		font-weight: 600; /* Adjust as needed */
 		font-family: Plus Jakarta Sans;
 	}

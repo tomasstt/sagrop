@@ -136,14 +136,20 @@ export default {}
 
 	text-decoration: none;
 	margin-right: 50px;
-	bottom: 1cm;
-	position: relative;
+	margin-top: -60px;
 }
 
 @media (min-width: 1000px) {
 	.copyright .center{
 	text-align: center;
-	margin-top: -16px;
+	padding-left: 0cm;
+		font-size: 14px;
+		font-weight: 400;
+		
+		
+		margin: -20px auto;
+		
+
 }
 	.blacko {
 		background: #050402;
@@ -294,9 +300,7 @@ export default {}
 
 		margin: 0 auto;
 	}
-	.acronym a {
-		color: rgb(255, 255, 255);
-	}
+	
 
 	.fir {
 		position: absolute;

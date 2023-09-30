@@ -1316,7 +1316,7 @@ input {
 .container .box-container .box {
   /* Set the width and height for the image container */
   max-width: 580px; /* Adjust to your desired width */
-
+	
   /* Add border-radius for rounded corners */
   border-radius: 20px;
 }
@@ -1324,7 +1324,7 @@ input {
 .container .box-container .box img {
   /* Ensure the image maintains its aspect ratio and fills the container */
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
 }
 .blue1 {
