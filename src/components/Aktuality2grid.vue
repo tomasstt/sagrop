@@ -24,10 +24,10 @@
 		<router-link to="/aktuality"> <button class="bttna">Zobrazit Viac</button></router-link>
 		<!-- Article section -->
 		<div class="ront">
-		
 			<div class="" v-for="(article, index) in displayedArticles" :key="index">
 				<div class="pon">
 					<a href="/aktuality">
+
 					<div class="gradient-overlay"></div>
 
 					<p class="ponep">{{ article.article_title }}</p>
@@ -39,12 +39,10 @@
 							<path d="M18.84 31.1011L30.8609 19.0803" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 						</svg>
 					</router-link>
-					
 					<img class="fw1" :src="article.article_image_url" :alt="article.article_title" />
 					</a>
 				</div>
 			</div>
-		
 		</div>
 	</div>
 </template>
@@ -153,7 +151,7 @@ export default {
 		flex-direction: row;
 		align-items: center;
 		padding: 10px 30px;
-
+		margin-top: -3cm;
 		cursor: pointer;
 		position: absolute;
 
@@ -212,6 +210,7 @@ export default {
 		justify-content: center;
 		margin: 0 auto;
 		width: 100%;
+
 		font-family: "Recia";
 		gap: 20px;
 		margin-top: 2cm;
@@ -224,13 +223,14 @@ export default {
 		position: relative;
 		display: inline-block;
 		width: 100%;
+		height: auto;
+		/* tu sa dava prva vrsta */
 	}
 
 	.ponep {
 		position: absolute;
 		display: flex;
 		color: var(--white, #e9e5e0);
-
 		margin-left: 30px;
 
 		font-family: Plus jakarta sans;
@@ -266,9 +266,10 @@ export default {
 	.poneep {
 		position: absolute;
 		display: flex;
-		padding: 20px;
+		
 		margin-left: 20px;
 		bottom: 0;
+		
 		padding-right: 80px;
 		font-size: 20px; /* Adjust as needed */
 		font-weight: 500;
@@ -308,14 +309,13 @@ export default {
 	}
 
 	.ront > div {
-		flex-basis: 48%;
+		flex-basis: 48.4%;
 		width: 100%;
 		display: flex;
 
 		place-content: center;
 	}
 }
-
 @media (max-width: 2200px) {
 	.fw1,
 	.fw2,
@@ -430,6 +430,7 @@ export default {
 		color: white;
 		margin-left: 20px;
 		bottom: 0;
+		
 		padding-right: 80px;
 		font-size: 16px; /* Adjust as needed */
 		font-weight: 500; /* Adjust as needed */
@@ -466,6 +467,26 @@ export default {
 		border-radius: 20px;
 	}
 }
+.pon {
+    /* ... your existing styles ... */
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    overflow: hidden; /* Add this to hide overflowing content */
+}
+
+.ponep {
+    /* ... your existing styles ... */
+    max-width: 100%;
+}
+
+.poneep {
+    /* ... your existing styles ... */
+    max-width: 100%;
+    word-wrap: break-word;
+}
+
 @media (max-width: 2000px) {
 	.blue1 {
 		display: table;
@@ -479,9 +500,10 @@ export default {
 		position: absolute;
 		display: flex;
 		color: white;
+		
 		margin-left: 20px;
 		margin-right: 20px;
-		font-size: 30px; /* Adjust as needed */
+		font-size: 22px; /* Adjust as needed */
 		font-weight: 600; /* Adjust as needed */
 		font-family: Plus Jakarta Sans;
 	}
@@ -591,7 +613,7 @@ export default {
 		font-size: 5em;
 	}
 	.blue1 {
-		margin-bottom: -4cm;
+		margin-bottom: -cm;
 		padding-top: cm;
 	}
 
