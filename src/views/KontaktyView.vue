@@ -79,6 +79,28 @@
 					</p>
 				</div>
 			</div>
+			<div class="quat">
+				<p id="le">Sklady</p>
+				<div class="end">
+					<p>
+					
+				</p>
+					<p>
+						Robert Tóth <br />
+						+421 910 785 492 <br />
+						- Sklad Dlhá
+					</p>
+				
+					<p>
+						Peter Belan <br />
+						+421 907 093 911 <br />
+						- Sklad Pereš
+					</p>
+
+				
+				</div>
+			</div>
+			
 		</div>
 	</footer>
 
@@ -298,6 +320,9 @@ export default {
 		color: rgb(0, 0, 0);
 		padding-top: 2.5cm;
 		margin-bottom: -cm;
+	}
+	.end p{
+		margin-left: 0.4cm;
 	}
 
 	.blue2 {
@@ -611,6 +636,14 @@ export default {
 		border-top: 1px solid black;
 		border-bottom: 0px solid black;
 	}
+	.quat {
+		width: 96%;
+		height: auto;
+		margin: 0 auto;
+		display: flex;
+		
+		border-bottom: 1px solid black;
+	}
 	.troi {
 		width: 96%;
 		height: auto;
@@ -627,6 +660,8 @@ export default {
 		display: flex;
 		align-items: flex-end;
 	}
+
+	
 
 	.end1 {
 		display: flex;
@@ -702,6 +737,11 @@ export default {
 	}
 }
 
+@media (max-width: 1500px) and (min-width:1000px) {
+.end p{
+		margin-left: 0.6cm;
+	}}
+
 @media (max-width: 1000px) {
 	.blacko {
 		background: #e9e5e0;
@@ -759,6 +799,15 @@ export default {
 		display: row;
 		border-top: 1px solid black;
 		border-bottom: 0px solid black;
+	}
+	.quat {
+		width: 96%;
+		height: auto;
+		margin: 0 auto;
+		display: row;
+
+		
+		border-bottom: 1px solid black;
 	}
 	.troi {
 		width: 96%;

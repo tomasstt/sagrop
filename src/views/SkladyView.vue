@@ -17,20 +17,41 @@
 	<footer class="blacko">
 		<div class="ww">
 			<div class="et">
-				<p id="lex">Sklad</p>
+				<p id="lex">Sklad Dlhá</p>
 
 				<div class="end">
 					<p></p>
 					<p>
 						Sklad Dlhá nad Váhom <br />
 						<br />
-						GPS: 48.175577728892854, 17.86193632575432
+						GPS: 48,1749085, 17,8629129
 					</p>
 
 					<p>
 						Kontakt na skladníka <br />
 						<br />
 						Robert Tóth: +421 910 785 492
+					</p>
+				</div>
+			</div>
+			<div class="deu"></div>
+		</div>
+		<div class="ww">
+			<div class="ets">
+				<p id="lex">Sklad Pereš</p>
+
+				<div class="end">
+					<p></p>
+					<p>
+						Sklad Pereš <br />
+						<br />
+						GPS: 48,2127270, 17,9954301
+					</p>
+
+					<p>
+						Kontakt na skladníka <br />
+						<br />
+						Peter Belan: +421 907 093 911
 					</p>
 				</div>
 			</div>
@@ -500,6 +521,19 @@ export default {
 		padding-top: 1cm;
 
 		width: 100%;
+	}
+	.ets {
+		width: 96%;
+		align-items: center;
+		place-items: center;
+		margin: 0 auto;
+		
+
+		height: auto;
+		display: flex;
+		
+		
+		border-bottom: 0px solid black;
 	}
 
 	.et {
