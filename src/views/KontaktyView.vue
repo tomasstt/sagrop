@@ -83,18 +83,18 @@
 				<p id="le">Sklady</p>
 				<div class="end">
 					<p>
-					
+			
 				</p>
 					<p>
 						Robert Tóth <br />
 						+421 910 785 492 <br />
-						- Sklad Dlhá
+						-<a href="https://www.google.com/maps?q=48.1749085,17.8629129" target="_blank"> Sklad Dlhá</a>
 					</p>
 				
 					<p>
 						Peter Belan <br />
 						+421 907 093 911 <br />
-						- Sklad Pereš
+						-<a href="https://www.google.com/maps?q=48.2127270,17.9954301" target="_blank"> Sklad Pereš</a>
 					</p>
 
 				
@@ -286,6 +286,10 @@ export default {
 	padding: 1cm;
 	text-align: start;
 	overflow: hidden;
+}
+
+.end a{
+	color: black;
 }
 
 @media (max-width: 1000px) {

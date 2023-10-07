@@ -24,7 +24,7 @@
 					<p>
 						Sklad Dlhá nad Váhom <br />
 						<br />
-						GPS: 48,1749085, 17,8629129
+						GPS: <a href="https://www.google.com/maps?q=48.1749085,17.8629129" target="_blank">48.1749085, 17.8629129</a>
 					</p>
 
 					<p>
@@ -45,7 +45,7 @@
 					<p>
 						Sklad Pereš <br />
 						<br />
-						GPS: 48,2127270, 17,9954301
+						GPS: <a href="https://www.google.com/maps?q=48.2127270,17.9954301" target="_blank">48.2127270, 17.9954301</a>
 					</p>
 
 					<p>
@@ -158,6 +158,10 @@ export default {
 	.conta {
 		margin-left: 34px;
 	}
+}
+
+.end a{
+	color: black;
 }
 
 @media (max-width: 1000px) {
