@@ -611,7 +611,7 @@ padding-top: 20px;
 		place-content: top;
 		position: relative;
 		display: flex;
-		margin-top: -3cm;
+		margin-top: -2.5cm;
 	}
 
 	.copyright {
