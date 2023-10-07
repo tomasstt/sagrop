@@ -348,9 +348,19 @@ export default {
 		font-size: 5em;
 	}
 
+	.et{
+		
+		padding-top: 20px;
+	}
+	
+	.ets{
+
+padding-top: 1cm;
+}
+
 	.blue3 {
 		display: block;
-		height: 150px;
+		height: 350px;
 		width: 90%;
 		padding-left: 20px;
 		padding-top: 30px;
@@ -362,7 +372,12 @@ export default {
 		font-size: 28px;
 	}
 }
+@media (max-width: 1484px) {
+	.ets{
 
+padding-top: 20px;
+}
+}
 @media (max-width: 1000px) {
 	br {
 		display: none;
@@ -684,7 +699,19 @@ export default {
 		padding-top: 1cm;
 		width: 100%;
 	}
+	
+	.ets {
+		width: 96%;
+		align-items: center;
+		place-items: center;
+		margin: 0 auto;
 
+		height: auto;
+		display: row;
+		
+		
+		border-bottom: 0px solid black;
+	}
 	.et {
 		width: 96%;
 		align-items: center;
