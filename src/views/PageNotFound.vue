@@ -34,6 +34,7 @@ p{
     align-items: center;
     place-items: center;
     margin-top: -50px;
+	font-family: plus Jakarta Sans;
     
 }
 a{
