@@ -1296,7 +1296,7 @@ display: none;
 }
 
 .vpp {
-	background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.25) 100%), url(/images/v2osk-c9OfrVeD_tQ-unsplash\ 3.svg);
+	background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.25) 100%), url(/images/v2osk-c9OfrVeD_tQ-unsplash 3.svg);
 }
 .pvr {
 	mask-composite: exclude;
@@ -1622,7 +1622,7 @@ display: none;
 	margin: auto;
 	height: 90vh;
 	border-radius: 0.7cm;
-	background-image: url(/images/pascal-debrunner-dJ_pqXFyGSM-unsplash\ 1.svg);
+	background-image: url(/images/pascal-debrunner-dJ_pqXFyGSM-unsplash 1.svg);
 	background-position: center;
 	background-size: cover;
 }

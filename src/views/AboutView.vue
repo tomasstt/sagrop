@@ -1359,7 +1359,7 @@ overflow: hidden;
 }
 
 .vpp {
-	background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.25) 100%), url(/images/v2osk-c9OfrVeD_tQ-unsplash\ 3.svg);
+	background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.25) 100%), url(/images/v2osk-c9OfrVeD_tQ-unsplash 3.svg);
 }
 .pvr {
 	mask-composite: exclude;
