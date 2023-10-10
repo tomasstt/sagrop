@@ -17,7 +17,7 @@
 		</div>
 
 		<div class="image-container">
-			<img src="images/drone.svg" alt="Drone" />
+			<img src="/images/drone.svg" alt="Drone" />
 		</div>
 
 		<div class="container">
@@ -37,8 +37,8 @@
 		</div>
 
 		<div class="cont">
-			<img class="ob1" src="images/drone1.svg" alt="Drone" />
-			<img class="ob2" src="images/drone2.svg" alt="Drone" />
+			<img class="ob1" src="/images/drone1.svg" alt="Drone" />
+			<img class="ob2" src="/images/drone2.svg" alt="Drone" />
 		</div>
 
 		<div class="container3">
