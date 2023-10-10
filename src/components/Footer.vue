@@ -12,9 +12,9 @@
 						<router-link to="/sluzby">Služby</router-link>
 					</div>
 					<div class="sec">
-						<a href="/komodity">Komodity</a>
-						<a href="">Cenník</a>
-						<a href="/aktuality">Aktuality</a>
+						<router-link to="/komodity">Komodity</router-link>
+						<router-link to="">Cenník</router-link>
+						<router-link to="/aktuality">Aktuality</router-link>
 						<router-link to="/kontakty">Kontakty</router-link>
 					</div>
 				</div>
@@ -132,7 +132,7 @@ export default {}
 .admin {
 	color: rgb(109, 208, 46);
 
-	font-size: 16px;
+	font-size: 14px;
 
 	text-decoration: none;
 	margin-right: 50px;

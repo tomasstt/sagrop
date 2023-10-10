@@ -123,7 +123,7 @@
 				<div class="ronner"></div>
 
 				<div class="ron" :class="{ active: activeItem === 'dron' }" @mouseenter="activeItem = 'dron'">
-					<a href="/sluzby">
+					<router-link to="/sluzby">
 						<p class="onep">Služby dronom</p>
 						<p class="oneep">Monitorovacie a postrekovacie služby</p>
 						<a to="sluzby">
@@ -135,11 +135,11 @@
 						<div class="boxs">
 							<img class="fw11" src="/images/dronik.svg" alt="" />
 						</div>
-					</a>
+					</router-link>
 				</div>
 
 				<div class="ron" :class="{ active: activeItem === 'doprava' }" @mouseenter="activeItem = 'doprava'">
-					<a href="doprava">
+					<router-link to="doprava">
 						<p class="onep">Doprava</p>
 						<p class="oneep">
 							Komodity, hnojivá, osivá <br />
@@ -154,11 +154,11 @@
 						<div class="boxs">
 							<img class="fw11" src="/images/doprava.svg" alt="" />
 						</div>
-					</a>
+					</router-link>
 				</div>
 
 				<div class="ron" :class="{ active: activeItem === 'sklady' }" @mouseenter="activeItem = 'sklady'">
-					<a href="sklady">
+					<router-link to="sklady">
 						<p class="onep">Sklady</p>
 						<p class="oneep">
 							Skladovanie komodít <br />
@@ -173,7 +173,7 @@
 						<div class="boxs">
 							<img class="fw11" src="/images/sklad.svg" alt="" />
 						</div>
-					</a>
+					</router-link>
 				</div>
 
 				<div class="ron" :class="{ active: activeItem === 'zatva' }" @mouseenter="activeItem = 'zatva'">
@@ -197,12 +197,12 @@
 		<div @mouseover="isOHCHovered = true" @mouseout="isOHCHovered = false">
 			<div class="rams"></div>
 
-			<li class="dropdown hover" :class="{ active: isDropdownVisible }">
+			<div class="dropdown hover" :class="{ active: isDropdownVisible }">
 				<span @mouseenter="showDropdown" @mouseleave="hideDropdown">
 					<li class="dropdowns">
 						<div v-if="isDropdownVisible" :class="{ active: isOHCHovered }" class="ohc" @mouseenter="showDropdown" @mouseleave="hideDropdown">
 							<div class="connec" @mouseenter="isOHCHovered = true"></div>
-							<a href="/osiva">
+							<router-link to="/osiva">
 										
 							<div active-class="active" class="box dropdown-item" :class="{ active: activeItem === 'osiva' }" @mouseenter="activeItem = 'osiva'">
 								
@@ -232,7 +232,7 @@
 								</aside>
 							
 							</div>
-						</a><a href="/hnojiva">
+						</router-link><router-link to="/hnojiva">
 							<div class="box dropdown-item" :class="{ active: activeItem === 'hnojiva' }" @mouseenter="activeItem = 'hnojiva'">
 								<aside class="hand">
 									<p class="hand1">02</p>
@@ -256,7 +256,7 @@
 									</a>
 								</aside>
 							</div>
-						</a><a href="/chemia">
+						</router-link><router-link to="/chemia">
 							<div class="box dropdown-item" :class="{ active: activeItem === 'chemia' }" @mouseenter="activeItem = 'chemia'">
 								<aside class="hand">
 									<p class="hand1">03</p>
@@ -280,11 +280,11 @@
 									</a>
 								</aside>
 							</div>
-						</a>
+						</router-link>
 						</div>
 					</li>
 				</span>
-			</li>
+			</div>
 		</div>
 	</div>
 </template>
@@ -307,6 +307,8 @@ export default {
 			activeItem: null,
 			isOHCHovered: false,
 			allGone: false,
+			isDropdownServicesVisible: false, // New property for the second dropdown
+
 		}
 	},
 	mounted() {
@@ -338,6 +340,19 @@ export default {
 			})
 		})
 	},
+	watch: {
+    // Watch for route changes and hide the dropdown
+    '$route'() {
+      this.hideDropdown();
+    },
+  },
+  beforeRouteUpdate(to, from, next) {
+    // Hide the dropdown when a route is updated
+    this.hideDropdown();
+    next();
+  },
+
+
 	mounted() {
 		window.addEventListener("scroll", this.handleScroll)
 	},
@@ -358,6 +373,7 @@ export default {
 		hidecards() {
 			this.isDropdownCards = false
 		},
+		
 		hideAll() {
 			this.isDropdownVisible = false
 			this.isDropdownCards = false
@@ -423,10 +439,10 @@ export default {
 	top: 30px;
 	position: relative;
 	background: #e9e5e0;
-
+	text-decoration: none;
 	width: 5px;
 	z-index: 10;
-	height: 30px;
+	height: 40px;
 }
 
 @media (min-width: 1000px) {

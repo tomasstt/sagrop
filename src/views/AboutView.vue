@@ -2,7 +2,7 @@
 	<div>
 		<div class="ront2">
 			<div class="ron">
-				<a href="/sluzby">
+				<router-link to="/sluzby">
 					<p class="onep">Služby dronom</p>
 					<p class="oneep">Monitorovacie a postrekovacie služby</p>
 					<router-link to="sluzby">
@@ -13,10 +13,10 @@
 					></router-link>
 
 					<img class="fw11" src="/images/dronik.svg" alt="" />
-				</a>
+				</router-link>
 			</div>
 			<div class="ron">
-				<a href="/doprava">
+				<router-link to="/doprava">
 					<p class="onep">Doprava</p>
 					<p class="oneep">
 						Komodity, hnojivá, osivá <br />
@@ -30,10 +30,10 @@
 					></router-link>
 
 					<img class="fw11" src="/images/doprava.svg" alt="" />
-				</a>
+						</router-link>
 			</div>
 			<div class="ron">
-				<a href="/sklady">
+				<router-link to="/sklady">
 					<p class="onep">Sklady</p>
 					<p class="oneep">
 						Skladovanie komodít <br />
@@ -47,10 +47,10 @@
 					></router-link>
 
 					<img class="fw11" src="/images/sklad.svg" alt="" />
-				</a>
+				</router-link>
 			</div>
 			<div class="ron">
-				<a href="#">
+				<router-link to="#">
 
 				<p class="twop">Žatevné služby</p>
 				<p class="twoop">
@@ -63,7 +63,7 @@
 					<path d="M18.84 31.1011L30.8609 19.0803" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 				</svg>
 				<img class="fw22" src="/images/zatva.svg" alt="" />
-				</a>
+				</router-link>
 			</div>
 		</div>
 
@@ -108,12 +108,12 @@
 						Zlepšite úrodu svojich plodín s našimi <br />
 						osivami. Kvalita a účinnosť zaručená.
 					</p>
-					<a href="/osiva"
+					<router-link to="/osiva"
 						>Zobrazit viac<svg class="arr" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M14.43 5.93005L20.5 12.0001L14.43 18.0701" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 							<path d="M3.5 12H20.33" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 						</svg>
-					</a>
+					</router-link>
 				</aside>
 			</div>
 			<div class="box">
@@ -131,12 +131,12 @@
 						Zlepšite úrodu svojich plodín s našimi <br />
 						hnojivami. Kvalita a účinnosť zaručená.
 					</p>
-					<a href="/hnojiva"
+					<router-link to="/hnojiva"
 						>Zobrazit viac<svg width="24" class="arr" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M14.43 5.93005L20.5 12.0001L14.43 18.0701" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 							<path d="M3.5 12H20.33" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 						</svg>
-					</a>
+					</router-link>
 				</aside>
 			</div>
 			<div class="box">
@@ -154,12 +154,12 @@
 						Zlepšite úrodu svojich plodín s našou <br />
 						chémiou. Kvalita a účinnosť zaručená.
 					</p>
-					<a href="/chemia"
+					<router-link to="/chemia"
 						>Zobrazit viac<svg width="24" class="arr" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M14.43 5.93005L20.5 12.0001L14.43 18.0701" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 							<path d="M3.5 12H20.33" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 						</svg>
-					</a>
+					</router-link>
 				</aside>
 			</div>
 		</div>
@@ -896,7 +896,7 @@ overflow: hidden;
 	}
 	.first2 {
 		display: block;
-		height: 180px;
+		height: 200px;
 		width: auto;
 		font-size: 31px;
 		padding-right: 20px;
@@ -923,6 +923,18 @@ overflow: hidden;
 	}
 }
 
+@media (max-width: 350px) {
+
+	.first2 {
+		display: block;
+		height: 300px;
+		width: auto;
+		font-size: 31px;
+		padding-right: 20px;
+
+		padding-left: 20px;
+	}
+}
 .cont {
 	display: flex;
 	flex-wrap: wrap;

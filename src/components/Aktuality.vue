@@ -26,7 +26,7 @@
 		<div class="ront">
 			<div class="" v-for="(article, index) in displayedArticles" :key="index">
 				<div class="pon">
-					<a href="/aktuality">
+					<router-link to="/aktuality">
 
 					<div class="gradient-overlay"></div>
 
@@ -40,7 +40,7 @@
 						</svg>
 					</router-link>
 					<img class="fw1" :src="article.article_image_url" :alt="article.article_title" />
-					</a>
+					</router-link>
 				</div>
 			</div>
 		</div>

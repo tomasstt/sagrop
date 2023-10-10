@@ -114,12 +114,12 @@
 						Zlepšite úrodu svojich plodín s našimi <br />
 						osivami. Kvalita a účinnosť zaručená.
 					</p>
-					<a href="/osiva"
+					<router-link to="/osiva"
 						>Zobrazit viac<svg class="arr" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M14.43 5.93005L20.5 12.0001L14.43 18.0701" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 							<path d="M3.5 12H20.33" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 						</svg>
-					</a>
+					</router-link>
 				</aside>
 			</div>
 			<div class="box">
@@ -137,12 +137,12 @@
 						Zlepšite úrodu svojich plodín s našimi <br />
 						hnojivami. Kvalita a účinnosť zaručená.
 					</p>
-					<a href="/hnojiva"
+					<router-link to="/hnojiva"
 						>Zobrazit viac<svg width="24" class="arr" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M14.43 5.93005L20.5 12.0001L14.43 18.0701" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 							<path d="M3.5 12H20.33" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 						</svg>
-					</a>
+					</router-link>
 				</aside>
 			</div>
 			<div class="box">
@@ -160,12 +160,12 @@
 						Zlepšite úrodu svojich plodín s našou <br />
 						chémiou. Kvalita a účinnosť zaručená.
 					</p>
-					<a href="/chemia"
+					<router-link to="/chemia"
 						>Zobrazit viac<svg width="24" class="arr" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M14.43 5.93005L20.5 12.0001L14.43 18.0701" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 							<path d="M3.5 12H20.33" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 						</svg>
-					</a>
+					</router-link>
 				</aside>
 			</div>
 		</div>

@@ -263,6 +263,7 @@ th {
 	min-width: 20px;
 	height: 90px;
 	padding: 5px;
+	font-family: Recia;
 }
 
 th.first-header {

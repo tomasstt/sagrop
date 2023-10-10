@@ -312,6 +312,8 @@ input {
 th {
 	min-width: 20px;
 	height: 90px;
+	font-family: Recia;
+
 }
 th.first-header {
 	border-top-left-radius: 20px;
@@ -582,16 +584,18 @@ th.last-header {
 	}
 	.blue2 {
 		display: block;
-		height: auto;
+	
 		width: auto;
 		font-size: 29px;
-		height: 70px;
+		height: auto;
 		padding-left: 16px;
 	}
+	
 
 	.blue3 {
 		display: block;
 		height: auto;
+		/* margin-top: 2cm; */
 		width: auto;
 		font-size: 20px;
 		padding-left: 16px;
