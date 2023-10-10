@@ -123,7 +123,7 @@
 				<div class="ronner"></div>
 
 				<div class="ron" :class="{ active: activeItem === 'dron' }" @mouseenter="activeItem = 'dron'">
-					<router-link to="/sluzby">
+					<a href="/sluzby">
 						<p class="onep">Služby dronom</p>
 						<p class="oneep">Monitorovacie a postrekovacie služby</p>
 						<a to="sluzby">
@@ -135,11 +135,11 @@
 						<div class="boxs">
 							<img class="fw11" src="/images/dronik.svg" alt="" />
 						</div>
-					</router-link>
+					</a>
 				</div>
 
 				<div class="ron" :class="{ active: activeItem === 'doprava' }" @mouseenter="activeItem = 'doprava'">
-					<router-link to="doprava">
+					<a href="doprava">
 						<p class="onep">Doprava</p>
 						<p class="oneep">
 							Komodity, hnojivá, osivá <br />
@@ -154,11 +154,11 @@
 						<div class="boxs">
 							<img class="fw11" src="/images/doprava.svg" alt="" />
 						</div>
-					</router-link>
+					</a>
 				</div>
 
 				<div class="ron" :class="{ active: activeItem === 'sklady' }" @mouseenter="activeItem = 'sklady'">
-					<router-link to="sklady">
+					<a href="sklady">
 						<p class="onep">Sklady</p>
 						<p class="oneep">
 							Skladovanie komodít <br />
@@ -173,7 +173,7 @@
 						<div class="boxs">
 							<img class="fw11" src="/images/sklad.svg" alt="" />
 						</div>
-					</router-link>
+					</a>
 				</div>
 
 				<div class="ron" :class="{ active: activeItem === 'zatva' }" @mouseenter="activeItem = 'zatva'">

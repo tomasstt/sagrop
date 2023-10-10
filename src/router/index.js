@@ -17,7 +17,6 @@ import CardDetailView from "../views/CardDetailView.vue"
 
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
-	mode: 'hash',
 	routes: [
 		{
 			path: "/",
