@@ -99,7 +99,80 @@ export default {
 	data() {
 		return {
 			admin: false,
-			commodities: [],
+			commodities: [
+				{
+					name: " ",
+					inquiry: " ",
+					offer: " ",
+					price: " ",
+					amount: " ",
+					date: " ",
+					parita: " ",
+				},
+				{
+					name: " ",
+					inquiry: " ",
+					offer: " ",
+					price: " ",
+					amount: " ",
+					date: " ",
+					parita: " ",
+				},
+				{
+					name: " ",
+					inquiry: " ",
+					offer: " ",
+					price: " ",
+					amount: " ",
+					date: " ",
+					parita: " ",
+				},
+				{
+					name: " ",
+					inquiry: " ",
+					offer: " ",
+					price: " ",
+					amount: " ",
+					date: " ",
+					parita: " ",
+				},
+				{
+					name: " ",
+					inquiry: " ",
+					offer: " ",
+					price: " ",
+					amount: " ",
+					date: " ",
+					parita: " ",
+				},
+				{
+					name: " ",
+					inquiry: " ",
+					offer: " ",
+					price: " ",
+					amount: " ",
+					date: " ",
+					parita: " ",
+				},
+				{
+					name: " ",
+					inquiry: " ",
+					offer: " ",
+					price: " ",
+					amount: " ",
+					date: " ",
+					parita: " ",
+				},
+				{
+					name: " ",
+					inquiry: " ",
+					offer: " ",
+					price: " ",
+					amount: " ",
+					date: "",
+					parita: " ",
+				},
+			],
 			apiUrl: null,
 		}
 	},
@@ -240,7 +313,7 @@ input {
 	/* position: absolute;
   top: 4cm;
   left: 3cm; */
-	padding-top: 5cm;
+	padding-top: 3cm;
 	margin: auto;
 	width: 98%;
 	height: 896px;
@@ -275,6 +348,13 @@ th.first-header {
 		font-size: 17px;
 		font-weight: 400;
 	}
+	.custom-table td {
+	padding: 1px;
+	text-align: center;
+	border-bottom: 1px solid #87837d;
+	border-right: 1px solid #87837d;
+}
+
 }
 @media (max-width: 600px) {
 	th {
@@ -283,14 +363,44 @@ th.first-header {
 
 		font-weight: 400;
 	}
+	.custom-table td {
+	padding: 1px;
+	text-align: center;
+	border-bottom: 1px solid #87837d;
+	border-right: 1px solid #87837d;
+}
+
 }
 @media (max-width: 435px) {
 	th {
 		background: #2c3714;
 
-		font-size: 12px;
+		font-size: 8px;
+		height: 40px;
 		font-weight: 400;
 	}
+	.custom-table td {
+	padding: 1px;
+	text-align: center;
+	border-bottom: 1px solid #87837d;
+	border-right: 1px solid #87837d;
+}
+
+}
+@media (max-width: 305px) {
+	th {
+		background: #2c3714;
+
+		font-size: 7px;
+		font-weight: 400;
+	}
+	.custom-table td {
+	padding: 2px;
+	text-align: center;
+	border-bottom: 1px solid #87837d;
+	border-right: 1px solid #87837d;
+}
+
 }
 
 @media (min-width: 1000px) {
@@ -304,6 +414,13 @@ th.first-header {
 		max-width: 10px;
 		font-family: Plus Jakarta Sans;
 	}
+	.custom-table td {
+	padding: 10px;
+	text-align: center;
+	border-bottom: 1px solid #87837d;
+	border-right: 1px solid #87837d;
+}
+
 }
 @media (max-width: 2000px) {
 	td {
@@ -311,6 +428,13 @@ th.first-header {
 
 		font-family: Plus Jakarta Sans;
 	}
+	.custom-table td {
+	padding: 10px;
+	text-align: center;
+	border-bottom: 1px solid #87837d;
+	border-right: 1px solid #87837d;
+}
+
 }
 @media (max-width: 1000px) {
 	td {
@@ -318,6 +442,13 @@ th.first-header {
 
 		font-family: Plus Jakarta Sans;
 	}
+	.custom-table td {
+	padding: 10px;
+	text-align: center;
+	border-bottom: 1px solid #87837d;
+	border-right: 1px solid #87837d;
+}
+
 }
 th.last-header {
 	border-top-right-radius: 20px;
@@ -328,12 +459,15 @@ th.last-header {
 	color: white;
 }
 
-.custom-table td {
-	padding: 10px;
+
+	.custom-table td {
+	padding: 0px;
 	text-align: center;
 	border-bottom: 1px solid #87837d;
 	border-right: 1px solid #87837d;
 }
+
+
 
 .custom-table th:first-child,
 .custom-table td:first-child {

@@ -27,8 +27,20 @@
 						osivami. Kvalita a účinnosť zaručená.
 					</p>
 					<span class="cen"> Cenník </span>
-					<a href="https://sagrop.sk/wp-content/uploads/2023/03/Specialne-osiva-2023.pdf"
-						>Špeciálne osivá<svg class="arr" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<!-- <a :href="items[0].downloadLink" target="_blank" v-if="items[0].downloadLink"
+						>{{ items[0].textInput ? items[0].textInput : "Otvorit PDF" }}
+
+						<svg class="arr" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M14.43 5.93005L20.5 12.0001L14.43 18.0701" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M3.5 12H20.33" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+					</a> -->
+
+					<a href="/images/Acronym_Project_Proposal.pdf"
+						>{{ items[0].textInput ? items[0].textInput : "Otvorit PDF"
+						}} 
+
+						<svg class="arr" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M14.43 5.93005L20.5 12.0001L14.43 18.0701" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 							<path d="M3.5 12H20.33" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 						</svg>
@@ -50,9 +62,19 @@
 						Zlepšite úrodu svojich plodín s našimi <br />
 						hnojivami. Kvalita a účinnosť zaručená.
 					</p>
-					<span class="cen"> Cenník </span
-					><a href="https://sagrop.sk/wp-content/uploads/2023/04/Sagrop-cennik-eko-hnojiva-2023.pdf"
-						>ekologického hnojiva<svg width="24" class="arr" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<span class="cen"> Cenník </span>
+					<!-- <a :href="items[1].downloadLink" target="_blank" v-if="items[1].downloadLink"
+						>{{ items[1].textInput ? items[1].textInput : "Otvorit PDF"
+						}}<svg width="24" class="arr" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M14.43 5.93005L20.5 12.0001L14.43 18.0701" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M3.5 12H20.33" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+					</a> -->
+					<a href="/images/Acronym_Project_Proposal.pdf"
+						>{{ items[1].textInput ? items[1].textInput : "Otvorit PDF"
+						}} 
+
+						<svg class="arr" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M14.43 5.93005L20.5 12.0001L14.43 18.0701" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 							<path d="M3.5 12H20.33" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 						</svg>
@@ -75,8 +97,19 @@
 						chémiou. Kvalita a účinnosť zaručená.
 					</p>
 					<span class="cen"> Cenník </span>
-					<a href="https://sagrop.sk/wp-content/uploads/2023/03/Specialne-osiva-2023.pdf"
-						>ekologického hnojiva<svg width="24" class="arr" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<!-- <a :href="items[2].downloadLink" target="_blank" v-if="items[2].downloadLink"
+						>{{ items[2].textInput ? items[2].textInput : "Otvorit PDF" }}
+
+						<svg width="24" class="arr" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M14.43 5.93005L20.5 12.0001L14.43 18.0701" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+							<path d="M3.5 12H20.33" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+					</a> -->
+					<a href="/images/Acronym_Project_Proposal.pdf"
+						>{{ items[2].textInput ? items[2].textInput : "Otvorit PDF"
+						}} 
+
+						<svg class="arr" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M14.43 5.93005L20.5 12.0001L14.43 18.0701" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 							<path d="M3.5 12H20.33" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 						</svg>
@@ -84,6 +117,29 @@
 				</aside>
 			</div>
 		</div>
+		<div v-if="admin" id="app">
+			<div class="items-container">
+				<div class="pdfs" v-for="(item, index) in items" :key="index">
+					<h2>{{ item.title }}</h2>
+					<form class="box" @submit.prevent="uploadFile(index)">
+						<label :for="'text-input-' + index">{{ item.labelTextInput }}</label>
+						<input v-model="item.textInput" :id="'text-input-' + index" type="text" required /><br />
+
+						<label class="custom-button">
+							{{ item.labelFileInput }}
+
+							<input :ref="'fileInput-' + index" type="file" accept=".pdf" required @change="uploadFile(index)" />
+						</label>
+						<p class="message" v-if="successMessage[index]">{{ successMessage[index] }}</p>
+						<!-- Display success message -->
+
+						<button type="submit">Odoslať</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div></div>
 
 		<Footer class="space"></Footer>
 	</div>
@@ -92,21 +148,394 @@
 <script>
 import Footer from "../components/Footer.vue"
 export default {
-	components: {
-		Footer,
+	components: { Footer },
+	data() {
+		return {
+			name: "",
+			admin: false,
+			successMessage: [], // Initialize an empty success message
+			items: [
+				{ title: "Osiva", textInput: "", downloadLink: "", labelTextInput: "Text pre Osiva", labelFileInput: "Vyhladajte Súbor PDF pre Osiva" },
+				{ title: "Hnojiva", textInput: "", downloadLink: "", labelTextInput: "Text pre Hnojiva", labelFileInput: "Vyhladajte Súbor PDF pre Hnojiva" },
+				{ title: "Chemia", textInput: "", downloadLink: "", labelTextInput: "Text pre Chemiu", labelFileInput: "Vyhladajte Súbor PDF pre Chemiu" },
+			],
+		}
+	},
+	computed: {
+		downloadLinkText() {
+			return this.textInput ? this.textInput : "Open PDF"
+		},
+	},
+	async created() {
+		this.apiUrl = import.meta.env.VITE_API_ENDPOINT
+		this.checkAdmin()
+	},
+	/**
+	 * Check the user's admin status.
+	 * @returns {Promise<void>} - A Promise that resolves after checking the admin status or rejects on error.
+	 */
+	async checkAdmin() {
+		try {
+			const token = localStorage.getItem("token")
+			const response = await axios.get(`${this.apiUrl}/check-admin`, {
+				headers: { Authorization: token },
+			})
+			this.admin = response.data.isAdmin
+		} catch (error) {
+			this.logErrorToBackend(error)
+		}
+	},
+	mounted() {
+		// Load the download links and text inputs from localStorage when the page is loaded
+		this.items.forEach((item, index) => {
+			item.downloadLink = localStorage.getItem("uploadedFile-" + index) || ""
+			item.textInput = localStorage.getItem("textInput-" + index) || ""
+		})
+	},
+	async created() {
+		this.apiUrl = import.meta.env.VITE_API_ENDPOINT
+		this.checkAdmin()
+	},
+
+	methods: {
+		async checkAdmin() {
+			try {
+				const token = localStorage.getItem("token")
+				const response = await axios.get(`${this.apiUrl}/check-admin`, {
+					headers: { Authorization: token },
+				})
+				this.admin = response.data.isAdmin
+			} catch (error) {
+				this.logErrorToBackend(error)
+			}
+		},
+		uploadFile(index) {
+			const fileInput = this.$refs["fileInput-" + index][0]
+			const uploadedFile = fileInput.files[0]
+
+			if (uploadedFile && uploadedFile.type === "application/pdf") {
+				// Store the uploaded file and text input in localStorage
+				localStorage.setItem("uploadedFile-" + index, URL.createObjectURL(uploadedFile))
+				localStorage.setItem("textInput-" + index, this.items[index].textInput)
+
+				// Create a download link
+				this.items[index].downloadLink = localStorage.getItem("uploadedFile-" + index)
+				this.successMessage[index] = "Súbor bol úspešne nahraný!"
+			} else {
+				alert("Please upload a valid PDF file.")
+				this.successMessage = "Invalid file format. Please upload a PDF file."
+			}
+		},
 	},
 }
 </script>
 
 <style scoped>
+@media (min-width: 1000px) and (max-width: 1050px) {
+	.pdfs .box {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		height: auto;
+		display: block;
+
+		font-size: 12px !important;
+		height: 200px;
+
+		justify-content: center;
+	}
+}
+
 @media (min-width: 1000px) {
 	.space {
 		margin-top: 37cm;
+	}
+	.message {
+		position: static;
+		margin-left: 2px;
+		font-size: 16px !important;
+		display: flex;
+		color: green;
+	}
+	#app {
+		display: block;
+	}
+	.items-container {
+		width: 100%;
+		display: flex;
+
+		justify-content: center;
+	}
+	.box .custom-button {
+		padding: 7px 10px;
+		margin-left: 0px;
+
+		background-color: none;
+		color: rgb(0, 0, 0);
+
+		width: 100%;
+
+		border: solid 1.5px black;
+		border-radius: 9px;
+
+		cursor: pointer;
+		font-weight: bold;
+	}
+
+	.custom-button input[type="file"] {
+		display: none;
+	}
+
+	/* Style the button when hovered */
+	.custom-button:hover {
+		background-color: #dfdfdf2d;
+	}
+
+	/* Style the label when input is focused */
+	.custom-button input[type="file"]:focus + label {
+		border: 2px dotted #7c7c7c;
+	}
+
+	/* Style the label when input has a selected file */
+	.custom-button input[type="file"]:valid + label {
+		background-color: #2ecc71;
+	}
+
+	.pdfs {
+		display: block;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+
+		margin: 10px;
+	}
+	.pdfs input {
+		background: white;
+		border: none;
+		border-radius: 7px;
+		padding: 7px;
+		margin-top: 10px;
+	}
+
+	.pdfs .box {
+		border: 1px solid #ccc;
+		border-radius: 15px;
+
+		padding: 10px;
+
+		margin: 0 0px; /* Add spacing between forms */
+	}
+
+	.pdfs {
+		margin-top: 2cm;
+		justify-content: center;
+
+		width: calc(35%); /* 33.33% width for 3 columns with a gap of 20px */
+		margin-right: 20px; /* Adjust the margin for the gap between columns */
+		margin-left: 20px; /* Adjust the margin for the gap between columns */
+
+		padding: 10px;
+	}
+	.pdfs .box {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		height: auto;
+		display: block;
+
+		font-size: 16px;
+		height: 200px;
+
+		justify-content: center;
+	}
+
+	.pdfs label {
+		margin-bottom: 5px;
+		text-align: start;
+		margin-left: -10px;
+	}
+	.pdfs button {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		padding: 22px 18px;
+		margin-top: 1.5cm;
+		cursor: pointer;
+
+		height: 40px;
+
+		border: none;
+
+		color: white;
+		background: #050402;
+		border-radius: 30px;
+	}
+	.pdfs input {
+		display: flex;
+	}
+	.pdfs h2 {
+		font-family: plus jakarta sans;
+		font-size: 20px;
+
+		text-align: center;
+	}
+
+	.pdfs label {
+		font-family: plus jakarta sans;
+		padding-right: 10px;
+		padding-left: 10px;
+
+		width: 100px;
 	}
 }
 @media (max-width: 1000px) {
 	.space {
 		margin-top: 10cm;
+	}
+
+	.message {
+		position: static;
+		margin-left: 2px;
+		font-size: 16px !important;
+		display: flex;
+		color: green;
+	}
+	#app {
+		margin-top: 10cm;
+		display: flex;
+		justify-content: center;
+		justify-items: center;
+
+		overflow: hidden;
+	}
+	.items-container {
+		width: 1000px;
+		overflow: hidden;
+		align-items: center; /* Center vertically */
+		display: table;
+		justify-content: center;
+	}
+	.box .custom-button {
+		padding: 7px 10px;
+		margin-left: 0px;
+		background-color: none;
+		color: rgb(0, 0, 0);
+		font-size: 7px;
+
+		border: solid 1.5px black;
+		border-radius: 9px;
+
+		cursor: pointer;
+		font-weight: bold;
+	}
+
+	.custom-button input[type="file"] {
+		display: none;
+	}
+
+	/* Style the button when hovered */
+	.custom-button:hover {
+		background-color: #dfdfdf2d;
+	}
+
+	/* Style the label when input is focused */
+	.custom-button input[type="file"]:focus + label {
+		border: 2px dotted #7c7c7c;
+	}
+
+	/* Style the label when input has a selected file */
+	.custom-button input[type="file"]:valid + label {
+		background-color: #2ecc71;
+	}
+
+	.pdfs {
+		display: block;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		margin: 10px;
+	}
+	.pdfs input {
+		background: white;
+		border: none;
+		border-radius: 7px;
+		padding: 7px;
+		margin-top: 10px;
+	}
+
+	.pdfs .box {
+		border: 1px solid #ccc;
+		border-radius: 15px;
+		width: 100%;
+		padding: 10px;
+		display: flex;
+		justify-content: center;
+		align-content: center;
+
+		margin: 0 0px; /* Add spacing between forms */
+	}
+
+	.pdfs {
+		margin-top: 2cm;
+		justify-content: center;
+
+		width: calc(35%); /* 33.33% width for 3 columns with a gap of 20px */
+		margin-right: 20px; /* Adjust the margin for the gap between columns */
+		margin-left: 20px; /* Adjust the margin for the gap between columns */
+
+		padding: 10px;
+	}
+	.pdfs .box {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		height: auto;
+		display: block;
+
+		font-size: 16px;
+		height: 200px;
+
+		justify-content: center;
+	}
+
+	.pdfs label {
+		margin-bottom: 5px;
+		text-align: start;
+		margin-left: -10px;
+	}
+	.pdfs button {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		padding: 22px 18px;
+		margin-top: 1.5cm;
+		cursor: pointer;
+
+		height: 40px;
+
+		border: none;
+
+		color: white;
+		background: #050402;
+		border-radius: 30px;
+	}
+	.pdfs input {
+		display: flex;
+	}
+	.pdfs h2 {
+		font-family: plus jakarta sans;
+		font-size: 20px;
+
+		text-align: center;
+	}
+
+	.pdfs label {
+		font-family: plus jakarta sans;
+		padding-right: 10px;
+		padding-left: 10px;
+
+		width: 100px;
 	}
 }
 @media (max-width: 2000px) {

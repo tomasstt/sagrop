@@ -891,11 +891,10 @@ export default {
 
 @media (max-width: 1400px) {
 	.dropdown-icon svg {
-		width: 20px;
+		width: 19px;
+		margin-right: -20px;
 		transition: transform 0.5s ease; /* Add a transition property for smooth animation */
-
-		margin-right: 20px;
-		height: 20px;
+		
 	}
 	.dropdown-menu {
 		display: block;
@@ -1020,6 +1019,7 @@ export default {
 	padding: 10px;
 	background: #e9e5e0;
 	border-bottom: solid 1px gray;
+	
 }
 
 .dropdown-menu li a {
@@ -1046,19 +1046,28 @@ export default {
 	.dropdown-menu a {
 		background-color: #e9e5e0;
 		margin: 10px;
+		text-align: center;
+
 	}
 
 	.dropdown.active .dropdown-menu {
+		
 		display: none;
 	}
 
 	.dropdown:hover .dropdown-menu {
+		text-align: center;
+
 		display: block;
 	} /* Style the dropdown menu items */
 	.dropdown-menu li {
 		padding: 10px;
+		margin-left: -57px;
+		text-align: center;
+
 		background: #e9e5e0;
 		border-bottom: solid 1px gray;
+		
 	}
 
 	.dropdown-menu li a {
@@ -1198,6 +1207,7 @@ export default {
 		flex-direction: column;
 		width: 100%;
 		height: 100vh;
+		
 		right: 0;
 		left: 0;
 		bottom: 0;
@@ -1207,7 +1217,7 @@ export default {
 	}
 	.nav div.main_list ul li {
 		width: 100%;
-		text-align: right;
+		text-align: center;
 	}
 	.nav div.main_list ul li a {
 		text-align: center;

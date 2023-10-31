@@ -136,7 +136,7 @@ export default {}
 
 	text-decoration: none;
 	margin-right: 50px;
-	margin-top: -60px;
+	margin-top: -55px;
 }
 
 @media (min-width: 1000px) {

@@ -12,7 +12,7 @@
 				<aside class="blue3"><p class="">Ďakujeme Vám za záujem o našu firmu! Sme malá firma s bohatou tradíciou založenou v roku 1996. Našou prioritou je poskytnúť komplexné riešenia pre všetky vaše poľnohospodárske potreby, od výberu semien až po zber plodov.</p></aside>
 				<aside class="blue4"><p class="">Ak máte akékoľvek otázky týkajúce sa našich produktov alebo služieb, neváhajte nás kontaktovať na uvedených kontaktných údajoch nižšie. Tešíme sa na Vašu spoluprácu a na to, že Vám pomôžeme dosiahnuť úspech vo vašich poľnohospodárskych aktivitách.</p></aside>
 			</div>
-			<button class="bttna">O nas</button>
+			<router-link to="about"><button class="bttna">O nas</button></router-link>
 		</section>
 	</div>
 	<footer class="blacko">
@@ -82,26 +82,25 @@
 			<div class="quat">
 				<p id="le">Sklady</p>
 				<div class="end">
-					<p>
-			
-				</p>
+					<p></p>
 					<p>
 						Robert Tóth <br />
 						+421 910 785 492 <br />
 						-<a href="https://www.google.com/maps?q=48.1749085,17.8629129" target="_blank"> Sklad Dlhá</a>
 					</p>
-				
+
 					<p>
 						Peter Belan <br />
 						+421 907 093 911 <br />
 						-<a href="https://www.google.com/maps?q=48.2127270,17.9954301" target="_blank"> Sklad Pereš</a>
 					</p>
-
-				
 				</div>
 			</div>
-			
 		</div>
+		<div class="image-container">
+		<img class="certificate-image" src="/images/certificate2.png" alt="Certificate 2" />
+		<img class="certificate-image" src="/images/certificate3.png" alt="Certificate 3" />
+	</div>
 	</footer>
 
 	<div class="cont">
@@ -115,6 +114,8 @@
 	</div>
 
 	<Aktuality class="spas"></Aktuality>
+	
+
 	<Footer class="space"></Footer>
 </template>
 
@@ -135,18 +136,46 @@ export default {
 
 	gap: 20px;
 }
+
+
 @media (min-width: 1000px) {
 	.spas {
 		margin-top: 4cm;
 	}
 	.space {
-		margin-top: 30cm;
+		margin-top: 27cm;
 	}
+	.image-container {
+  display: flex; /* Use flex layout to align the images horizontally */
+  justify-content: flex-end; /* Align the images to the right side of the container */
+  margin-right: 50px;
+  margin-top: 50px;
+  
+
+}
+
+.certificate-image {
+  width: 200px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+  margin-left: 10px; /* Add some spacing between the images if necessary */
+}
 }
 @media (max-width: 1000px) {
 	.space {
 		margin-top: 2cm;
 	}
+	.image-container {
+  display: flex; /* Use flex layout to align the images horizontally */
+  justify-content: center; /* Align the images to the right side of the container */
+  margin-top: 40px;
+  
+
+}
+
+.certificate-image {
+  width: 100px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+}
 }
 
 @media (max-width: 1000px) {
@@ -288,7 +317,7 @@ export default {
 	overflow: hidden;
 }
 
-.end a{
+.end a {
 	color: black;
 }
 
@@ -325,7 +354,7 @@ export default {
 		padding-top: 2.5cm;
 		margin-bottom: -cm;
 	}
-	.end p{
+	.end p {
 		margin-left: 0.4cm;
 	}
 
@@ -372,6 +401,7 @@ export default {
 		font-size: 28px;
 	}
 }
+
 @import url(https://db.onlinewebfonts.com/c/2b50fbf03f34a55103ff9b9c5b8d3028?family=Recia+W03+Regular);
 @media (max-width: 2000px) {
 	.blue1 {
@@ -425,12 +455,12 @@ export default {
 		width: 90%;
 		padding-left: 20px;
 		padding-top: 30px;
-		font-size: 30px;
+		font-size: 25px;
 	}
 	.blue4 {
 		padding-top: 40px;
 		padding-left: 20px;
-		font-size: 30px;
+		font-size: 25px;
 	}
 }
 
@@ -645,7 +675,7 @@ export default {
 		height: auto;
 		margin: 0 auto;
 		display: flex;
-		
+
 		border-bottom: 1px solid black;
 	}
 	.troi {
@@ -664,8 +694,6 @@ export default {
 		display: flex;
 		align-items: flex-end;
 	}
-
-	
 
 	.end1 {
 		display: flex;
@@ -741,10 +769,11 @@ export default {
 	}
 }
 
-@media (max-width: 1500px) and (min-width:1000px) {
-.end p{
+@media (max-width: 1500px) and (min-width: 1000px) {
+	.end p {
 		margin-left: 0.6cm;
-	}}
+	}
+}
 
 @media (max-width: 1000px) {
 	.blacko {
@@ -810,7 +839,6 @@ export default {
 		margin: 0 auto;
 		display: row;
 
-		
 		border-bottom: 1px solid black;
 	}
 	.troi {
@@ -863,7 +891,27 @@ export default {
 		margin: 0 auto;
 		padding-top: 1cm;
 	}
+	@media (max-width: 500px) {
+		.blue2 {
+			display: block;
+			height: 60px;
+			width: auto;
+			font-size: 23px;
+			padding-right: 20px;
+			padding-left: 20px;
+		}
+	}
+	@media (max-width: 300px) {
+		.blue2 {
+			display: block;
+			height: 90px;
+			width: auto;
+			font-size: 23px;
+			padding-right: 20px;
 
+			padding-left: 20px;
+		}
+	}
 	.fir {
 		align-items: center;
 		position: absolute;

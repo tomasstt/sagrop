@@ -63,7 +63,7 @@
 
 		<div v-if="admin" class="admin-page">
 			<form @submit.prevent="createArticle" class="form-container" ref="articleForm">
-				<div class="drag-area" :class="{ active: isActive }" @dragover.prevent="onDragOver" @change="handleImageUpload" @dragleave="onDragLeave" ref="dragArea" @drop.prevent="onDrop">
+				<div class="drag-area" :class="{ active: isActive }" >
 					<svg class="brow" xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46" fill="none">
 						<path d="M26.833 3.83325H17.2497C7.66634 3.83325 3.83301 7.66659 3.83301 17.2499V28.7499C3.83301 38.3333 7.66634 42.1666 17.2497 42.1666" stroke="#A6A29D" stroke-width="2.875" stroke-linecap="round" stroke-linejoin="round" />
 						<path d="M42.166 19.1665V24.9165" stroke="#A6A29D" stroke-width="2.875" stroke-linecap="round" stroke-linejoin="round" />
@@ -78,11 +78,11 @@
 					<input class="input-line full-width" type="text" v-model="title" placeholder="Názov" required />
 					<textarea rows="3" cols="20" class="input-line full-width spafe" v-model="description" placeholder="Popis" required maxlength="200" @input="updateCharacterCount"></textarea>
 				</div>
-				<button type="submit" @click="clearImage" :disabled="isUploading">{{ isUploading ? "Uploading..." : "Submit" }}</button>
+				<button type="submit" @click="clearImage" :disabled="isUploading">{{ isUploading ? "Uploading..." : "Odoslať" }}</button>
 				<!-- Image preview container -->
 				<div class="image-preview" v-if="imageUrl">
 					<h2 class="preview-text">Nahratý obrazok:</h2>
-					<img :src="imageUrl" alt="Image Preview" />
+					<img :src="imageUrl" crossorigin="anonymous"  alt="Image Preview" />
 				</div>
 			</form>
 		</div>
@@ -241,6 +241,35 @@ export default {
 		 * @param {Event} event - The input change event containing the selected image file.
 		 */
 		async handleImageUpload(event) {
+			const file = event.target.files[0]
+
+			// Check if the selected file is an image
+			if (!this.validExtensions.includes(file.type)) {
+				this.logErrorToBackend(`Invalid file type. Please select an image file (jpeg, jpg, png, gif, svg).`)
+				return
+			}
+
+			try {
+				const formData = new FormData()
+				formData.append("image", file)
+
+				this.isUploading = true // Set uploading status to true
+				const response = await axios.post(`${this.apiUrl}/upload-image`, formData, {
+					headers: {
+						"Content-Type": "multipart/form-data",
+						Authorization: localStorage.getItem("token"),
+					},
+				})
+
+				this.isUploading = false // Reset uploading status
+				this.imageUrl = response.data.imageUrl
+			} catch (error) {
+				// Log the error message to the console
+				console.error("Error uploading image:", error.message)
+				this.logErrorToBackend(error)
+			}
+		},
+		async handleImageUploadDrag(event) {
 			const file = event.target.files[0]
 
 			// Check if the selected file is an image

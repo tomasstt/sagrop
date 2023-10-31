@@ -30,7 +30,7 @@
 					></router-link>
 
 					<img class="fw11" src="/images/doprava.svg" alt="" />
-						</router-link>
+				</router-link>
 			</div>
 			<div class="ron">
 				<router-link to="/sklady">
@@ -51,18 +51,17 @@
 			</div>
 			<div class="ron">
 				<router-link to="#">
-
-				<p class="twop">Žatevné služby</p>
-				<p class="twoop">
-					Ponuka strojov <br />
-					na poľe
-				</p>
-				<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<rect width="49.9411" height="49.9411" rx="24.9706" fill="#E9E5E0" />
-					<path d="M30.9812 27.5444L30.9812 18.9601L22.3969 18.9601" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-					<path d="M18.84 31.1011L30.8609 19.0803" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-				</svg>
-				<img class="fw22" src="/images/zatva.svg" alt="" />
+					<p class="twop">Žatevné služby</p>
+					<p class="twoop">
+						Ponuka strojov <br />
+						na poľe
+					</p>
+					<svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<rect width="49.9411" height="49.9411" rx="24.9706" fill="#E9E5E0" />
+						<path d="M30.9812 27.5444L30.9812 18.9601L22.3969 18.9601" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+						<path d="M18.84 31.1011L30.8609 19.0803" stroke="#050402" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+					</svg>
+					<img class="fw22" src="/images/zatva.svg" alt="" />
 				</router-link>
 			</div>
 		</div>
@@ -210,7 +209,16 @@
 				optimalizovať svoje hospodárstvo a zlepšovať jeho výkonnosť.
 			</p>
 		</div>
+		<div class="image-container">
+			<img class="certificate-image" src="/images/certificate2.png" alt="Certificate 2" />
+			<img class="certificate-image" src="/images/certificate3.png" alt="Certificate 3" />
+		</div>
 	</div>
+	<div class="image-containerMOB">
+			<img class="certificate-imageMOB" src="/images/certificate2.png" alt="Certificate 2" />
+			<img class="certificate-imageMOB" src="/images/certificate3.png" alt="Certificate 3" />
+		</div>
+	
 
 	<GreenPart class="lean"></GreenPart>
 
@@ -290,6 +298,7 @@
 	</div> -->
 
 	<Aktuality></Aktuality>
+
 	<div class="space"><Footer></Footer></div>
 </template>
 
@@ -324,15 +333,32 @@ export default {
 	}
 }
 
+
 @media (min-width: 1000px) {
 	.lean {
-		margin-top: 2cm;
+		margin-top: 5cm;
 	}
 	.space {
 		padding-top: 30cm;
 	}
-}
+	.image-container {
+		display: flex; /* Use flex layout to align the images horizontally */
+		justify-content: left; /* Align the images to the right side of the container */
+		margin-right: 50px;
+		margin-top: 50px;
+	}
 
+	.certificate-image {
+		width: 200px; /* Adjust the width as needed */
+		height: auto; /* Maintain aspect ratio */
+		margin-left: 10px; /* Add some spacing between the images if necessary */
+	}
+}
+@media (min-width: 700px)   {
+	.lean {
+		margin-top: 7cm ; 
+	}
+}
 @media (max-width: 1000px) {
 	.space {
 		padding-top: 2cm;
@@ -340,6 +366,48 @@ export default {
 	.lean {
 		padding-top: 1.3cm;
 	}
+
+	.image-container {
+		display: none ; /* Use flex layout to align the images horizontally */
+
+  }
+
+  .certificate-image {
+	display: none ; /* Use flex layout to align the images horizontally */
+
+  }
+
+}
+
+
+@media (min-width: 1000px) {
+	
+	.image-containerMOB {
+		display: none ; /* Use flex layout to align the images horizontally */
+		
+	}
+
+	.certificate-imageMOB {
+		display: none ; /* Use flex layout to align the images horizontally */
+	}
+}
+
+@media (max-width: 1000px) {
+
+
+	.image-containerMOB {
+    display: flex;
+    flex-direction: row; /* Change the direction to column to stack items vertically */
+    align-items: center; /* Center items horizontally */
+  }
+
+  .certificate-imageMOB {
+    width: 130px;
+    height: auto;
+	text-align: center;
+    margin: 10px 0; /* Add spacing between the images and text */
+  }
+
 }
 
 @media (min-width: 1000px) {
@@ -924,7 +992,6 @@ overflow: hidden;
 }
 
 @media (max-width: 350px) {
-
 	.first2 {
 		display: block;
 		height: 300px;
@@ -1359,8 +1426,7 @@ overflow: hidden;
 }
 
 .vpp {
-	background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.25) 100%), url('/images/v2osk-c9OfrVeD_tQ-unsplash 3-fb206882.svg')
-
+	background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.25) 100%), url("/images/v2osk-c9OfrVeD_tQ-unsplash 3-fb206882.svg");
 }
 .pvr {
 	mask-composite: exclude;

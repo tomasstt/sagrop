@@ -136,7 +136,80 @@ export default {
 	data() {
 		return {
 			admin: false,
-			commodities: [],
+			commodities: [
+				{
+					name: " ",
+					inquiry: " ",
+					offer: " ",
+					price: " ",
+					amount: " ",
+					date: " ",
+					parita: " ",
+				},
+				{
+					name: " ",
+					inquiry: " ",
+					offer: " ",
+					price: " ",
+					amount: " ",
+					date: " ",
+					parita: " ",
+				},
+				{
+					name: " ",
+					inquiry: " ",
+					offer: " ",
+					price: " ",
+					amount: " ",
+					date: " ",
+					parita: " ",
+				},
+				{
+					name: " ",
+					inquiry: " ",
+					offer: " ",
+					price: " ",
+					amount: " ",
+					date: " ",
+					parita: " ",
+				},
+				{
+					name: " ",
+					inquiry: " ",
+					offer: " ",
+					price: " ",
+					amount: " ",
+					date: " ",
+					parita: " ",
+				},
+				{
+					name: " ",
+					inquiry: " ",
+					offer: " ",
+					price: " ",
+					amount: " ",
+					date: " ",
+					parita: " ",
+				},
+				{
+					name: " ",
+					inquiry: " ",
+					offer: " ",
+					price: " ",
+					amount: " ",
+					date: " ",
+					parita: " ",
+				},
+				{
+					name: " ",
+					inquiry: " ",
+					offer: " ",
+					price: " ",
+					amount: " ",
+					date: "",
+					parita: " ",
+				},
+			],
 			apiUrl: null,
 		}
 	},
@@ -358,7 +431,53 @@ th {
 
 		font-family: Plus Jakarta Sans;
 	}
+	
+	th {
+		background: #2c3714;
+		font-size: 17px;
+		font-weight: 400;
+	}
+	.custom-table td {
+	padding: 1px;
+	text-align: center;
+	border-bottom: 1px solid #87837d;
+	border-right: 1px solid #87837d;
+
+
 }
+}
+@media (max-width: 600px) {
+	th {
+		background: #2c3714;
+		font-size: 12px;
+
+		font-weight: 400;
+	}
+	.custom-table td {
+	padding: 1px;
+	text-align: center;
+	border-bottom: 1px solid #87837d;
+	border-right: 1px solid #87837d;
+}
+
+}
+@media (max-width: 435px) {
+	th {
+		background: #2c3714;
+
+		font-size: 8px;
+		height: 40px;
+		font-weight: 400;
+	}
+	.custom-table td {
+	padding: 1px;
+	text-align: center;
+	border-bottom: 1px solid #87837d;
+	border-right: 1px solid #87837d;
+}
+
+}
+
 th.last-header {
 	border-top-right-radius: 20px;
 	background: #2c3714;
