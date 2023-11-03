@@ -36,7 +36,7 @@
 						</svg>
 					</a> -->
 
-					<a href="/images/Acronym_Project_Proposal.pdf"
+					<a href="/images/alza.pdf " 
 						>{{ items[0].textInput ? items[0].textInput : "Otvorit PDF"
 						}} 
 
@@ -70,7 +70,7 @@
 							<path d="M3.5 12H20.33" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 						</svg>
 					</a> -->
-					<a href="/images/Acronym_Project_Proposal.pdf"
+					<a href="/images/Acronym_Project_Proposal.pdf" download
 						>{{ items[1].textInput ? items[1].textInput : "Otvorit PDF"
 						}} 
 
@@ -105,7 +105,7 @@
 							<path d="M3.5 12H20.33" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 						</svg>
 					</a> -->
-					<a href="/images/Acronym_Project_Proposal.pdf"
+					<a href="https://sagrop.tiiny.site/" download
 						>{{ items[2].textInput ? items[2].textInput : "Otvorit PDF"
 						}} 
 
@@ -147,7 +147,9 @@
 
 <script>
 import Footer from "../components/Footer.vue"
+
 export default {
+	
 	components: { Footer },
 	data() {
 		return {
@@ -161,6 +163,7 @@ export default {
 			],
 		}
 	},
+	
 	computed: {
 		downloadLinkText() {
 			return this.textInput ? this.textInput : "Open PDF"

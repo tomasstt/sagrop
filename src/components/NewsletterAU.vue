@@ -23,7 +23,7 @@
 			<!-- Display response messages based on the value of responseMessage -->
 			<p class="response" v-if="responseMessage">{{ responseMessage }}</p>
 
-			<p class="unText">
+			<p class="unText tezt">
 				Táto stránka je chránená reCAPTCHA a platia zásady ochrany osobných údajov <br />
 				a Zmluvné podmienky spoločnosti Google.
 			</p>
@@ -108,6 +108,18 @@ export default {
 </script>
 
 <style scoped>
+.unText{
+
+font-family: plus jakarta sans;
+
+}
+@media (max-width: 1000px) {
+
+.tezt{
+
+	font-family: plus jakarta sans;
+
+}}
 .response {
 	font-family: plus jakarta sans;
 	color: red;
@@ -127,6 +139,10 @@ export default {
 }
 
 @media (max-width: 1000px) {
+	.unText {
+		font-family: Plus jakarta sans;
+		
+	}
 	#example1 {
 		border-radius: 2em;
 		background: transparent;
@@ -153,6 +169,8 @@ export default {
 	#example1 p {
 		color: white;
 		font-size: 12px;
+		font-family: plus jakarta sans;
+
 	}
 
 	input[type="text"] {
@@ -220,7 +238,7 @@ export default {
 		top: 20px;
 		font-family: plus jakarta sans;
 	}
-
+	
 	.form__label {
 		position: absolute;
 		top: 0;
@@ -282,6 +300,7 @@ export default {
 	#example1 .unText {
 		color: white;
 		font-size: 12px;
+		font-family: plus jakarta sans;
 	}
 
 	input[type="text"] {
@@ -397,6 +416,7 @@ export default {
 	#example1 p {
 		color: white;
 		font-size: 12px;
+		font-family: Plus Jakarta sans;
 	}
 
 	input[type="text"] {

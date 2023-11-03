@@ -1,10 +1,15 @@
+<IfModule mod_mime.c>
+  # Add the following line to specify the MIME type for PDF files
+  AddType application/pdf .pdf
+</IfModule>
+
 <IfModule mod_rewrite.c>
-	RewriteEngine On
-	RewriteBase /
-  
-	# Redirect all requests to index.html
-	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteCond %{REQUEST_FILENAME} !-d
-	RewriteRule ^ index.html [L]
-  </IfModule>
-  
+  RewriteEngine On
+  RewriteBase /
+
+# Redirect all requests to index.html
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
+</IfModule>

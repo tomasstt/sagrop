@@ -108,6 +108,12 @@ export default {
 </script>
 
 <style scoped>
+
+.unText{
+
+	font-family: plus jakarta sans;
+
+}
 .response {
 	font-family: plus jakarta sans;
 	color: red;
