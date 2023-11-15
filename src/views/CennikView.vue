@@ -36,9 +36,8 @@
 						</svg>
 					</a> -->
 
-					<a href="/images/alza.pdf " 
-						>{{ items[0].textInput ? items[0].textInput : "Otvorit PDF"
-						}} 
+					<a href="/pdf/osiva.pdf "
+						>{{ items[0].textInput ? items[0].textInput : "Otvorit PDF" }}
 
 						<svg class="arr" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M14.43 5.93005L20.5 12.0001L14.43 18.0701" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
@@ -70,9 +69,8 @@
 							<path d="M3.5 12H20.33" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
 						</svg>
 					</a> -->
-					<a href="/images/Acronym_Project_Proposal.pdf" download
-						>{{ items[1].textInput ? items[1].textInput : "Otvorit PDF"
-						}} 
+					<a href="/pdf/osiva.pdf "
+						>{{ items[1].textInput ? items[1].textInput : "Otvorit PDF" }}
 
 						<svg class="arr" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M14.43 5.93005L20.5 12.0001L14.43 18.0701" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
@@ -106,8 +104,7 @@
 						</svg>
 					</a> -->
 					<a href="https://sagrop.tiiny.site/" download
-						>{{ items[2].textInput ? items[2].textInput : "Otvorit PDF"
-						}} 
+						>{{ items[2].textInput ? items[2].textInput : "Otvorit PDF" }}
 
 						<svg class="arr" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M14.43 5.93005L20.5 12.0001L14.43 18.0701" stroke="#2C3714" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
@@ -148,8 +145,9 @@
 <script>
 import Footer from "../components/Footer.vue"
 
+import  axios from "axios"
+
 export default {
-	
 	components: { Footer },
 	data() {
 		return {
@@ -163,31 +161,20 @@ export default {
 			],
 		}
 	},
-	
+	async created() {
+		this.apiUrl = import.meta.env.VITE_API_ENDPOINT
+		this.checkAdmin()
+	},
 	computed: {
 		downloadLinkText() {
 			return this.textInput ? this.textInput : "Open PDF"
 		},
 	},
-	async created() {
-		this.apiUrl = import.meta.env.VITE_API_ENDPOINT
-		this.checkAdmin()
-	},
+
 	/**
 	 * Check the user's admin status.
 	 * @returns {Promise<void>} - A Promise that resolves after checking the admin status or rejects on error.
 	 */
-	async checkAdmin() {
-		try {
-			const token = localStorage.getItem("token")
-			const response = await axios.get(`${this.apiUrl}/check-admin`, {
-				headers: { Authorization: token },
-			})
-			this.admin = response.data.isAdmin
-		} catch (error) {
-			this.logErrorToBackend(error)
-		}
-	},
 	mounted() {
 		// Load the download links and text inputs from localStorage when the page is loaded
 		this.items.forEach((item, index) => {
@@ -195,22 +182,31 @@ export default {
 			item.textInput = localStorage.getItem("textInput-" + index) || ""
 		})
 	},
-	async created() {
-		this.apiUrl = import.meta.env.VITE_API_ENDPOINT
-		this.checkAdmin()
-	},
 
 	methods: {
+		/**
+		 * Check the user's admin status.
+		 * @returns {Promise<void>} - A Promise that resolves after checking the admin status or rejects on error.
+		 */
 		async checkAdmin() {
 			try {
 				const token = localStorage.getItem("token")
+
 				const response = await axios.get(`${this.apiUrl}/check-admin`, {
-					headers: { Authorization: token },
+					headers: {
+						"Content-Type": "multipart/form-data",
+						Authorization: localStorage.getItem("token"),
+						headers: { Authorization: token },
+
+					},
 				})
 				this.admin = response.data.isAdmin
 			} catch (error) {
-				this.logErrorToBackend(error)
+				console.error("Error checking admin status:", error.message)
 			}
+		},
+		getAdminToken() {
+			return localStorage.getItem("token")
 		},
 		uploadFile(index) {
 			const fileInput = this.$refs["fileInput-" + index][0]

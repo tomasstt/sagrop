@@ -281,6 +281,17 @@ input {
 	.space {
 		padding-top: 2cm;
 	}
+	.custom-table {
+	/* position: absolute;
+  top: 4cm;
+  left: 3cm; */
+	padding-top: 3cm;
+	margin: auto;
+	width: 98%;
+	height: 896px;
+	overflow: hidden;
+	border-spacing: 0;
+}
 }
 
 .blue1 br {
@@ -308,18 +319,19 @@ input {
 	.space {
 		padding-top: 29cm;
 	}
-}
-.custom-table {
+	.custom-table {
 	/* position: absolute;
   top: 4cm;
   left: 3cm; */
-	padding-top: 3cm;
+	padding-top: 5cm;
 	margin: auto;
 	width: 98%;
 	height: 896px;
 	overflow: hidden;
 	border-spacing: 0;
 }
+}
+
 
 .lastf-cell {
 	border-bottom-left-radius: 20px;
