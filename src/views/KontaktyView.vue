@@ -17,6 +17,19 @@
 	</div>
 	<footer class="blacko">
 		<div class="ww">
+			<div class="sagr">
+				<p id="sale">Sagrop veľkoobchod v Šali</p>
+				<div class="end">
+					<p></p>
+					<p></p>
+					<p>
+						Adresa:
+						<br />
+						Hlavná 14/59 <br />
+						927 01 Šaľa
+					</p>
+				</div>
+			</div>
 			<div class="et">
 				<p id="lex">Vedenie Spoločnosti</p>
 
@@ -98,9 +111,9 @@
 			</div>
 		</div>
 		<div class="image-container">
-		<img class="certificate-image" src="/images/certificate2.png" alt="Certificate 2" />
-		<img class="certificate-image" src="/images/certificate3.png" alt="Certificate 3" />
-	</div>
+			<img class="certificate-image" src="/images/certificate2.png" alt="Certificate 2" />
+			<img class="certificate-image" src="/images/certificate3.png" alt="Certificate 3" />
+		</div>
 	</footer>
 
 	<div class="cont">
@@ -114,7 +127,6 @@
 	</div>
 
 	<Aktuality class="spas"></Aktuality>
-	
 
 	<Footer class="space"></Footer>
 </template>
@@ -137,7 +149,6 @@ export default {
 	gap: 20px;
 }
 
-
 @media (min-width: 1000px) {
 	.spas {
 		margin-top: 4cm;
@@ -146,36 +157,32 @@ export default {
 		margin-top: 27cm;
 	}
 	.image-container {
-  display: flex; /* Use flex layout to align the images horizontally */
-  justify-content: flex-end; /* Align the images to the right side of the container */
-  margin-right: 50px;
-  margin-top: 50px;
-  
+		display: flex; /* Use flex layout to align the images horizontally */
+		justify-content: flex-end; /* Align the images to the right side of the container */
+		margin-right: 50px;
+		margin-top: 50px;
+	}
 
-}
-
-.certificate-image {
-  width: 200px; /* Adjust the width as needed */
-  height: auto; /* Maintain aspect ratio */
-  margin-left: 10px; /* Add some spacing between the images if necessary */
-}
+	.certificate-image {
+		width: 200px; /* Adjust the width as needed */
+		height: auto; /* Maintain aspect ratio */
+		margin-left: 10px; /* Add some spacing between the images if necessary */
+	}
 }
 @media (max-width: 1000px) {
 	.space {
 		margin-top: 2cm;
 	}
 	.image-container {
-  display: flex; /* Use flex layout to align the images horizontally */
-  justify-content: center; /* Align the images to the right side of the container */
-  margin-top: 40px;
-  
+		display: flex; /* Use flex layout to align the images horizontally */
+		justify-content: center; /* Align the images to the right side of the container */
+		margin-top: 40px;
+	}
 
-}
-
-.certificate-image {
-  width: 100px; /* Adjust the width as needed */
-  height: auto; /* Maintain aspect ratio */
-}
+	.certificate-image {
+		width: 100px; /* Adjust the width as needed */
+		height: auto; /* Maintain aspect ratio */
+	}
 }
 
 @media (max-width: 1000px) {
@@ -658,7 +665,19 @@ export default {
 
 		height: auto;
 		display: flex;
-		margin-top: 4cm;
+		border-top: 1px solid black;
+		border-bottom: 0px solid black;
+	}
+	.sagr {
+		width: 96%;
+		align-items: center;
+		place-items: center;
+		margin: 0 auto;
+		height: auto;
+
+		display: flex;
+		margin-top: 3cm;
+
 		border-top: 1px solid black;
 		border-bottom: 0px solid black;
 	}
@@ -707,6 +726,13 @@ export default {
 		position: relative;
 		display: flex;
 		margin-top: -0.5cm;
+	}
+	#sale {
+		padding-left: 0cm;
+		place-content: top;
+		position: relative;
+		display: flex;
+		margin-top: -3cm;
 	}
 
 	#lex {
@@ -812,7 +838,14 @@ export default {
 		padding-top: 1cm;
 		width: 100%;
 	}
+	.sagr {
+		width: 96%;
+		height: auto;
+		display: flex;
 
+		border-top: 1px solid black;
+		border-bottom: 0px solid black;
+	}
 	.et {
 		width: 96%;
 		align-items: center;
