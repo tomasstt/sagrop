@@ -18,7 +18,7 @@
 	<footer class="blacko">
 		<div class="ww">
 			<div class="sagr">
-				<p id="sale">Sagrop veľkoobchod v Šali</p>
+				<p id="sale">Sídlo firmy</p>
 				<div class="end">
 					<p></p>
 					<p></p>
